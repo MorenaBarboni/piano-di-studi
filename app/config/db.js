@@ -4,6 +4,7 @@ var url = 'mongodb://localhost/pianoDiStudi';
 //Models
 
 require('../models/users');
+require('../models/courses');
 
 mongoose.connect(url);
 

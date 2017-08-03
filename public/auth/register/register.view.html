@@ -1,0 +1,101 @@
+<head>
+  <link href="../content/css/form.css" rel="stylesheet" type="text/css">
+</head>
+
+<navigation></navigation>
+
+<div class="container">
+
+  <form ng-submit="vm.onSubmit()" class="form-style">
+    <h1>Registrazione Utente
+      <span>Seleziona i permessi per registrare diverse tipologie di utente</span>
+    </h1>
+
+
+    <!--  Permessi utente  -->
+    <label for="usertype">
+    <span>Permessi Utente :</span>
+    <select name="usertype" id="usertype" class="form-control" ng-model="vm.userData.usertype" onchange="resetForm()" required>
+           <option value="studente">Studente</option>
+           <option value="docente">Docente</option>
+           <option value="admin">Admin</option>
+    </select>
+    </label>
+
+    <!--  Nome e Cognome  -->
+
+    <label for="name">
+    <span>Nome e Cognome:</span>
+    <input type="text" class="form-control" id="name" placeholder="Mario Rossi" ng-model="vm.userData.name" required>
+    </label>
+    <!--  Città  -->
+
+    <label for="city">
+    <span>Città di residenza:</span>
+    <input type="text" class="form-control" id="city" placeholder="Camerino" ng-model="vm.userData.city" required>
+    </label>
+
+
+    <!--  Indirizzo  -->
+    <label for="street">
+     <span>Indirizzo di residenza:</span>
+    <input type="text" class="form-control" id="street" placeholder="Via Esempio 10" ng-model="vm.userData.street" required>
+   </label>
+
+
+    <!--  CAP  -->
+    <label for="postalCode">
+      <span> Codice Postale: </span>
+    <input type="text" class="form-control" id="postalCode" placeholder="62032" ng-model="vm.userData.postalCode" required>
+    </label>
+
+
+
+    <!--  Telefono  -->
+    <label for="tel">
+      <span> Numero di telefono: </span>
+    <input type="text" class="form-control" id="tel" placeholder="393 *** ****" ng-model="vm.userData.tel" required>
+    </label>
+
+
+    <!--  Email  -->
+    <label for="email">
+       <span> Indirizzo email: </span>
+    <input type="email" class="form-control" id="email" placeholder="Mario.Rossi@gmail.com" ng-model="vm.userData.email" required>
+    </label>
+
+    <!--  Password  -->
+    <label for="password">
+      <span>Password:</span>
+    <input type="password" class="form-control" id="password" placeholder="Password" ng-model="vm.userData.password" required>
+    </label>
+
+    <!--  Matricola (Solo studente)  -->
+    <div ng-show="vm.userData.usertype === 'studente'">
+      <label for="mat">
+           <span>Matricola:</span>
+      <input type="text" class="form-control" id="mat" placeholder="000000" , maxlength="6" ng-model="vm.userData.mat">
+     </label>
+    </div>
+
+    <!--  Corso di Studi (Solo studente)  -->
+    <div ng-show="vm.userData.usertype === 'studente'">
+      <label for="degree">
+    <span>Corso di studi: </span>
+    <select name="degree" id="degree" class="form-control" ng-model="vm.userData.degree" ng-show="vm.userData.usertype === 'studente'">
+           <option value="Informatica">Informatica</option>
+           <option value="Farmacia">Farmacia</option>
+          <option value="Farmacia">Fisica</option>
+           <option value="Giurisprudenza">Giurisprudenza</option>
+          </select>
+    </label>
+    </div>
+    <!--  Submit & Reset  -->
+    <button type="submit">Registra Utente</button>
+    <button type="reset" value="Reset"> Ripristina </button>
+
+
+  </form>
+
+
+</div>

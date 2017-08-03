@@ -1,0 +1,110 @@
+#wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  min-width: 1200px;
+}
+
+h3 {
+  font-family: Arial, Helvetica, Verdana, Sans-serif;
+  text-align: left;
+  color: #666;
+  border-bottom: #ccc 1px solid;
+  margin-left: 50px;
+  margin-right: 25px;
+  margin-bottom: 30px;
+}
+#content {
+  background: white;
+  margin-left: 30px;
+  width: 960px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+#content h2 {
+  text-align: center;
+  color: black;
+  font-family: Arial, Helvetica, Verdana, Sans-serif;
+  font-size: 30px;
+  margin: 0;
+  padding-top: 10px;
+  padding-bottom: 15px;
+}
+#content p {
+  text-align: right;
+  margin: 0;
+  padding: 20px;
+  padding-bottom: 15px;
+  padding-top: 8px;
+}
+
+#info_bar {
+  background: #ffaf4c;
+  border-color: white white grey;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 0 rgba(256, 256, 256, 0.55),
+    1px 1px 3px rgba(0, 0, 0, .25);
+  color: white;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 60px;
+  padding: 10px;
+  border-color: #002d59 #002d59 #000;
+  font-size: 18px;
+  font-family: Arial, Helvetica, Verdana, Sans-serif;
+}
+
+#info_box {
+  background: whitesmoke;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 30px;
+  margin-bottom: 50px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border-color: #002d59 #002d59 #000;
+  box-shadow: inset 0 1px 0 rgba(256, 256, 256, 0.55),
+    1px 1px 3px rgba(0, 0, 0, .25);
+}
+
+ul.data {
+  padding: 15px;
+  padding-top: 0px;
+  margin-left: 20px;
+  font-size: 15px;
+  list-style-type: none;
+  text-decoration: none;
+  border-color: none;
+}
+ul.data li {
+  padding: 10px;
+  color: #666;
+}
+
+img.logo {
+  top: 60px;
+  left: 60px;
+  margin-right: 20px;
+  max-height: 110px;
+}
+
+img.name {
+  top: 60px;
+  left: 60px;
+  margin-top: 15px;
+  max-height: 80px;
+}
+
+#info_box img {
+  float: left;
+  max-height: 180px;
+  max-width: 180px;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 20px;
+  margin-bottom: 10px;
+  box-shadow: inset 0 1px 0 rgba(256, 256, 256, 0.55),
+    3px 3px 5px rgba(0, 0, 0, .25);
+}
+

@@ -1,0 +1,18 @@
+<navigation></navigation>
+
+<div class="container">
+
+  <h1>Benvenuto</h1>
+
+  <!-- Utente non loggato -->
+  <div ng-show="!vm.user.usertype">
+    <p>Per accedere al tuo profilo effettua il <a href="login">login</a>.</p>
+  </div>
+    <!-- Utente loggato -->
+  <div ng-show="vm.user.usertype">
+    <p>{{vm.user.name}}!</p>
+  </div>
+
+
+
+</div>

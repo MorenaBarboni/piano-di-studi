@@ -1,0 +1,30 @@
+<head>
+  <link href="../content/css/profile.css" rel="stylesheet" type="text/css">
+</head>
+
+<navigation></navigation>
+
+<div class="container">
+  <div class="row">
+    <h3 class="form-signin-heading">Area {{ vm.user.usertype }}</h3>
+    <div id="content">
+
+      <div id="info_bar"> {{ vm.user.name }}: Dati {{ vm.user.usertype }}</div>
+      <div id="info_box">
+
+        <img  src="../content/img/profile.png" alt="Immagine di profilo">
+        <ul class="data">
+          <li ng-show="vm.user.usertype === 'studente'"> <b>Iscritto al corso di studi in: </b> {{ vm.user.degree }}</li>
+          <li ng-show="vm.user.usertype === 'studente'"> <b>Matricola: </b> {{ vm.user.mat }}</li>
+          <li> <b>E-mail: </b> {{ vm.user.email }}</li>
+          <li> <b>Telefono: </b> {{ vm.user.tel }}</li>
+          <li> <b>Indirizzo: </b> {{ vm.user.street }}, {{ vm.user.city }}, {{ vm.user.postalCode }}</li>
+        </ul>
+
+      </div>
+
+
+    </div>
+
+
+  </div>

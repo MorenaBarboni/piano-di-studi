@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app="planApp">
+
+<head>
+  <title>Piano Di Studi</title>
+  <base href="/">
+  <link rel="stylesheet" href="./content/css/flatly.css">
+  <script src="./scripts/planScripts.js"></script>
+</head>
+
+<body ng-view>
+  <!-- angular scripts -->
+  <script src="lib/angular/angular.min.js"></script>
+  <script src="lib/angular/angular-route.min.js"></script>
+  <!-- routeProvider script -->
+  <script src="main.js"></script>
+  <!-- profile scripts -->
+  <script src="./profile/profile.controller.js"></script>
+  <!-- home scripts -->
+  <script src="./home/home.controller.js"></script>
+  <!-- navigation scripts -->
+  <script src="./common/directives/navigation/navigation.controller.js"></script>
+  <script src="./common/directives/navigation/navigation.directive.js"></script>
+  <!-- auth scripts -->
+  <script src="./common/services/authentication.service.js"></script>
+  <script src="./common/services/userService.js"></script>
+  <script src="./auth/login/login.controller.js"></script>
+  <script src="./auth/register/register.controller.js"></script>
+  <script src="./common/services/logoutService.js"></script>
+
+
+</body>
+
+</html>

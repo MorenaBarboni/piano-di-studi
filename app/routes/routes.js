@@ -3,6 +3,7 @@ var router = express.Router();
 var jwt = require("express-jwt");
 var auth = require("../config/authExample");
 
+var ctrlPlan = require("../controllers/plan");
 var ctrlProfile = require("../controllers/profile");
 var ctrlAuth = require("../controllers/authentication");
 
@@ -12,5 +13,9 @@ router.get("/profile", auth, ctrlProfile.verify);
 // Autenticazione e Registrazione Utente
 router.post("/register", ctrlAuth.registerUser);
 router.post("/login", ctrlAuth.login);
+
+//Gestione Piano di Studi Admin
+router.get("/plan", auth, ctrlPlan.getAllPlan); //Restituisce tutti i piani
+router.post("/plan", ctrlPlan.addCourse); //Aggiunge un corso
 
 module.exports = router;

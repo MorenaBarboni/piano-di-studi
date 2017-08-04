@@ -23,6 +23,11 @@
         controller: "profileCtrl",
         controllerAs: "vm"
       })
+      .when("/plan", {
+        templateUrl: "/plan/plan.view.html",
+        controller: "planCtrl",
+        controllerAs: "vm"
+      })
       .when("/logout", {
         resolve: {
           logout: [
@@ -47,6 +52,11 @@
     ) {
       //Quando un utente è loggato non deve accedere al login
       if ($location.path() === "/profile" && !authentication.isLoggedIn()) {
+        $location.path("/");
+      } else if (
+        $location.path() === "/plan" &&
+        (!authentication.isLoggedIn() || !authentication.isAdmin())
+      ) {
         $location.path("/");
       } else if (
         $location.path() === "/register" &&

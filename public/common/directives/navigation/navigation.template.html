@@ -8,6 +8,7 @@
         <li ng-hide="navvm.isLoggedIn"><a href="login">Login</a></li>
         <li ng-show="navvm.isLoggedIn"><a href="profile">{{ navvm.currentUser.name }}</a></li>
         <li ng-show="navvm.isAdmin"><a href="register">Registrazione</a></li>
+        <li ng-show="navvm.isAdmin"><a href="plan">Modifica Piano di Studi</a></li>
         <li ng-show="navvm.isLoggedIn"><a href="logout">Logout</a></li>
 
       </ul>

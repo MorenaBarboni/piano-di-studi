@@ -15,7 +15,7 @@
     <!--  Permessi utente  -->
     <label for="usertype">
     <span>Permessi Utente :</span>
-    <select name="usertype" id="usertype" class="form-control" ng-model="vm.userData.usertype" onchange="resetForm()" required>
+    <select name="usertype" id="usertype" class="form-control" ng-model="vm.userData.usertype" onchange="resetForm(), resetCtrl()" required>
            <option value="studente">Studente</option>
            <option value="docente">Docente</option>
            <option value="admin">Admin</option>
@@ -71,21 +71,24 @@
     </label>
 
     <!--  Matricola (Solo studente)  -->
-    <div ng-show="vm.userData.usertype === 'studente'">
+    <div>
       <label for="mat">
-           <span>Matricola:</span>
-      <input type="text" class="form-control" id="mat" placeholder="000000" , maxlength="6" ng-model="vm.userData.mat">
+           <span ng-show="vm.userData.usertype === 'studente'">Matricola:</span>
+      <input type="text" class="form-control" id="mat" placeholder="000000" minlength="6" maxlength="6" ng-model="vm.userData.mat" ng-show="vm.userData.usertype === 'studente'" required>
      </label>
     </div>
 
-    <!--  Corso di Studi (Solo studente)  -->
-    <div ng-show="vm.userData.usertype === 'studente'">
+    <!--  Corso di Studi (Solo studente) / Facoltà (Solo docente)  -->
+    <div ng-show="vm.userData.usertype != 'admin'">
       <label for="degree">
-    <span>Corso di studi: </span>
-    <select name="degree" id="degree" class="form-control" ng-model="vm.userData.degree" ng-show="vm.userData.usertype === 'studente'">
+     <span ng-show="vm.userData.usertype === 'studente'" >Corso di studi: </span>
+     <span ng-show="vm.userData.usertype === 'docente'">Docente della facoltà di: </span>
+    <select name="degree" id="degree" class="form-control" ng-model="vm.userData.degree" ng-show="vm.userData.usertype != 'admin'"  required>
+                                                 
+           <option value="">Seleziona una facoltà</option>                                                
            <option value="Informatica">Informatica</option>
            <option value="Farmacia">Farmacia</option>
-          <option value="Farmacia">Fisica</option>
+           <option value="Farmacia">Fisica</option>
            <option value="Giurisprudenza">Giurisprudenza</option>
           </select>
     </label>
@@ -93,9 +96,5 @@
     <!--  Submit & Reset  -->
     <button type="submit">Registra Utente</button>
     <button type="reset" value="Reset"> Ripristina </button>
-
-
   </form>
-
-
 </div>

@@ -22,7 +22,23 @@
       authentication.register(vm.userData).error(function(err) {
         alert(err);
       });
+      window.alert("Utente Registrato");
       window.location.reload();
+    };
+
+    //Resetta il controller al cambiare dei permessi utente
+    resetCtrl = function() {
+      vm.userData = {
+        name: "",
+        email: "",
+        password: "",
+        degree: "",
+        mat: "",
+        city: "",
+        street: "",
+        postalCode: "",
+        tel: ""
+      };
     };
   }
 })();

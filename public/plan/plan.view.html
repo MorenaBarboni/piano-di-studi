@@ -12,22 +12,6 @@
             <div class="col-md-6">
                 <!--COLONNA SINISTRA-->
 
-                <div class="form-style">
-                    <!--Seleziona piano da mostrare -->
-                    <h1>
-                        <span>Seleziona la facoltà per mostrare il relativo piano di studi</span>
-                    </h1>
-                    <label for="filterDegree">
-                    <span>Facoltà:</span>
-                    <select name="filterDegree" id="filterDegree" class="form-control" ng-model="vm.filter.filterDegree">
-                      <option  value="Informatica">Informatica</option>
-                      <option value="Farmacia">Farmacia</option>
-                      <option value="Fisica">Fisica</option>
-                      <option value="Giurisprudenza">Giurisprudenza</option>
-                   </select>
-                    </label>
-                </div>
-
                 <!--Aggiungi corso al piano -->
                 <form ng-submit="vm.onSubmit()" class="form-style">
 
@@ -76,30 +60,74 @@
                     <button type="reset" value="Reset"> Ripristina </button>
                 </form>
 
+                <!--Elimina corso dal piano-->
+
+                <form ng-submit="vm.onDelete()" class="form-style">
+                    <h1>
+                        <span>Completa i seguenti campi per eliminare un corso da un piano</span>
+                    </h1>
+                    <div class="form-group">
+                        <label for="degree">
+                            <span>Corso di Laurea in:</span>
+                       <select name="degree" id="degree" class="form-control" ng-model="vm.eraseData.degree" required>
+                          <option  value="Informatica">Informatica</option>
+                          <option value="Farmacia">Farmacia</option>
+                          <option value="Fisica">Fisica</option>
+                          <option value="Giurisprudenza">Giurisprudenza</option>
+                   </select>
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">
+                            <span>Corso:</span>
+                        <input type="text" class="form-control" id="subject" placeholder="Programmazione Web" ng-model="vm.eraseData.subject" required>
+                        </label>
+                    </div>
+
+                    <button type="submit">Elimina Materia</button>
+                    <button type="reset" value="Reset"> Ripristina </button>
+                </form>
+
             </div>
+
 
             <!--COLONNA DESTRA-->
             <!--Tabella piano di studi-->
             <div class="col-md-6">
-                <table border="1">
-                    <thead>
-                        <tr>
-                            <th>Descrizione</th>
-                            <th>Anno di Corso</th>
-                            <th>Semestre</th>
-                            <th>Crediti Attività</th>
-                        </tr>
-                    </thead>
+                <div class="form-style">
+                    <!--Seleziona piano da mostrare -->
+                    <h1>
+                        <span>Seleziona la facoltà per mostrare il relativo piano di studi</span>
+                    </h1>
+                    <label for="filterDegree">
+                    <span>Facoltà:</span>
+                    <select name="filterDegree" id="filterDegree" class="form-control" ng-model="vm.filter.filterDegree">
+                      <option  value="Informatica">Informatica</option>
+                      <option value="Farmacia">Farmacia</option>
+                      <option value="Fisica">Fisica</option>
+                      <option value="Giurisprudenza">Giurisprudenza</option>
+                   </select>
+                    </label>
 
-                    <tbody>
-                        <tr ng-repeat="data in vm.elements" ng-show="data.degree === vm.filter.filterDegree">
-                            <td>{{data.subject}}</td>
-                            <td>{{data.year}}</td>
-                            <td>{{data.semester}}</td>
-                            <td>{{data.cfu}}</td>
-                        </tr>
-                    </tbody>
-                </table>
+                    <table border="1">
+                        <thead>
+                            <tr>
+                                <th>Descrizione</th>
+                                <th>Anno di Corso</th>
+                                <th>Semestre</th>
+                                <th>Crediti Attività</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr ng-repeat="data in vm.elements" ng-show="data.degree === vm.filter.filterDegree">
+                                <td>{{data.subject}}</td>
+                                <td>{{data.year}}</td>
+                                <td>{{data.semester}}</td>
+                                <td>{{data.cfu}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-
         </div>

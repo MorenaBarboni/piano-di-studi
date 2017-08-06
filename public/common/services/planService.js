@@ -18,8 +18,15 @@
         .then(handleSuccess, handleError);
     };
 
-    //funzioni private
+    deleteCourse = function(courseId) {
+      return $http
+        .delete("/api/plan/" + courseId)
+        .success(function(data, status) {
+          console.log(data);
+        });
+    };
 
+    //funzioni private
     function handleSuccess(res) {
       return res.data;
     }
@@ -30,7 +37,8 @@
 
     return {
       registerCourse: registerCourse,
-      getPlan: getPlan
+      getPlan: getPlan,
+      deleteCourse: deleteCourse
     };
   }
 })();

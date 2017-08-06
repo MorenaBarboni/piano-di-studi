@@ -17,5 +17,5 @@ router.post("/login", ctrlAuth.login);
 //Gestione Piano di Studi Admin
 router.get("/plan", auth, ctrlPlan.getAllPlan); //Restituisce tutti i piani
 router.post("/plan", ctrlPlan.addCourse); //Aggiunge un corso
-
+router.delete("/plan/:courseId", ctrlPlan.deleteCourseById); //Cancella un corso
 module.exports = router;

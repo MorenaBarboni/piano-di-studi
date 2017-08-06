@@ -34,3 +34,15 @@ module.exports.getAllPlan = function (req, res) {
 
 };
 
+//Cancella un corso selezionandolo tramite id
+module.exports.deleteCourseById = function (req, res) {
+
+    Course.remove({
+        _id: req.params.courseId
+    }, function (err, course) {
+        if (err)
+            res.send(err);
+        res.json({ message: 'Course successfully deleted' });
+    });
+
+};

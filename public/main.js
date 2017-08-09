@@ -59,6 +59,11 @@
       ) {
         $location.path("/");
       } else if (
+        $location.path() === "/login" &&
+        authentication.isLoggedIn() 
+      ) {
+        $location.path("/");
+      } else if (
         $location.path() === "/register" &&
         !authentication.isAdmin()
       ) {

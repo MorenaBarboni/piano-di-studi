@@ -38,7 +38,7 @@
           email: payload.email,
           name: payload.name,
           usertype: payload.usertype,
-          degree: payload.degree,
+          faculty: payload.faculty,
           mat: payload.mat,
           city: payload.city,
           street: payload.street,

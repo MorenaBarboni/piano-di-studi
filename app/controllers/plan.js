@@ -8,7 +8,7 @@ module.exports.addCourse = function (req, res) {
 
     var course = new Course();
 
-    course.degree = req.body.degree;
+    course.faculty = req.body.faculty;
     course.subject = req.body.subject;
     course.year = req.body.year;
     course.semester = req.body.semester;

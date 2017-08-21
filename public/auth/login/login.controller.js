@@ -17,7 +17,7 @@
       authentication
         .login(vm.accessData)
         .error(function(err){
-          alert(err);
+          alert("Email o password errata");
         })
         .then(function(){
           $location.path('profile');

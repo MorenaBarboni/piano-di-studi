@@ -10,17 +10,18 @@
       email: "",
       password: "",
       usertype: "studente", //default
-      degree: "",
+      faculty: "",
       mat: "",
       city: "",
       street: "",
       postalCode: "",
-      tel: ""
+      tel: "",
+      entryYear: ""
     };
 
     vm.onSubmit = function() {
       authentication.register(vm.userData).error(function(err) {
-        alert(err);
+        alert("err");
       });
       window.alert("Utente Registrato");
       window.location.reload();
@@ -32,12 +33,13 @@
         name: "",
         email: "",
         password: "",
-        degree: "",
+        faculty: "",
         mat: "",
         city: "",
         street: "",
         postalCode: "",
-        tel: ""
+        tel: "",
+        entryYear: ""
       };
     };
   }

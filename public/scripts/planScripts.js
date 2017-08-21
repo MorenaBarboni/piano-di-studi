@@ -10,15 +10,19 @@ function resetForm() {
   document.getElementById("email").value = "";
   document.getElementById("password").value = "";
   document.getElementById("mat").value = "";
-  document.getElementById("degree").value = "";
+  document.getElementById("faculty").value = "";
+  document.getElementById("entryYear").value = "";
 
-   if (typeField.value === "admin") {
+  if (typeField.value === "admin") {
     document.getElementById("mat").disabled = true;
-    document.getElementById("degree").disabled = true;
+    document.getElementById("faculty").disabled = true;
+    document.getElementById("entryYear").disabled = true;
   } else if (typeField.value === "docente") {
     document.getElementById("mat").disabled = true;
+    document.getElementById("entryYear").disabled = true;
   } else {
-    document.getElementById("degree").disabled = false;
+    document.getElementById("faculty").disabled = false;
     document.getElementById("mat").disabled = false;
+    document.getElementById("entryYear").disabled = false;
   }
 }

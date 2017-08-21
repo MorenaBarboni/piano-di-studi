@@ -3,7 +3,7 @@
   margin-right: auto;
   margin-bottom: 50px;
   margin-top: 30px;
-  max-width: 500px;
+  max-width: 550px;
   background: #f7f7f7;
   padding: 25px 15px 25px 10px;
   font: 14px Arial, Helvetica, Verdana, Sans-serif;
@@ -17,10 +17,11 @@
   display: block;
   border-bottom: 1px solid #e4e4e4;
   margin: -10px -15px 30px -10px;
-  color: #ffaf4c;
+  color: #a53845;
 }
 
 .form-style h1 > span {
+  margin-top: 3px;
   display: block;
   font-size: 13px;
   color: #888;
@@ -40,11 +41,43 @@
 .form-style input[type="text"],
 .form-style input[type="email"],
 .form-style input[type="password"],
-.form-style textarea,
-.form-style select {
+.form-style input[type="number"],
+.form-style textarea {
   border: 1px solid #dadada;
   color: #888;
-  height: 30px;
+  height: 35px;
+  margin-bottom: 16px;
+  margin-right: 6px;
+  margin-top: 2px;
+  outline: 0 none;
+  padding: 3px 3px 3px 5px;
+  width: 70%;
+
+  font-size: 12px;
+  line-height: 15px;
+  box-shadow: inset 0px 1px 4px #ececec;
+  -moz-box-shadow: inset 0px 1px 4px #ececec;
+  -webkit-box-shadow: inset 0px 1px 4px #ececec;
+}
+
+.form-style input[type="text"]:focus,
+.form-style input[type="email"]:focus,
+.form-style input[type="password"]:focus,
+.form-style input[type="number"]:focus,
+.form-style select:focus {
+  border: 1px solid #918c8b;
+}
+.form-style select {
+  background: #fff url('../img/arrow.png') no-repeat right;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 0.01px;
+  text-overflow: '';
+  width: 70%;
+  height: 35px;
+  line-height: 25px;
+  color: #888;
   margin-bottom: 16px;
   margin-right: 6px;
   margin-top: 2px;
@@ -56,50 +89,27 @@
   box-shadow: inset 0px 1px 4px #ececec;
   -moz-box-shadow: inset 0px 1px 4px #ececec;
   -webkit-box-shadow: inset 0px 1px 4px #ececec;
-}
-
-.form-style input[type="text"]:focus,
-.form-style input[type="email"]:focus,
-.form-style input[type="password"]:focus,
-.form-style textarea:focus,
-.form-style select:focus {
-  border: 1px solid #ffaf4c;
-}
-.form-style select {
   cursor: pointer;
 }
 
-.form-style textarea {
-  padding: 5px 3px 3px 5px;
-}
-.form-style select {
-  background: #fff url('down-arrow.png') no-repeat right;
-  background: #fff url('down-arrow.png') no-repeat right;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  text-indent: 0.01px;
-  text-overflow: '';
-  width: 70%;
-  height: 35px;
-  line-height: 25px;
-}
-.form-style textarea {
-  height: 100px;
-}
-button {
-  background: #ffaf4c;
+.form-style button {
+  width: 380px;
+  text-align: center;
+  background: #ab5963;
   border: none;
   padding: 10px 25px 10px 25px;
   color: #fff;
   box-shadow: 1px 1px 5px #b6b6b6;
   border-radius: 3px;
-  text-shadow: 1px 1px 1px #ffaf4c;
+  text-shadow: 1px 1px 1px #ab5963;
   cursor: pointer;
-  margin-right: 8px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
-button:hover {
-  background: #ffaf4c;
-  opacity: 0.8;
-  transition: 0.3s;
+.form-style button:hover {
+  background: #c47d86;
+  transition: 0.4s;
+  width:400px;
 }

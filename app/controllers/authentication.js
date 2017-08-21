@@ -35,6 +35,7 @@ module.exports.registerUser = function(req, res) {
   user.street = req.body.street;
   user.postalCode = req.body.postalCode;
   user.tel = req.body.tel;
+  user.entryYear = req.body.entryYear;
 
   user.setPassword(req.body.password);
 

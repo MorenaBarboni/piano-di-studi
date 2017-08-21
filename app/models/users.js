@@ -17,7 +17,7 @@ var userSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  degree: {
+  faculty: {
     type: String
   },
   mat: {
@@ -35,6 +35,7 @@ var userSchema = new mongoose.Schema({
   tel: {
     type: String
   },
+  entryYear: { type: String },
   hash: String,
   salt: String
 });
@@ -63,12 +64,13 @@ userSchema.methods.generateToken = function() {
       email: this.email,
       name: this.name,
       usertype: this.usertype,
-      degree: this.degree,
+      faculty: this.faculty,
       mat: this.mat,
       city: this.city,
       street: this.street,
       postalCode: this.postalCode,
       tel: this.tel,
+      entryYear: this.entryYear,
       exp: parseInt(expiry.getTime() / 1000)
     },
     auth

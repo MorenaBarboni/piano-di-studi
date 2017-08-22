@@ -18,12 +18,35 @@
         .then(handleSuccess, handleError);
     };
 
+    //Ottiene il piano di studi per uno studente
+    getStudentPlan = function() {
+      return $http
+        .get("/api/studentPlan", {
+          headers: {
+            Authorization: "Bearer " + authentication.getToken()
+          }
+        })
+        .then(handleSuccess, handleError);
+    };
+
+    //Cancella un corso per Id
     deleteCourse = function(courseId) {
       return $http
         .delete("/api/plan/" + courseId)
         .success(function(data, status) {
           console.log(data);
         });
+    };
+
+    //Ottiene tutte le informazioni sui corsi tenuti da un docente
+    getProfessorCoursesInfo = function(email) {
+      return $http
+        .get("/api/professorPlan/" + email, {
+          headers: {
+            Authorization: "Bearer " + authentication.getToken()
+          }
+        })
+        .then(handleSuccess, handleError);
     };
 
     //funzioni private
@@ -38,7 +61,9 @@
     return {
       registerCourse: registerCourse,
       getPlan: getPlan,
-      deleteCourse: deleteCourse
+      deleteCourse: deleteCourse,
+      getStudentPlan: getStudentPlan,
+      getProfessorCoursesInfo:getProfessorCoursesInfo
     };
   }
 })();

@@ -9,10 +9,17 @@ var ctrlAuth = require("../controllers/authentication");
 
 // Profilo Studente, Docente o Admin
 router.get("/profile", auth, ctrlProfile.verify);
+router.get("/facultiesInfo", auth, ctrlProfile.getFaculties); //Per ottenere i dati delle iscrizioni degli studenti.
 
 // Autenticazione e Registrazione Utente
 router.post("/register", ctrlAuth.registerUser);
 router.post("/login", ctrlAuth.login);
+
+//Piano di Studi Studente
+router.get("/studentPlan", auth, ctrlPlan.getStudentPlan); //Ottiene il piano di studi per uno studente
+
+//Corsi Docente
+router.get("/professorPlan/:email", auth, ctrlPlan.getProfessorCoursesInfo) //Ottiene tutte le informazioni sui corsi tenuti da un docente
 
 //Gestione Piano di Studi Admin
 router.get("/plan", auth, ctrlPlan.getAllPlan); //Restituisce tutti i piani

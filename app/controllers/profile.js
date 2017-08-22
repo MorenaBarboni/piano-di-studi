@@ -13,3 +13,17 @@ module.exports.verify = function(req, res) {
     });
   }
 };
+
+//Per ottenere i dati delle iscrizioni degli studenti.
+module.exports.getFaculties = function(req, res) {
+  if (!req.payload._id) {
+    res.status(401).json({
+      message: "UnauthorizedError: private profile"
+    });
+  } else {
+    User.find({ usertype: "studente" }, {faculty:1, entryYear:1}, function(err, data) {
+      console.log(data);
+      res.send(data);
+    });
+  }
+};

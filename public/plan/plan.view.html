@@ -7,20 +7,20 @@
 <div class="container">
     <h3>Modifica Piano di Studi</h3>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <!--COLONNA SINISTRA-->
 
-                <!--Aggiungi corso al piano -->
-                <form ng-submit="vm.onSubmit()" class="form-style">
+    <div class="row">
+        <div class="col-md-6">
+            <!--COLONNA SINISTRA-->
 
-                    <h1>
-                        <span>Completa i seguenti campi per aggiungere un corso</span>
-                    </h1>
+            <!--Aggiungi corso al piano -->
+            <form ng-submit="vm.onSubmit()" class="form-style">
 
-                    <div class="form-group">
-                        <label for="faculty">
+                <h1>
+                    <span>Completa i seguenti campi per aggiungere un corso</span>
+                </h1>
+
+                <div class="form-group">
+                    <label for="faculty">
                             <span>Corso di Laurea in:</span>
                     <select name="faculty" id="faculty" class="form-control" ng-model="vm.courseData.faculty" required>
                           <option  value="Informatica">Informatica</option>
@@ -29,45 +29,59 @@
                           <option value="Giurisprudenza">Giurisprudenza</option>
                    </select>
                         </label>
-                    </div>
-                    <div class="form-group">
-                        <label for="subject">
+                </div>
+                <div class="form-group">
+                    <label for="subject">
                             <span>Corso:</span>
                         <input type="text" class="form-control" id="subject" placeholder="Programmazione Web" ng-model="vm.courseData.subject" required>
                         </label>
-                    </div>
-                    <div class="form-group">
-                        <label for="cfu">
+                </div>
+                <!-- Anno Accademico  -->
+                <div>
+                    <label for="academicYear">
+                         <span >Anno Accademico:</span>
+                          <input type="number" id="academicYear" min="2016" max="2099" step="1" placeholder="Inserisci l'anno accademico" ng-model="vm.courseData.academicYear" required/>
+                          </label>
+                </div>
+                <div class="form-group">
+                    <label for="cfu">
                             <span>CFU:</span>
                         <input type="number" class="form-control" min="1" id="cfu" placeholder="6" ng-model="vm.courseData.cfu" required>
                         </label>
-                    </div>
-                    <div class="form-group">
-                        <label for="year">
+                </div>
+                <div class="form-group">
+                    <label for="year">
                             <span>Anno di Corso:</span>
                         <input type="number" class="form-control" min="1" max="5" id="year" placeholder="1" ng-model="vm.courseData.year" required>
                         </label>
-                    </div>
-                    <div class="form-group">
-                        <label for="semester">
+                </div>
+                <div class="form-group">
+                    <label for="semester">
                             <span>Semestre:</span>
                         <input type="number" class="form-control" min="1" max="2" id="semester" placeholder="1" ng-model="vm.courseData.semester"
                             required>
                          </label>
-                    </div>
+                </div>
+                <!--  Email  -->
+                <div class="form-group">
+                    <label for="email">
+                   <span> Docente: </span>
+                   <input type="email" class="form-control" id="email" placeholder="Mario.Rossi@gmail.com" ng-model="vm.courseData.professorEmail" required>
+                    </label>
+                </div>
 
-                    <button type="submit">Aggiungi Corso</button>
-                    <button type="reset" value="Reset"> Ripristina </button>
-                </form>
+                <button type="submit">Aggiungi Corso</button>
+                <button type="reset" value="Reset"> Ripristina </button>
+            </form>
 
-                <!--Elimina corso dal piano-->
+            <!--Elimina corso dal piano-->
 
-                <form ng-submit="vm.onDelete()" class="form-style">
-                    <h1>
-                        <span>Completa i seguenti campi per eliminare un corso da un piano</span>
-                    </h1>
-                    <div class="form-group">
-                        <label for="faculty">
+            <form ng-submit="vm.onDelete()" class="form-style">
+                <h1>
+                    <span>Completa i seguenti campi per eliminare un corso da un piano</span>
+                </h1>
+                <div class="form-group">
+                    <label for="faculty">
                             <span>Corso di Laurea in:</span>
                        <select name="faculty" id="faculty" class="form-control" ng-model="vm.eraseData.faculty" required>
                           <option  value="Informatica">Informatica</option>
@@ -76,30 +90,30 @@
                           <option value="Giurisprudenza">Giurisprudenza</option>
                    </select>
                         </label>
-                    </div>
-                    <div class="form-group">
-                        <label for="subject">
+                </div>
+                <div class="form-group">
+                    <label for="subject">
                             <span>Corso:</span>
                         <input type="text" class="form-control" id="subject" placeholder="Programmazione Web" ng-model="vm.eraseData.subject" required>
                         </label>
-                    </div>
+                </div>
 
-                    <button type="submit">Elimina Materia</button>
-                    <button type="reset" value="Reset"> Ripristina </button>
-                </form>
+                <button type="submit">Elimina Materia</button>
+                <button type="reset" value="Reset"> Ripristina </button>
+            </form>
 
-            </div>
+        </div>
 
 
-            <!--COLONNA DESTRA-->
-            <!--Tabella piano di studi-->
-            <div class="col-md-6">
-                <div class="form-style">
-                    <!--Seleziona piano da mostrare -->
-                    <h1>
-                        <span>Seleziona la facoltà per mostrare il relativo piano di studi</span>
-                    </h1>
-                    <label for="filterFaculty">
+        <!--COLONNA DESTRA-->
+        <!--Tabella piano di studi-->
+        <div class="col-md-6">
+            <div class="form-style">
+                <!--Seleziona piano da mostrare -->
+                <h1>
+                    <span>Seleziona la facoltà e l'anno accademico per mostrare il relativo piano di studi</span>
+                </h1>
+                <label for="filterFaculty">
                     <span>Facoltà:</span>
                     <select name="filterFaculty" id="filterFaculty" class="form-control" ng-model="vm.filter.filterFaculty">
                       <option  value="Informatica">Informatica</option>
@@ -109,25 +123,35 @@
                    </select>
                     </label>
 
-                    <table border="1">
-                        <thead>
-                            <tr>
-                                <th>Descrizione</th>
-                                <th>Anno di Corso</th>
-                                <th>Semestre</th>
-                                <th>Crediti Attività</th>
-                            </tr>
-                        </thead>
+                <label for="filterYear">
+                        <span>Anno Accademico:</span>
+                        <select name="filterYear" id="filterYear" class="form-control" ng-model="vm.filter.filterYear">
+                           <option  ng-repeat="year in vm.academicYears">{{year}}</option>
+                                    
+                       </select>
+                        </label>
 
-                        <tbody>
-                            <tr ng-repeat="data in vm.courses" ng-show="data.faculty === vm.filter.filterFaculty">
-                                <td>{{data.subject}}</td>
-                                <td>{{data.year}}</td>
-                                <td>{{data.semester}}</td>
-                                <td>{{data.cfu}}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>Descrizione</th>
+                            <th>Anno di Corso</th>
+                            <th>Semestre</th>
+                            <th>Crediti Attività</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr ng-repeat="data in vm.courses" ng-show="data.faculty === vm.filter.filterFaculty">
+                            <td>{{data.subject}}</td>
+                            <td>{{data.year}}</td>
+                            <td>{{data.semester}}</td>
+                            <td>{{data.cfu}}</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
+    </div>
+
+</div>

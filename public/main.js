@@ -1,5 +1,5 @@
 (function() {
-  angular.module("planApp", ["ngRoute"]);
+  angular.module("planApp", ["ngRoute", "ng-fusioncharts"]);
 
   function config($routeProvider, $locationProvider) {
     $routeProvider

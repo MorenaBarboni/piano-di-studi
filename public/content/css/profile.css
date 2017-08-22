@@ -1,110 +1,149 @@
-#wrapper {
-  margin-left: auto;
-  margin-right: auto;
-  min-width: 1200px;
+#container {
+  width: 960px;
+  margin: 0 auto;
+}
+
+.navbar {
+  margin-bottom: 5px !important;
 }
 
 h3 {
-  font-family: Arial, Helvetica, Verdana, Sans-serif;
-  text-align: left;
-  color: #666;
-  border-bottom: #ccc 1px solid;
-  margin-left: 50px;
-  margin-right: 25px;
+  color: #cb999a;
+  margin-top: 30px;
   margin-bottom: 30px;
 }
-#content {
-  background: white;
-  margin-left: 30px;
-  width: 960px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-#content h2 {
-  text-align: center;
-  color: black;
-  font-family: Arial, Helvetica, Verdana, Sans-serif;
-  font-size: 30px;
-  margin: 0;
-  padding-top: 10px;
-  padding-bottom: 15px;
-}
-#content p {
-  text-align: right;
-  margin: 0;
-  padding: 20px;
-  padding-bottom: 15px;
-  padding-top: 8px;
+
+h4 {
+  font-size: 20px;
 }
 
-#info_bar {
-  background: #ffaf4c;
-  border-color: white white grey;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 0 rgba(256, 256, 256, 0.55),
-    1px 1px 3px rgba(0, 0, 0, .25);
-  color: white;
-  margin-left: 20px;
-  margin-right: 20px;
-  margin-top: 60px;
-  padding: 10px;
-  border-color: #002d59 #002d59 #000;
-  font-size: 18px;
-  font-family: Arial, Helvetica, Verdana, Sans-serif;
-}
-
-#info_box {
-  background: whitesmoke;
-  margin-left: 20px;
-  margin-right: 20px;
-  padding: 30px;
-  margin-bottom: 50px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  border-color: #002d59 #002d59 #000;
-  box-shadow: inset 0 1px 0 rgba(256, 256, 256, 0.55),
-    1px 1px 3px rgba(0, 0, 0, .25);
-}
-
-ul.data {
-  padding: 15px;
-  padding-top: 0px;
-  margin-left: 20px;
-  font-size: 15px;
-  list-style-type: none;
-  text-decoration: none;
-  border-color: none;
-}
-ul.data li {
-  padding: 10px;
-  color: #666;
-}
-
-img.logo {
-  top: 60px;
-  left: 60px;
-  margin-right: 20px;
-  max-height: 110px;
-}
-
-img.name {
-  top: 60px;
-  left: 60px;
-  margin-top: 15px;
-  max-height: 80px;
-}
-
-#info_box img {
-  float: left;
-  max-height: 180px;
-  max-width: 180px;
-  margin-top: 10px;
+h4.infoTag {
+  font-size: 20px;
   margin-left: 10px;
-  margin-right: 20px;
-  margin-bottom: 10px;
-  box-shadow: inset 0 1px 0 rgba(256, 256, 256, 0.55),
-    3px 3px 5px rgba(0, 0, 0, .25);
 }
 
+p.courses {
+  text-align: center;
+  font-size: 20px;
+  padding-top: 80px;
+  padding-bottom: 230px;
+  color: #cb999a;
+}
+
+cite {
+  color: #646060;
+}
+
+small {
+  display: block;
+  line-height: 1.428571429;
+  color: #999;
+}
+
+.glyphicon.margin {
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+img {
+  height: 120px;
+  width: 120px;
+  margin-left: 15px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+ul.chartList {
+  list-style-type: none;
+}
+
+li.chartList {
+  text-align: left;
+  padding: 3px;
+  margin-top: 2px;
+}
+
+span.infoTag {
+  display: inline-block;
+  text-align: left;
+  padding: 2px;
+  margin-left: 10px;
+  margin-bottom: 5px;
+}
+
+.well {
+  box-shadow: 5px 5px 10px 2px #e6e6e6;
+  min-height: 160px;
+}
+
+.well.pie {
+  background-color: rgba(138, 20, 20, 0.28);
+  float: right;
+  width: 330px;
+  max-height: 500px;
+  box-shadow: 5px 5px 10px 2px #e6e6e6;
+  padding: 10px;
+  margin: auto;
+}
+
+fusioncharts {
+  margin-bottom: 600px;
+}
+
+/*TABLE*/
+
+table {
+  width: 96%;
+  margin: 10px auto;
+  box-shadow: 5px 5px 10px 2px #e6e6e6;
+  margin-bottom: 30px;
+}
+
+caption {
+  font-size: 1.6em;
+  font-weight: 400;
+  padding: 10px 0;
+  color: #cb999a;
+}
+
+thead th {
+  font-weight: 400;
+  background: #cb999a;
+  color: #fff;
+}
+
+tr {
+  background: #f4f7f8;
+  border-bottom: 1px solid #fff;
+  margin-bottom: 5px;
+}
+
+tr:nth-child(even) {
+  background: rgba(192, 192, 192, 0.29);
+}
+
+th,
+td {
+  text-align: left;
+  padding: 15px;
+  font-weight: 300;
+}
+
+tfoot tr {
+  background: none;
+}
+
+tfoot td {
+  padding: 10px 2px;
+  font-size: 0.8em;
+  font-style: italic;
+  color: #cb999a;
+}
+
+.chart {
+  margin-top: 30px;
+}
+.chartInfo {
+  margin-top: 30px;
+  color: rgba(116, 9, 9, 0.65);
+}

@@ -8,20 +8,31 @@ Progetto per il corso di programmazione web
 
 ## Installazione
 
-Una volta installati tutti i prerequisiti, scarica le dependencies con il comando:
-`npm install`
+Una volta installati tutti i prerequisiti, scarica le dependencies con i comandi:
+`npm install` e `bower install`
 
 ## Utilizzo
 
 Avvia il database con:
 `mongod`
 
-ed importa i dati di prova per l'amministratore con:
+ed importa i dati di prova con:
 
-`mongoimport --db pianoDiStudi --collection users --file demoData.json --jsonArray`
+`mongoimport --db pianoDiStudi --collection users --file demoUsers.json --jsonArray`
+`mongoimport --db pianoDiStudi --collection courses --file demoCourses.json --jsonArray`
+
+Per avviare il server:
+`node server.js` oppure `nodemon`
 
 Credenziali di accesso amministratore:
-
 email: admin@gmail.com
+password: pass
+
+Credenziali di accesso studente:
+email: john.doe@gmail.com
+password: pass
+
+Credenziali di accesso docente:
+email: mark.doe@gmail.com
 password: pass
 

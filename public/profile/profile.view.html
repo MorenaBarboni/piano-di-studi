@@ -1,30 +1,303 @@
 <head>
   <link href="../content/css/profile.css" rel="stylesheet" type="text/css">
+  <link href="../content/css/footer.css" rel="stylesheet" type="text/css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 
 <navigation></navigation>
 
-<div class="container">
+<div id="container">
+  <h3>Area {{vm.user.usertype}}</h3>
   <div class="row">
-    <h3 class="form-signin-heading">Area {{ vm.user.usertype }}</h3>
-    <div id="content">
+    <div class="col-xs-12 col-sm-6 col-md-6">
 
-      <div id="info_bar"> {{ vm.user.name }}: Dati {{ vm.user.usertype }}</div>
-      <div id="info_box">
-
-        <img  src="../content/img/profile.png" alt="Immagine di profilo">
-          <ul class="data">
-          <li ng-show="vm.user.usertype === 'studente'"> <b>Iscritto al corso di studi in: </b> {{ vm.user.degree }}</li>
-          <li ng-show="vm.user.usertype === 'docente'"> <b>Docente della facoltà di: </b> {{ vm.user.degree }}</li>
-          <li ng-show="vm.user.usertype === 'studente'"> <b>Matricola: </b> {{ vm.user.mat }}</li>
-          <li> <b>E-mail: </b> {{ vm.user.email }}</li>
-          <li> <b>Telefono: </b> {{ vm.user.tel }}</li>
-          <li> <b>Indirizzo: </b> {{ vm.user.street }}, {{ vm.user.city }}, {{ vm.user.postalCode }}</li>
-           </ul>
-            </div>
+      <!-- Profilo -->
+      <div class="well well-sm" ng-show="vm.user.usertype != 'admin'">
+        <div class="row">
+          <div class="col-sm-4">
+            <img ng-show="vm.user.usertype != 'admin'" src="../content/img/user.svg" alt="Profile Picture" style="margin-top:7px;">
+          </div>
+          <div class="col-sm-6 col-md-8">
+            <h4> {{vm.user.name}}</h4>
+            <small><cite title="city">{{ vm.user.street }}, {{ vm.user.city }}, {{ vm.user.postalCode }} <i class="glyphicon glyphicon-map-marker margin">
+                        </i></cite></small>
+            <p>
+              <i class="glyphicon glyphicon-envelope margin"></i>{{ vm.user.email }}
+              <br />
+              <i class="glyphicon glyphicon-earphone margin"></i> {{ vm.user.tel }}
+              <br />
+            </p>
+          </div>
+        </div>
+      </div>
 
 
     </div>
 
+    <!-- Dati studente / docente -->
+    <div class="col-xs-12 col-sm-6 col-md-6" ng-show="vm.user.usertype != 'admin'">
+      <div class="well well-sm">
+        <div class="row">
+          <div class="col-sm-6 col-md-8">
+            <h4 class="infoTag"> Dati {{vm.user.usertype}}</h4>
+
+            <span class="infoTag" ng-show="vm.user.usertype === 'studente'">Iscritto al corso di laurea in:&nbsp; <i> {{ vm.user.faculty }}</i></span>
+            <span class="infoTag" ng-show="vm.user.usertype === 'docente'">Docente della facoltà di:&nbsp;  {{ vm.user.faculty }}</span></br>
+            <span class="infoTag" ng-show="vm.user.usertype === 'studente'"> Matricola:&nbsp; {{ vm.user.mat }}</span> <br/>
+            <span class="infoTag" ng-show="vm.user.usertype === 'studente'"> Anno di Iscrizione:&nbsp; {{ vm.user.entryYear }}</span>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Piano di studi studente -->
+  <div class="row" ng-show="vm.user.usertype === 'studente'">
+    <!-- PRIMO ANNO -->
+    <table ng-hide="vm.firstYear.length === 0">
+      <caption>Attività didattiche - Anno di corso 1</caption>
+      <thead>
+        <tr>
+          <th scope="col">Descrizione</th>
+          <th scope="col">Semestre</th>
+          <th scope="col">Crediti Attività</th>
+          <th scope="col"> Docente</th>
+          <th scope="col"> Contatto</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="data in vm.firstYear">
+          <td>{{data.subject}}</td>
+          <td>{{data.semester}}</td>
+          <td>{{data.cfu}}</td>
+          <td>{{data.name}} </td>
+          <td><cite>{{data.professorEmail}}</cite></td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- SECONDO ANNO -->
+    <table ng-hide="vm.secondYear.length === 0">
+      <caption>Attività didattiche - Anno di corso 2</caption>
+      <thead>
+        <tr>
+          <th scope="col">Descrizione</th>
+          <th scope="col">Semestre</th>
+          <th scope="col">Crediti Attività</th>
+          <th scope="col"> Docente</th>
+          <th scope="col"> Contatto</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr ng-repeat="data in vm.secondYear">
+          <td>{{data.subject}}</td>
+          <td>{{data.semester}}</td>
+          <td>{{data.cfu}}</td>
+          <td>{{data.name}} </td>
+          <td><cite>{{data.professorEmail}}</cite></td>
+        </tr>
+      </tbody>
+    </table>
+    <!--TERZO ANNO -->
+    <table ng-hide="vm.thirdYear.length === 0">
+      <caption>Attività didattiche - Anno di corso 3</caption>
+      <thead>
+        <tr>
+          <th scope="col">Descrizione</th>
+          <th scope="col">Semestre</th>
+          <th scope="col">Crediti Attività</th>
+          <th scope="col"> Docente</th>
+          <th scope="col"> Contatto</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr ng-repeat="data in vm.thirdYear">
+          <td>{{data.subject}}</td>
+          <td>{{data.semester}}</td>
+          <td>{{data.cfu}}</td>
+          <td>{{data.name}} </td>
+          <td><cite>{{data.professorEmail}}</cite></td>
+        </tr>
+      </tbody>
+    </table>
+    <!--QUARTO ANNO -->
+    <table ng-hide="vm.fourthYear.length === 0">
+      <caption>Attività didattiche - Anno di corso 3</caption>
+      <thead>
+        <tr>
+          <th scope="col">Descrizione</th>
+          <th scope="col">Semestre</th>
+          <th scope="col">Crediti Attività</th>
+          <th scope="col"> Docente</th>
+          <th scope="col"> Contatto</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr ng-repeat="data in vm.fourthYear">
+          <td>{{data.subject}}</td>
+          <td>{{data.semester}}</td>
+          <td>{{data.cfu}}</td>
+          <td>{{data.name}} </td>
+          <td><cite>{{data.professorEmail}}</cite></td>
+        </tr>
+      </tbody>
+    </table>
+    <!--QUINTO ANNO -->
+    <table ng-hide="vm.fifthYear.length === 0">
+      <caption>Attività didattiche - Anno di corso 3</caption>
+      <thead>
+        <tr>
+          <th scope="col">Descrizione</th>
+          <th scope="col">Semestre</th>
+          <th scope="col">Crediti Attività</th>
+          <th scope="col"> Docente</th>
+          <th scope="col"> Contatto</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr ng-repeat="data in vm.fifthYear">
+          <td>{{data.subject}}</td>
+          <td>{{data.semester}}</td>
+          <td>{{data.cfu}}</td>
+          <td>{{data.name}} </td>
+          <td><cite>{{data.professorEmail}}</cite></td>
+        </tr>
+      </tbody>
+    </table>
+    <p ng-show="vm.isPlanDataEmpty()" class="courses">
+      Piano di studi non ancora attivato.
+    </p>
+  </div>
+
+
+
+  <!-- Grafico a torta admin-->
+  <div class="row" ng-hide="vm.user.usertype != 'admin'">
+    <div class="col-sm-8 ">
+      <div class="chart">
+        <fusioncharts width="90%" height="400" type="pie2d" dataFormat="json" dataSource="{{vm.myDataSource}}">
+        </fusioncharts>
+      </div>
+    </div>
+
+
+
+    <div class="chartInfo">
+      <h4>
+        <i class="glyphicon glyphicon-chevron-left margin"></i> Percentuali di iscrizioni
+      </h4>
+    </div>
+
+    <div class="well pie">
+      <ul class="chartList">
+        <li class="chartList"> <b>Totale iscritti</b>: &nbsp {{vm.totStudents}}</li>
+        <li class="chartList">Iscritti alla facoltà di <b>Informatica</b>: &nbsp {{vm.informatica}}</li>
+        <li class="chartList">Iscritti alla facoltà di <b>Farmacia</b>: &nbsp {{vm.farmacia}}</li>
+        <li class="chartList">Iscritti alla facoltà di <b>Fisica</b>: &nbsp {{vm.fisica}}</li>
+        <li class="chartList">Iscritti alla facoltà di <b>Giurisprudenza</b>: &nbsp {{vm.giurisprudenza}}</li>
+      </ul>
+    </div>
 
   </div>
+
+
+  <!-- Elenco corsi docente -->
+  <div class="row" ng-show="vm.user.usertype === 'docente'">
+    <table ng-show="!vm.isProfessorCoursesEmpty()">
+      <caption>Corsi Attivi</caption>
+      <thead>
+        <tr>
+          <th scope="col">Descrizione</th>
+          <th scope="col">Crediti Attività</th>
+          <th scope="col">Semestre</th>
+          <th scope="col">Anno Accademico</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="data in vm.professorCourses">
+          <td>{{data.subject}}</td>
+          <td>{{data.cfu}}</td>
+          <td>{{data.semester}}</td>
+          <td>{{data.academicYear}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p ng-show="vm.isProfessorCoursesEmpty()" class="courses">
+      Nessun corso attualmente attivo.
+    </p>
+
+  </div>
+</div>
+
+
+
+<!--Footer -->
+<footer>
+  <div class="footer" id="footer">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-md-2  col-md-2 col-sm-4 col-xs-6">
+          <h3> Lorem Ipsum </h3>
+          <ul>
+            <li> <a href="#"> Lorem Ipsum </a> </li>
+            <li> <a href="#"> Lorem Ipsum </a> </li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+          <h3> Lorem Ipsum </h3>
+          <ul>
+            <li> <a href="#"> Lorem Ipsum </a> </li>
+            <li> <a href="#"> Lorem Ipsum </a> </li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+          <h3> Links </h3>
+          <ul>
+            <li> <a href="/"> Home </a> </li>
+            <li> <a href="profile"> Profilo </a> </li>
+            <li ng-show="vm.user.usertype === 'admin'"> <a href="register"> Registrazione </a> </li>
+            <li ng-show="vm.user.usertype === 'admin'"> <a href="plan"> Gestione Piano di Studi </a> </li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+          <h3> Credits </h3>
+          <ul>
+            <li>
+              Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a>
+            </li>
+            <li>
+              from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+            </li>
+            <li>is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></li>
+          </ul>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container">
+      <p class="pull-left"> Copyright © Footer 2017. All right reserved. </p>
+      <div class="pull-right">
+        <ul class="social">
+          <li> <a href="#"> <i class=" fa fa-facebook">   </i> </a> </li>
+          <li> <a href="#"> <i class="fa fa-twitter">   </i> </a> </li>
+          <li> <a href="#"> <i class="fa fa-google-plus">   </i> </a> </li>
+          <li> <a href="#"> <i class="fa fa-youtube">   </i> </a> </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>

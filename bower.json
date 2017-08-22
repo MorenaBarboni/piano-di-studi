@@ -1,0 +1,7 @@
+{
+  "name": "piano-di-studi",
+  "version": "1.0.0",
+  "dependencies": {
+    "fusioncharts": "^3.12.1"
+   }
+}

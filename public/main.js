@@ -28,6 +28,11 @@
         controller: "planCtrl",
         controllerAs: "vm"
       })
+      .when("/usersManagement", {
+        templateUrl: "/usersManagement/usersManagement.view.html",
+        controller: "usersManagementCtrl",
+        controllerAs: "vm"
+      })
       .when("/logout", {
         resolve: {
           logout: [
@@ -50,7 +55,6 @@
       nextRoute,
       currentRoute
     ) {
-      //Quando un utente è loggato non deve accedere al login
       if ($location.path() === "/profile" && !authentication.isLoggedIn()) {
         $location.path("/");
       } else if (
@@ -58,14 +62,16 @@
         (!authentication.isLoggedIn() || !authentication.isAdmin())
       ) {
         $location.path("/");
-      } else if (
-        $location.path() === "/login" &&
-        authentication.isLoggedIn() 
-      ) {
+      } else if ($location.path() === "/login" && authentication.isLoggedIn()) {
         $location.path("/");
       } else if (
         $location.path() === "/register" &&
         !authentication.isAdmin()
+      ) {
+        $location.path("/");
+      } else if (
+        $location.path() === "/usersManagement" &&
+        (!authentication.isLoggedIn() || !authentication.isAdmin())
       ) {
         $location.path("/");
       }

@@ -2,6 +2,8 @@
   "name": "piano-di-studi",
   "version": "1.0.0",
   "dependencies": {
-    "fusioncharts": "^3.12.1"
-   }
+    "fusioncharts": "^3.12.1",
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.2.1"
+  }
 }

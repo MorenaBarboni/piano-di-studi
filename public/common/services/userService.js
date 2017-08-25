@@ -22,6 +22,26 @@
         .then(handleSuccess, handleError);
     };
 
+    //Ottiene tutti gli utenti
+    getAllUsers = function() {
+      return $http
+        .get("/api/users", {
+          headers: {
+            Authorization: "Bearer " + authentication.getToken()
+          }
+        })
+        .then(handleSuccess, handleError);
+    };
+
+    //Cancella un utente tramite Id
+    deleteUser = function(userId) {
+      return $http
+        .delete("/api/profile/" + userId)
+        .success(function(data, status) {
+          console.log(data);
+        });
+    };
+
     //funzioni private
     function handleSuccess(res) {
       return res.data;
@@ -33,7 +53,9 @@
 
     return {
       getProfile: getProfile,
-      getFacultiesInfo: getFacultiesInfo
+      getFacultiesInfo: getFacultiesInfo,
+      getAllUsers: getAllUsers,
+      deleteUser: deleteUser
     };
   }
 })();

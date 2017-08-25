@@ -9,10 +9,15 @@
       <ul class="nav navbar-nav navbar-right">
         <!-- Login-->
         <li ng-hide="navvm.isLoggedIn"><a href="login"> <span class="glyphicon glyphicon-log-in"></span> &nbspLogin</a></li>
-        <!--Profilo -->
+        <!-- Profilo -->
         <li ng-show="navvm.isLoggedIn"><a href="profile">{{ navvm.currentUser.name }}</a></li>
-        <!--Registrazione-->
-        <li ng-show="navvm.isAdmin"><a href="register">Registrazione</a></li>
+        <!-- Gestione Utenti / Admin -->
+        <li class="dropdown" ng-show="navvm.isAdmin"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Gestione Utenti <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li ng-show="navvm.isAdmin"><a href="register">Registrazione</a></li>
+            <li ng-show="navvm.isAdmin"><a href="usersManagement">Utenti ed Account</a></li>
+          </ul>
+        </li>
         <!--Gestione Piano-->
         <li ng-show="navvm.isAdmin"><a href="plan">Modifica Piano di Studi</a></li>
         <!--Logout -->

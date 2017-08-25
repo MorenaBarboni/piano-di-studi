@@ -92,6 +92,7 @@
           }
         });
     }
+
     //Controlla se il docente ha attualmente corsi attivi
     vm.isProfessorCoursesEmpty = function() {
       if (vm.professorCourses.length === 0) {
@@ -144,28 +145,24 @@
         percInf = 0;
       } else {
         var percInf = vm.informatica * 100 / vm.totStudents;
-        console.log(percInf);
       }
 
       if (vm.farmacia === 0) {
         percFar = 0;
       } else {
         var percFar = vm.farmacia * 100 / vm.totStudents;
-        console.log(percFar);
       }
 
       if (vm.fisica === 0) {
         percFis = 0;
       } else {
         var percFis = vm.fisica * 100 / vm.totStudents;
-        console.log(percFis);
       }
 
       if (vm.giurisprudenza === 0) {
         percGiu = 0;
       } else {
         var percGiu = vm.giurisprudenza * 100 / vm.totStudents;
-        console.log(percGiu);
       }
       chartData.push(
         { label: "Informatica", value: percInf },

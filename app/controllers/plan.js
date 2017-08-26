@@ -11,6 +11,8 @@ module.exports.addCourse = function(req, res) {
   course.year = req.body.year;
   course.semester = req.body.semester;
   course.cfu = req.body.cfu;
+  course.academicYear = req.body.academicYear;
+  course.professorEmail = req.body.professorEmail;
 
   course.save(function(err) {
     res.status(200);
@@ -31,19 +33,52 @@ module.exports.deleteCourseById = function(req, res) {
   );
 };
 
-//Per ottenere tutti i corsi di tutte le facoltà.
-module.exports.getAllPlan = function(req, res) {
+//Per ottenere tutti i corsi di tutte le facoltà e il nome del docente che tiene il corso.
+module.exports.getAllPlanInfo = function(req, res) {
   if (!req.payload._id) {
     res.status(401).json({
       message: "UnauthorizedError: private profile"
     });
   } else {
-    Course.find({}, function(err, data) {
-      res.send(data);
-    }).sort({ year: 1, semester: 1 });
+    Course.aggregate(
+      [
+        {
+          $lookup: {
+            from: "users",
+            localField: "professorEmail",
+            foreignField: "email",
+            as: "professor_info"
+          }
+        },
+        {
+          $unwind: "$professor_info"
+        },
+        {
+          $project: {
+            _id: 1,
+            faculty: 1,
+            subject: 1,
+            year: 1,
+            semester: 1,
+            cfu: 1,
+            professorEmail: 1,
+            academicYear: 1,
+            name: "$professor_info.name"
+          }
+        },
+        {
+          $sort: {
+            year: 1,
+            semester: 1
+          }
+        }
+      ],
+      function(err, data) {
+        res.send(data);
+      }
+    );
   }
 };
-
 //Per ottenere il piano completo per uno studente per una precisa facoltà ed anno accademico.
 module.exports.getStudentPlan = function(req, res) {
   console.log(req.payload.faculty);

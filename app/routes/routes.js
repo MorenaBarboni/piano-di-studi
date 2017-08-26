@@ -22,7 +22,7 @@ router.get("/studentPlan", auth, ctrlPlan.getStudentPlan); //Ottiene il piano di
 router.get("/professorPlan/:email", auth, ctrlPlan.getProfessorCoursesInfo); //Ottiene tutte le informazioni sui corsi tenuti da un docente
 
 //Gestione Piano di Studi Admin
-router.get("/plan", auth, ctrlPlan.getAllPlan); //Restituisce tutti i piani
+router.get("/plan", auth, ctrlPlan.getAllPlanInfo); //Restituisce tutti i piani di studio
 router.post("/plan", ctrlPlan.addCourse); //Aggiunge un corso
 router.delete("/plan/:courseId", ctrlPlan.deleteCourseById); //Cancella un corso
 

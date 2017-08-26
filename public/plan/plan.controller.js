@@ -1,13 +1,17 @@
 (function() {
   angular.module("planApp").controller("planCtrl", planCtrl);
 
-  planCtrl.$inject = ["$location", "planService", "$http", "$window"];
-  function planCtrl($location, planService, $http, $window) {
-    console.log("Plan controller is running");
-
+  planCtrl.$inject = ["$location", "planService", "$http", "$window", "$scope"];
+  function planCtrl($location, planService, $http, $window, $scope) {
     var vm = this;
 
-    //Per registrare un nuovo corso
+    //Array contenente tutti i corsi
+    vm.courses = [];
+
+    //Anni Accademici
+    vm.academicYears = [];
+
+    //Nuovo corso
     vm.courseData = {
       faculty: "Informatica", //Valore di default
       subject: "",
@@ -18,33 +22,50 @@
       academicYear: ""
     };
 
-    //per filtrare i dati da mostrare
+    //Filtri per i dati da mostrare
     vm.filter = {
-      filterFaculty: "Informatica", //valore di default
-      filterYear: "2017" //valore di default
+      filterFaculty: "Informatica",
+      filterYear: "1",
+      filterAcademicYear: "2017"
     };
 
-    //Per identificare il corso da eliminare
-    vm.eraseData = {
-      faculty: "Informatica", //default
-      subject: ""
+    //Controllano la visibilità dei dati nella tabella
+    vm.visibleRows = 0;
+    vm.checks = 0;
+
+    //Determina quali righe della tabella filtrare e controlla se c'è almeno
+    //una riga da mostrare
+
+    vm.checkCorrespondence = function(faculty, academicYear, year) {
+      vm.filter.filterFaculty =
+        vm.filter.filterFaculty.charAt(0).toUpperCase() +
+        vm.filter.filterFaculty.slice(1);
+
+      if (
+        faculty === vm.filter.filterFaculty &&
+        academicYear === vm.filter.filterAcademicYear &&
+        (year === Number(vm.filter.filterYear) || vm.filter.filterYear === "")
+      ) {
+        if (vm.checks === vm.courses.length) {
+          vm.checks = 0;
+          vm.visibleRows = 0;
+        }
+        vm.checks = vm.checks + 1;
+        vm.visibleRows = vm.visibleRows + 1;
+        return true;
+      } else {
+        if (vm.checks === vm.courses.length) {
+          vm.checks = 0;
+          vm.visibleRows = 0;
+        }
+        vm.checks = vm.checks + 1;
+        return false;
+      }
     };
-
-    //Array contenente tutti i corsi
-    vm.courses = [];
-
-    vm.academicYears = [];
 
     vm.onSubmit = function() {
       planService.registerCourse(vm.courseData);
       window.alert("Corso aggiunto con successo");
-      $window.location.reload();
-    };
-
-    vm.onDelete = function() {
-      var deleteId = searchToDelete(vm.eraseData);
-      console.log(vm.eraseData);
-      planService.deleteCourse(deleteId);
       $window.location.reload();
     };
 
@@ -62,34 +83,25 @@
         });
     }
 
-    //Consente di ottenere l'id del corso da eliminare a partire da Facoltà e Corso.
-    function searchToDelete(compare) {
-      var subj = compare.subject;
-      var faculty = compare.faculty;
-      var lookup = {};
-      for (var i = 0, len = vm.courses.length; i < len; i++) {
-        if (
-          vm.courses[i].subject === subj &&
-          vm.courses[i].faculty === faculty
-        ) {
-          lookup = vm.courses[i];
-        }
+    //Cancella un corso.
+    $scope.deleteCourse = function(id, subj, deg, year) {
+      if (confirm("Vuoi davvero eliminare il corso?") == true) {
+        planService.deleteCourse(id);
+        alert("Corso eliminato con successo!");
+        $window.location.reload();
       }
-      return lookup._id;
-    }
+    };
 
-    //Per rimuovere i duplicati degli anni accademici da ng-repeat
+    //Rimuove i duplicati degli anni accademici da ng-repeat
     function removeDuplicateYears() {
       keys = [];
       var i = 0;
       angular.forEach(vm.courses, function(value) {
         var key = vm.courses[i].academicYear;
-        console.log(key);
         i++;
         if (keys.indexOf(key) === -1) {
           keys.push(key);
           vm.academicYears.push(value.academicYear);
-          console.log(vm.academicYears);
         }
       });
     }

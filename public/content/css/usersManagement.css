@@ -3,6 +3,10 @@
   margin: 0 auto;
 }
 
+#tableContainer {
+  min-height: 500px;
+}
+
 #table {
   display: table;
   width: 100%;
@@ -13,17 +17,62 @@
 }
 
 .caption {
+  text-align: right;
   display: block;
   width: 100%;
   background: #84c5ce;
-  height: 55px;
+  height: 75px;
   padding-left: 10px;
   color: #fff;
   font-size: 20px;
-  line-height: 55px;
+  line-height: 28px;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, .3);
   box-sizing: border-box;
-  box-shadow: 5px 5px 30px 2px #e6e6e6;
+  box-shadow: 5px 5px 5px 2px #e6e6e6;
+}
+
+.caption  input[type="text"] {
+  height: 30px;
+  width: 200px;
+  outline: 0 none;
+  padding: 3px 12px 5px 5px;
+  margin: 0;
+  font-size: 16px;
+  line-height: 15px;
+  border: 1px solid #dadada;
+  color: #c47d86;
+  box-shadow: inset 0px 1px 4px #ececec;
+  -moz-box-shadow: inset 0px 1px 4px #ececec;
+  -webkit-box-shadow: inset 0px 1px 4px #ececec;
+  transition: 0.1s;
+}
+.caption input[type="text"]:focus {
+  border: 1px solid #918c8b;
+}
+
+.caption input[type="text"]:hover {
+  color: rgba(203, 153, 154, 0.67);
+  transition: 0.2s;
+}
+
+.caption h5 {
+  text-align: left;
+  font-size: 24px;
+  margin-right: 50px;
+}
+
+.caption span {
+  text-align: left;
+  font-size: 14px;
+}
+
+#emptyTable h4 {
+  font-family: Arial, Helvetica, Verdana, Sans-serif;
+  font-size: 30px;
+  text-align: center;
+  color: #cb999a;
+  margin-top: 100px;
+  margin-bottom: 500px;
 }
 
 .header-row {

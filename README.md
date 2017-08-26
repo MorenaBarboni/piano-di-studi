@@ -19,6 +19,7 @@ Avvia il database con:
 ed importa i dati di prova con:
 
 `mongoimport --db pianoDiStudi --collection users --file demoUsers.json --jsonArray`
+
 `mongoimport --db pianoDiStudi --collection courses --file demoCourses.json --jsonArray`
 
 Per avviare il server:

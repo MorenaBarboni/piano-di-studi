@@ -50,27 +50,29 @@
             <input type="text" class="form-control" name="filterType" id="filterType" ng-model="vm.filter.filterType" style="width: 150px; margin-left:10px;">
     </label>
       </label>
-      <label for="filterEmail">  <span style="margin-right:127px;">Email </span>
-          <input type="text" class="form-control" name="filterEmail" id="filterEmail" ng-model="vm.filter.filterEmail" style="width: 150px; margin-left:10px; margin-right:20px;">
-    </label>
+      <label for="filterFaculty">  <span style="margin-right:119px;">Facoltà </span>
+        <input type="text" class="form-control" name="filterFaculty" id="filterFaculty" ng-model="vm.filter.filterFaculty" style="width: 150px; margin-left:10px; margin-right:20px;">
+        </label>
     </div>
     <div id="table" class="page-break">
       <div class="header-row tableRow">
         <span class="cell primary">Nome</span>
         <span class="cell">Permessi</span>
         <span class="cell">Email</span>
-        <span class="cell">Telefono</span>
         <span class="cell">Matricola</span>
+        <span class="cell">Facoltà</span>
         <span class="cell">Elimina Utente</span>
+
       </div>
-      <div class="tableRow" ng-repeat="data in vm.users" ng-show=" vm.checkCorrespondence(data.name, data.mat, data.usertype, data.email)">
+      <div class="tableRow" ng-repeat="data in vm.users" ng-show=" vm.checkCorrespondence(data.name, data.mat, data.usertype, data.faculty)">
         <input type="radio" name="expand">
         <span class="cell primary" data-label="name" ng-show="data._id != vm.user._id">{{data.name}}</span>
         <span class="cell" data-label="usertype" ng-show="data._id != vm.user._id">{{data.usertype}}</span>
         <span class="cell" data-label="email" ng-show="data._id != vm.user._id">{{data.email}}</span>
-        <span class="cell" data-label="tel" ng-show="data._id != vm.user._id">{{data.tel}}</span>
         <span class="cell" data-label="mat" ng-show="data.usertype === 'studente' && data._id != vm.user._id">{{data.mat}}</span>
         <span class="cell" data-label="mat" ng-show="data.usertype != 'studente'&& data._id != vm.user._id">-</span>
+        <span class="cell" data-label="faculty" ng-show="data.usertype != 'admin' && data._id != vm.user._id">{{data.faculty}}</span>
+        <span class="cell" data-label="faculty" ng-show="data.usertype === 'admin'&& data._id != vm.user._id">-</span>
         <span class="cellDelete" ng-click="deleteUser(data._id)" ng-show="data.usertype != 'admin' && data._id != vm.user._id"></span>
         <span class="cell" ng-show="data.usertype === 'admin' && data._id != vm.user._id"></span>
       </div>

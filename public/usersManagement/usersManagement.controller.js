@@ -30,16 +30,20 @@
       filterName: "",
       filterMat: "",
       filterType: "",
-      filterEmail: ""
+      filterFaculty: ""
     };
 
     //Determina quali righe della tabella filtrare
-    vm.checkCorrespondence = function(name, mat, userType, email) {
+    vm.checkCorrespondence = function(name, mat, userType, faculty) {
+      vm.filter.filterFaculty =
+      vm.filter.filterFaculty.charAt(0).toUpperCase() + vm.filter.filterFaculty.slice(1);
+      vm.filter.filterType =
+      vm.filter.filterType.charAt(0).toLowerCase() + vm.filter.filterType.slice(1);
       if (
         name.indexOf(vm.filter.filterName) !== -1 &&
         mat.indexOf(vm.filter.filterMat) !== -1 &&
         userType.indexOf(vm.filter.filterType) !== -1 &&
-        email.indexOf(vm.filter.filterEmail) !== -1
+        faculty.indexOf(vm.filter.filterFaculty) !== -1
       ) {
         return true;
       }

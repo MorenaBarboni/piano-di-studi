@@ -44,7 +44,7 @@
             <span class="infoTag" ng-show="vm.user.usertype === 'studente'">Iscritto al corso di laurea in:&nbsp; <i> {{ vm.user.faculty }}</i></span>
             <span class="infoTag" ng-show="vm.user.usertype === 'docente'">Docente della facoltà di:&nbsp;  {{ vm.user.faculty }}</span></br>
             <span class="infoTag" ng-show="vm.user.usertype === 'studente'"> Matricola:&nbsp; {{ vm.user.mat }}</span> <br/>
-            <span class="infoTag" ng-show="vm.user.usertype === 'studente'"> Anno di Iscrizione:&nbsp; {{ vm.user.entryYear }}</span>
+            <span class="infoTag" ng-show="vm.user.usertype === 'studente'"> Coorte:&nbsp; {{ vm.user.entryYear }}</span>
 
           </div>
         </div>
@@ -56,11 +56,13 @@
   <!-- Piano di studi studente -->
   <div class="row" ng-show="vm.user.usertype === 'studente'">
     <!-- PRIMO ANNO -->
-    <table ng-hide="vm.firstYear.length === 0">
-      <caption>Attività didattiche - Anno di corso 1</caption>
+    <table ng-hide="vm.firstYear.length === 0" style="margin-top:60px;">
+      <caption>Attività didattiche - Anno di corso 1 <span>{{vm.user.entryYear.toString() + '/'      
+        + (vm.parseInt(vm.user.entryYear) + 1) }}</span></caption>
       <thead>
         <tr>
           <th scope="col">Descrizione</th>
+          <th scope="col">Attività Obbligatoria</th>
           <th scope="col">Semestre</th>
           <th scope="col">Crediti Attività</th>
           <th scope="col"> Docente</th>
@@ -70,6 +72,8 @@
       <tbody>
         <tr ng-repeat="data in vm.firstYear">
           <td>{{data.subject}}</td>
+          <td ng-show="data.mandatory"> <img src="../content/img/check_green.png" alt=""></td>
+          <td ng-hide="data.mandatory"></td>
           <td>{{data.semester}}</td>
           <td>{{data.cfu}}</td>
           <td>{{data.name}} </td>
@@ -79,10 +83,12 @@
     </table>
     <!-- SECONDO ANNO -->
     <table ng-hide="vm.secondYear.length === 0">
-      <caption>Attività didattiche - Anno di corso 2</caption>
+      <caption>Attività didattiche - Anno di corso 2 <span>{{(vm.parseInt(vm.user.entryYear) + 1) + '/'      
+        + (vm.parseInt(vm.user.entryYear) + 2) }}</span></caption>
       <thead>
         <tr>
           <th scope="col">Descrizione</th>
+          <th scope="col">Attività Obbligatoria</th>
           <th scope="col">Semestre</th>
           <th scope="col">Crediti Attività</th>
           <th scope="col"> Docente</th>
@@ -93,6 +99,8 @@
       <tbody>
         <tr ng-repeat="data in vm.secondYear">
           <td>{{data.subject}}</td>
+          <td ng-show="data.mandatory"> <img src="../content/img/check_green.png" alt=""></td>
+          <td ng-hide="data.mandatory"></td>
           <td>{{data.semester}}</td>
           <td>{{data.cfu}}</td>
           <td>{{data.name}} </td>
@@ -102,10 +110,12 @@
     </table>
     <!--TERZO ANNO -->
     <table ng-hide="vm.thirdYear.length === 0">
-      <caption>Attività didattiche - Anno di corso 3</caption>
+      <caption>Attività didattiche - Anno di corso 3 <span>{{(vm.parseInt(vm.user.entryYear) + 2) + '/'      
+        + (vm.parseInt(vm.user.entryYear) + 3) }}</span></caption>
       <thead>
         <tr>
           <th scope="col">Descrizione</th>
+          <th scope="col">Attività Obbligatoria</th>
           <th scope="col">Semestre</th>
           <th scope="col">Crediti Attività</th>
           <th scope="col"> Docente</th>
@@ -116,19 +126,23 @@
       <tbody>
         <tr ng-repeat="data in vm.thirdYear">
           <td>{{data.subject}}</td>
+          <td ng-show="data.mandatory"> <img src="../content/img/check_green.png" alt=""></td>
+          <td ng-hide="data.mandatory"></td>
           <td>{{data.semester}}</td>
           <td>{{data.cfu}}</td>
           <td>{{data.name}} </td>
           <td><cite>{{data.professorEmail}}</cite></td>
-        </tr>
+        </tr>       
       </tbody>
     </table>
     <!--QUARTO ANNO -->
     <table ng-hide="vm.fourthYear.length === 0">
-      <caption>Attività didattiche - Anno di corso 3</caption>
+      <caption>Attività didattiche - Anno di corso 4 <span>{{(vm.parseInt(vm.user.entryYear) + 3) + '/'      
+        + (vm.parseInt(vm.user.entryYear) + 4) }}</span></caption>
       <thead>
         <tr>
           <th scope="col">Descrizione</th>
+          <th scope="col">Attività Obbligatoria</th>
           <th scope="col">Semestre</th>
           <th scope="col">Crediti Attività</th>
           <th scope="col"> Docente</th>
@@ -139,6 +153,8 @@
       <tbody>
         <tr ng-repeat="data in vm.fourthYear">
           <td>{{data.subject}}</td>
+          <td ng-show="data.mandatory"> <img src="../content/img/check_green.png" alt=""></td>
+          <td ng-hide="data.mandatory"></td>
           <td>{{data.semester}}</td>
           <td>{{data.cfu}}</td>
           <td>{{data.name}} </td>
@@ -148,10 +164,12 @@
     </table>
     <!--QUINTO ANNO -->
     <table ng-hide="vm.fifthYear.length === 0">
-      <caption>Attività didattiche - Anno di corso 3</caption>
+      <caption>Attività didattiche - Anno di corso 5 <span>{{(vm.parseInt(vm.user.entryYear) + 4) + '/'      
+        + (vm.parseInt(vm.user.entryYear) + 5) }}</span></caption>
       <thead>
         <tr>
           <th scope="col">Descrizione</th>
+          <th scope="col">Attività Obbligatoria</th>
           <th scope="col">Semestre</th>
           <th scope="col">Crediti Attività</th>
           <th scope="col"> Docente</th>
@@ -162,6 +180,8 @@
       <tbody>
         <tr ng-repeat="data in vm.fifthYear">
           <td>{{data.subject}}</td>
+          <td ng-show="data.mandatory"> <img src="../content/img/check_green.png" alt=""></td>
+          <td ng-hide="data.mandatory"></td>
           <td>{{data.semester}}</td>
           <td>{{data.cfu}}</td>
           <td>{{data.name}} </td>
@@ -197,9 +217,8 @@
       <ul class="chartList">
         <li class="chartList"> <b>Totale iscritti</b>: &nbsp {{vm.totStudents}}</li>
         <li class="chartList">Iscritti alla facoltà di <b>Informatica</b>: &nbsp {{vm.informatica}}</li>
-        <li class="chartList">Iscritti alla facoltà di <b>Farmacia</b>: &nbsp {{vm.farmacia}}</li>
+        <li class="chartList">Iscritti alla facoltà di <b>Chimica</b>: &nbsp {{vm.chimica}}</li>
         <li class="chartList">Iscritti alla facoltà di <b>Fisica</b>: &nbsp {{vm.fisica}}</li>
-        <li class="chartList">Iscritti alla facoltà di <b>Giurisprudenza</b>: &nbsp {{vm.giurisprudenza}}</li>
       </ul>
     </div>
 
@@ -208,25 +227,42 @@
 
   <!-- Elenco corsi docente -->
   <div class="row" ng-show="vm.user.usertype === 'docente'">
-    <table ng-show="!vm.isProfessorCoursesEmpty()">
-      <caption>Corsi Attivi</caption>
-      <thead>
-        <tr>
-          <th scope="col">Descrizione</th>
-          <th scope="col">Crediti Attività</th>
-          <th scope="col">Semestre</th>
-          <th scope="col">Anno Accademico</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr ng-repeat="data in vm.professorCourses">
-          <td>{{data.subject}}</td>
-          <td>{{data.cfu}}</td>
-          <td>{{data.semester}}</td>
-          <td>{{data.academicYear}}</td>
-        </tr>
-      </tbody>
-    </table>
+    <div id="tableContainer">
+      <table ng-show="!vm.isProfessorCoursesEmpty()">
+
+        <caption>
+          Corsi Attivi
+          <div class="search">
+            <span class="glyphicon glyphicon-search"> </span>
+            <input type="text" class="form-control" name="filterEntryYear" id="filterEntryYear" class="form-control" placeholder="Coorte"
+              ng-model="vm.filterEntryYear">
+          </div>
+        </caption>
+
+        <thead>
+          <tr>
+            <th scope="col">Descrizione</th>
+            <th scope="col">Corso di Studi</th>
+            <th scope="col">Crediti Attività</th>
+            <th scope="col">Semestre</th>
+            <th scope="col">Coorte</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="data in vm.professorCourses" ng-show="vm.checkCorrespondence(data._id.entryYear)">
+            <td>{{data._id.subject}}</td>
+            <td ng-show="data.faculties.length === 1"> {{data.faculties[0]}} </td>
+            <td ng-show="data.faculties.length === 2"> {{data.faculties[0]}} <br> {{data.faculties[1]}} </td>
+            <td ng-show="data.faculties.length === 3"> {{data.faculties[0]}} <br> {{data.faculties[1]}} <br> {{data.faculties[2]}} </td>
+            <td>{{data.cfu}}</td>
+            <td>{{data.semester}}</td>
+            <td>{{data._id.entryYear}}</td>
+          </tr>
+        </tbody>
+
+
+      </table>
+    </div>
 
     <p ng-show="vm.isProfessorCoursesEmpty()" class="courses">
       Nessun corso attualmente attivo.
@@ -266,7 +302,7 @@
             <li> <a href="profile"> Profilo </a> </li>
             <li ng-show="vm.user.usertype === 'admin'"> <a href="register"> Registrazione </a> </li>
             <li ng-show="vm.user.usertype === 'admin'"> <a href="usersManagement"> Gestione Utenti e Account </a> </li>
-            <li ng-show="vm.user.usertype === 'admin'"> <a href="plan"> Gestione Piano di Studi </a> </li>  
+            <li ng-show="vm.user.usertype === 'admin'"> <a href="plan"> Gestione Piano di Studi </a> </li>
           </ul>
         </div>
 

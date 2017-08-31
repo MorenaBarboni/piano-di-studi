@@ -21,12 +21,16 @@ var courseSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
-  academicYear: {
+  entryYear: {
     type: String,
     required: true
   },
   professorEmail: {
     type: String,
+    required: true
+  },
+  mandatory: {
+    type: Boolean,
     required: true
   }
 });

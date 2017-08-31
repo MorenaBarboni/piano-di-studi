@@ -11,8 +11,9 @@ module.exports.addCourse = function(req, res) {
   course.year = req.body.year;
   course.semester = req.body.semester;
   course.cfu = req.body.cfu;
-  course.academicYear = req.body.academicYear;
+  course.entryYear = req.body.entryYear;
   course.professorEmail = req.body.professorEmail;
+  course.mandatory = req.body.mandatory;
 
   course.save(function(err) {
     res.status(200);
@@ -62,7 +63,8 @@ module.exports.getAllPlanInfo = function(req, res) {
             semester: 1,
             cfu: 1,
             professorEmail: 1,
-            academicYear: 1,
+            entryYear: 1,
+            mandatory: 1,
             name: "$professor_info.name"
           }
         },
@@ -108,7 +110,7 @@ module.exports.getStudentPlan = function(req, res) {
             $and: [
               {
                 faculty: req.payload.faculty,
-                academicYear: req.payload.entryYear
+                entryYear: req.payload.entryYear
               }
             ]
           }
@@ -122,6 +124,7 @@ module.exports.getStudentPlan = function(req, res) {
             semester: 1,
             cfu: 1,
             professorEmail: 1,
+            mandatory: 1,
             name: "$plan_info.name"
           }
         },
@@ -163,13 +166,24 @@ module.exports.getProfessorCoursesInfo = function(req, res) {
             $and: [{ professorEmail: req.params.email }]
           }
         },
-
         {
           $project: {
             subject: 1,
             semester: 1,
             cfu: 1,
-            academicYear: 1
+            entryYear: 1,
+            faculty: 1
+          }
+        },
+        {
+          $group: {
+            _id: {
+              subject: "$subject",
+              entryYear: "$entryYear"
+            },
+            cfu: { $first: "$cfu" },
+            semester: { $first: "$semester" },
+            faculties: { $push: "$faculty" }
           }
         },
         {
@@ -177,6 +191,7 @@ module.exports.getProfessorCoursesInfo = function(req, res) {
         }
       ],
       function(err, data) {
+        console.log(data);
         res.send(data);
       }
     );

@@ -15,8 +15,7 @@
 
     vm.totStudents = 0; //numero totale iscritti -- admin
     vm.informatica = 0; //numero totale iscritti informatica -- admin
-    vm.farmacia = 0; //numero totale iscritti  farmacia -- admin
-    vm.giurisprudenza = 0; //numero totale iscritti giurisprudenza -- admin
+    vm.chimica = 0; //numero totale iscritti  chimica -- admin
     vm.fisica = 0; //numero totale iscritti fisica  -- admin
 
     //Corsi suddivisi per anno
@@ -25,6 +24,8 @@
     vm.thirdYear = [];
     vm.fourthYear = [];
     vm.fifthYear = [];
+
+    vm.filterEntryYear = 2016;
 
     //Grafico
     vm.myDataSource = {
@@ -93,6 +94,18 @@
         });
     }
 
+    vm.parseInt = function(year) {
+      return parseInt(year);
+    };
+
+    vm.checkCorrespondence = function(year) {
+    
+      if (year.indexOf(vm.filterEntryYear) !== -1 || vm.filterSubject === "") {
+        return true;
+      }
+      return false;
+    };
+
     //Controlla se il docente ha attualmente corsi attivi
     vm.isProfessorCoursesEmpty = function() {
       if (vm.professorCourses.length === 0) {
@@ -101,6 +114,7 @@
       return false;
     };
 
+    //Controlla se c'è un piano di studi da mostrare
     vm.isPlanDataEmpty = function() {
       if (vm.planData.length === 0) {
         return true;
@@ -132,10 +146,8 @@
       for (var i = 0, len = vm.chartData.length; i < len; i++) {
         if (vm.chartData[i].faculty === "Informatica") {
           vm.informatica++;
-        } else if (vm.chartData[i].faculty === "Farmacia") {
-          vm.farmacia++;
-        } else if (vm.chartData[i].faculty === "Giurisprudenza") {
-          vm.giurisprudenza++;
+        } else if (vm.chartData[i].faculty === "Chimica") {
+          vm.chimica++;
         } else if (vm.chartData[i].faculty === "Fisica") {
           vm.fisica++;
         }
@@ -147,10 +159,10 @@
         var percInf = vm.informatica * 100 / vm.totStudents;
       }
 
-      if (vm.farmacia === 0) {
-        percFar = 0;
+      if (vm.chimica === 0) {
+        percChim = 0;
       } else {
-        var percFar = vm.farmacia * 100 / vm.totStudents;
+        var percChim = vm.chimica * 100 / vm.totStudents;
       }
 
       if (vm.fisica === 0) {
@@ -158,17 +170,10 @@
       } else {
         var percFis = vm.fisica * 100 / vm.totStudents;
       }
-
-      if (vm.giurisprudenza === 0) {
-        percGiu = 0;
-      } else {
-        var percGiu = vm.giurisprudenza * 100 / vm.totStudents;
-      }
       chartData.push(
         { label: "Informatica", value: percInf },
-        { label: "Farmacia", value: percFar },
-        { label: "Fisica", value: percFis },
-        { label: "Giurisprudenza", value: percGiu }
+        { label: "Chimica", value: percChim },
+        { label: "Fisica", value: percFis }
       );
       vm.myDataSource.data = chartData;
     }

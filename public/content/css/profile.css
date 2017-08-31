@@ -99,11 +99,21 @@ table {
   margin-bottom: 30px;
 }
 
+#tableContainer {
+  min-height: 400px;
+}
+
 caption {
+  margin-left:6px;
+  margin-top: 30px;
   font-size: 1.6em;
   font-weight: 400;
   padding: 10px 0;
   color: #cb999a;
+}
+caption span {
+  float: right;
+  margin-right: 50px;
 }
 
 thead th {
@@ -129,6 +139,11 @@ td {
   font-weight: 300;
 }
 
+td img {
+  width: 15px;
+  height: 20px;
+}
+
 tfoot tr {
   background: none;
 }
@@ -146,4 +161,33 @@ tfoot td {
 .chartInfo {
   margin-top: 30px;
   color: rgba(116, 9, 9, 0.65);
+}
+.search {
+  float: right;
+}
+.search input[type="text"] {
+  float: right;
+  height: 30px;
+  width: 200px;
+  margin-bottom: 10px;
+  margin-right: 19px;
+  outline: 0 none;
+  padding: 3px 12px 5px 5px;
+  font-size: 16px;
+  line-height: 15px;
+  border: 1px solid #dadada;
+  color: #c47d86;
+  box-shadow: inset 0px 1px 4px #ececec;
+  -moz-box-shadow: inset 0px 1px 4px #ececec;
+  -webkit-box-shadow: inset 0px 1px 4px #ececec;
+  transition: 0.1s;
+}
+.search input[type="text"]:focus {
+  border: 1px solid #918c8b;
+}
+
+.search span {
+  margin-top: 7px;
+  margin-right: 10px;
+  font-size: 14px;
 }

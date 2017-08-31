@@ -19,48 +19,32 @@
       semester: "",
       cfu: "",
       professorEmail: "",
-      academicYear: ""
+      entryYear: "",
+      mandatory: ""
     };
 
     //Filtri per i dati da mostrare
     vm.filter = {
       filterFaculty: "Informatica",
       filterYear: "1",
-      filterAcademicYear: "2017"
+      filterEntryYear: "2016"
     };
-
-    //Controllano la visibilità dei dati nella tabella
-    vm.visibleRows = 0;
-    vm.checks = 0;
 
     //Determina quali righe della tabella filtrare e controlla se c'è almeno
     //una riga da mostrare
 
-    vm.checkCorrespondence = function(faculty, academicYear, year) {
-      vm.filter.filterFaculty =
-        vm.filter.filterFaculty.charAt(0).toUpperCase() +
-        vm.filter.filterFaculty.slice(1);
-
+    vm.show = function(faculty, entryYear, year) {
       if (
-        faculty === vm.filter.filterFaculty &&
-        academicYear === vm.filter.filterAcademicYear &&
-        (year === Number(vm.filter.filterYear) || vm.filter.filterYear === "")
+        faculty.indexOf(vm.filter.filterFaculty) !== -1 &&
+        vm.filter.filterFaculty !== "" &&
+        entryYear.indexOf(vm.filter.filterEntryYear) !== -1 &&
+        vm.filter.filterEntryYear !== "" &&
+        year.toString().indexOf(vm.filter.filterYear) !== -1 &&
+        vm.filter.filterYear !== ""
       ) {
-        if (vm.checks === vm.courses.length) {
-          vm.checks = 0;
-          vm.visibleRows = 0;
-        }
-        vm.checks = vm.checks + 1;
-        vm.visibleRows = vm.visibleRows + 1;
         return true;
-      } else {
-        if (vm.checks === vm.courses.length) {
-          vm.checks = 0;
-          vm.visibleRows = 0;
-        }
-        vm.checks = vm.checks + 1;
-        return false;
       }
+      return false;
     };
 
     vm.onSubmit = function() {
@@ -97,11 +81,11 @@
       keys = [];
       var i = 0;
       angular.forEach(vm.courses, function(value) {
-        var key = vm.courses[i].academicYear;
+        var key = vm.courses[i].entryYear;
         i++;
         if (keys.indexOf(key) === -1) {
           keys.push(key);
-          vm.academicYears.push(value.academicYear);
+          vm.entryYear.push(value.entryYear);
         }
       });
     }

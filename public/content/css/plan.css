@@ -13,8 +13,7 @@ body {
 #container {
   margin-left: auto;
   margin-right: auto;
-  width: 960px;
-  min-width: 960px;
+  max-width: 1000px;
 }
 
 h4 {
@@ -29,14 +28,14 @@ h4 {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 50px;
-  margin-top: 28px;
+  margin-top: 60px;
   max-width: 500px;
   background: white;
   padding: 25px 15px 25px 10px;
   font: 14px Arial, Helvetica, Verdana, Sans-serif;
   color: #888;
   text-shadow: 1px 1px 1px #fff;
-}
+  }
 .form-style h1 {
   font-size: 27px;
   padding: 0px 0px 10px 40px;
@@ -109,12 +108,12 @@ h4 {
 }
 
 .form-style select {
-  background: #fff url('../img/arrow.png') no-repeat right;
+  background: #fff url("../img/arrow.png") no-repeat right;
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
   text-indent: 0.01px;
-  text-overflow: '';
+  text-overflow: "";
   width: 90%;
   height: 35px;
   line-height: 25px;
@@ -139,7 +138,7 @@ h4 {
 #table {
   float: right;
   display: table;
-  width: 550px;
+  width: 580px;
   background: #fff;
   margin: 0;
   box-sizing: border-box;
@@ -150,14 +149,14 @@ h4 {
   float: right;
   text-align: right;
   display: block;
-  width: 550px;
+  width: 580px;
   background: #84c5ce;
   height: 75px;
   padding-right: 20px;
   color: #fff;
   font-size: 20px;
   line-height: 28px;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, .3);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
   box-sizing: border-box;
   box-shadow: 5px 5px 30px 2px #e6e6e6;
 }
@@ -166,9 +165,9 @@ h4 {
   font-size: 14px;
 }
 
-.caption  input[type="text"] {
+.caption input[type="text"] {
   height: 30px;
-  width: 100px;
+  width: 90px;
   outline: 0 none;
   padding: 3px 12px 5px 5px;
   margin: 0;
@@ -212,6 +211,11 @@ h4 {
   border-bottom: 1px solid #e5e5e5;
   text-align: center;
 }
+
+.cell img {
+  width: 15px;
+  height: 18px;
+}
 .cellDelete {
   display: table-cell;
   background-image: url("../img/delete-grey-sm.png");
@@ -230,7 +234,11 @@ h4 {
   text-align: left;
 }
 
-input[type="radio"],
-input[type="checkbox"] {
+input[type="radio"] {
   display: none;
+}
+.form-style input[type="checkbox"] {
+  -webkit-appearance: checkbox;
+  height: 20px;
+  width: 20px;
 }

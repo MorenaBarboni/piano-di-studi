@@ -1,0 +1,663 @@
+[
+  {
+    "cfu": 6,
+    "semester": 1,
+    "year": 1,
+    "subject": "Logica Matematica",
+    "faculty": "Informatica",
+    "entryYear": "2016",
+    "professorEmail": "anna.doe@gmail.com",
+    "mandatory": true
+  },
+  {
+    "cfu": 6,
+    "semester": 1,
+    "year": 1,
+    "subject": "Inglese - Livello B1",
+    "faculty": "Informatica",
+    "entryYear": "2016",
+    "professorEmail": "sonia.doe@gmail.com",
+    "mandatory": true
+  },
+  {
+    "cfu": 6,
+    "semester": 1,
+    "year": 1,
+    "subject": "Analisi",
+    "faculty": "Informatica",
+    "entryYear": "2016",
+    "professorEmail": "mark.doe@gmail.com",
+    "mandatory": true
+  },
+  {
+    "cfu": 6,
+    "semester": 1,
+    "year": 1,
+    "subject": "Finanza Comunitaria",
+    "faculty": "Informatica",
+    "entryYear": "2016",
+    "professorEmail": "anna.doe@gmail.com",
+    "mandatory": false
+  },
+  {
+    "cfu": 12,
+    "semester": 1,
+    "year": 1,
+    "subject": "Programmazione",
+    "faculty": "Informatica",
+    "entryYear": "2016",
+    "professorEmail": "frank.doe@gmail.com",
+    "mandatory": true
+  },
+  {
+    "cfu": 6,
+    "semester": 2,
+    "year": 1,
+    "subject": "Diritto delle Nuove Tecnologie",
+    "faculty": "Informatica",
+    "entryYear": "2016",
+    "professorEmail": "anna.doe@gmail.com",
+    "mandatory": true
+  },
+  {
+    "cfu": 6,
+    "semester": 2,
+    "year": 1,
+    "subject": "Fondamenti di Informatica",
+    "faculty": "Informatica",
+    "entryYear": "2016",
+    "professorEmail": "frank.doe@gmail.com",
+    "mandatory": true
+  },
+  {
+    "cfu": 6,
+    "semester": 2,
+    "year": 1,
+    "subject": "Algebra Lineare",
+    "faculty": "Informatica",
+    "entryYear": "2016",
+    "professorEmail": "mark.doe@gmail.com",
+    "mandatory": true
+  },
+  {
+    "cfu": 12,
+    "semester": 2,
+    "year": 1,
+    "subject": "Architettura degli elaboratori",
+    "faculty": "Informatica",
+    "entryYear": "2016",
+    "professorEmail": "james.doe@gmail.com",
+    "mandatory": true
+  },
+  {
+    "cfu": 9,
+    "semester": 1,
+    "year": 2,
+    "subject": "Internet, Reti e Sicurezza",
+    "faculty": "Informatica",
+    "entryYear": "2016",
+    "professorEmail": "james.doe@gmail.com",
+    "mandatory": true
+  },
+  {
+    "cfu": 6,
+    "semester": 1,
+    "year": 2,
+    "subject": "Gestione dell'informazione",
+    "faculty": "Informatica",
+    "entryYear": "2016",
+    "professorEmail": "frank.doe@gmail.com",
+    "mandatory": true
+  },
+  {
+    "cfu": 12,
+    "semester": 1,
+    "year": 2,
+    "subject": "Algoritmi e Strutture Dati",
+    "faculty": "Informatica",
+    "entryYear": "2016",
+    "professorEmail": "anna.doe@gmail.com",
+    "mandatory": true
+  },
+  {
+    "cfu": 6,
+    "semester": 1,
+    "year": 2,
+    "subject": "Calcolo della Probabilità e Statistica",
+    "faculty": "Informatica",
+    "entryYear": "2016",
+    "professorEmail": "sonia.doe@gmail.com",
+    "mandatory": false
+  },
+  {
+    "cfu": 6,
+    "semester": 2,
+    "year": 2,
+    "subject": "Programmazione Web",
+    "faculty": "Informatica",
+    "entryYear": "2016",
+    "professorEmail": "anna.doe@gmail.com",
+    "mandatory": true
+  },
+  {
+    "cfu": 12,
+    "semester": 2,
+    "year": 2,
+    "subject": "Sistemi Operativi",
+    "faculty": "Informatica",
+    "entryYear": "2016",
+    "professorEmail": "james.doe@gmail.com",
+    "mandatory": true
+  },
+  {
+    "cfu": 6,
+    "semester": 2,
+    "year": 2,
+    "subject": "Business e Management nell' IT",
+    "faculty": "Informatica",
+    "entryYear": "2016",
+    "professorEmail": "mark.doe@gmail.com",
+    "mandatory": true
+  },
+  {
+    "cfu": 6,
+    "semester": 2,
+    "year": 2,
+    "subject": "Programmazione C#",
+    "faculty": "Informatica",
+    "entryYear": "2016",
+    "professorEmail": "frank.doe@gmail.com",
+    "mandatory": false
+  },
+  {
+    "cfu": 6,
+    "semester": 1,
+    "year": 2,
+    "subject": "Analisi Numerica",
+    "faculty": "Informatica",
+    "entryYear": "2016",
+    "professorEmail": "elena.doe@gmail.com",
+    "mandatory": false
+  },
+  {
+    "cfu": 6,
+    "semester": 1,
+    "year": 2,
+    "subject": "Ricerca Operativa",
+    "faculty": "Informatica",
+    "entryYear": "2016",
+    "professorEmail": "carl.doe@gmail.com",
+    "mandatory": false
+  },
+  {
+    "cfu": 12,
+    "semester": 1,
+    "year": 3,
+    "subject": "Ingegneria del Software",
+    "faculty": "Informatica",
+    "entryYear": "2016",
+    "professorEmail": "frank.doe@gmail.com",
+    "mandatory": true
+  },
+  {
+    "cfu": 12,
+    "semester": 1,
+    "year": 3,
+    "subject": "Networking Fundamentals",
+    "faculty": "Informatica",
+    "entryYear": "2016",
+    "professorEmail": "james.doe@gmail.com",
+    "mandatory": false
+  },
+  {
+    "cfu": 12,
+    "semester": 2,
+    "year": 3,
+    "subject": "IT Security",
+    "faculty": "Informatica",
+    "entryYear": "2016",
+    "professorEmail": "anna.doe@gmail.com",
+    "mandatory": false
+  },
+  {
+    "cfu": 6,
+    "semester": 2,
+    "year": 3,
+    "subject": "Distributed Systems",
+    "faculty": "Informatica",
+    "entryYear": "2016",
+    "professorEmail": "frank.doe@gmail.com",
+    "mandatory": false
+  },
+  {
+    "cfu": 12,
+    "semester": 1,
+    "year": 1,
+    "subject": "Analisi Matematica I",
+    "faculty": "Fisica",
+    "entryYear": "2016",
+    "professorEmail": "mark.doe@gmail.com",
+    "mandatory": true
+  },
+  {
+    "cfu": 6,
+    "semester": 1,
+    "year": 1,
+    "subject": "Inglese - Livello B1",
+    "faculty": "Fisica",
+    "entryYear": "2016",
+    "professorEmail": "sonia.doe@gmail.com",
+    "mandatory": true
+  },
+  {
+    "cfu": 6,
+    "semester": 1,
+    "year": 1,
+    "subject": "Chimica",
+    "faculty": "Fisica",
+    "entryYear": "2016",
+    "professorEmail": "tom.doe@gmail.com",
+    "mandatory": true
+  },
+  {
+    "cfu": 12,
+    "semester": 1,
+    "year": 1,
+    "subject": "Geometria",
+    "faculty": "Fisica",
+    "entryYear": "2016",
+    "professorEmail": "mara.doe@gmail.com",
+    "mandatory": true
+  },
+  {
+    "cfu": 15,
+    "semester": 2,
+    "year": 1,
+    "subject": "Meccanica e Termodinamica",
+    "faculty": "Fisica",
+    "entryYear": "2016",
+    "professorEmail": "tom.doe@gmail.com",
+    "mandatory": true
+  },
+  {
+    "cfu": 9,
+    "semester": 2,
+    "year": 1,
+    "subject": "Tecniche di misura e trattamento dati",
+    "faculty": "Fisica",
+    "entryYear": "2016",
+    "professorEmail": "elena.doe@gmail.com",
+    "mandatory": true
+  },
+  {
+    "cfu": 9,
+    "semester": 1,
+    "year": 2,
+    "subject": "Analisi Matematica II",
+    "faculty": "Fisica",
+    "entryYear": "2016",
+    "professorEmail": "mark.doe@gmail.com",
+    "mandatory": true
+  },
+  {
+    "cfu": 9,
+    "semester": 2,
+    "year": 2,
+    "subject": "Calcolo Numerico e Programmazione",
+    "faculty": "Fisica",
+    "entryYear": "2016",
+    "professorEmail": "elena.doe@gmail.com",
+    "mandatory": true
+  },
+  {
+    "cfu": 9,
+    "semester": 1,
+    "year": 2,
+    "subject": "Elettromagnetismo",
+    "faculty": "Fisica",
+    "entryYear": "2016",
+    "professorEmail": "mara.doe@gmail.com",
+    "mandatory": true
+  },
+  {
+    "cfu": 6,
+    "semester": 1,
+    "year": 2,
+    "subject": "Analisi Numerica",
+    "faculty": "Fisica",
+    "entryYear": "2016",
+    "professorEmail": "elena.doe@gmail.com",
+    "mandatory": false
+  },
+  {
+    "cfu": 6,
+    "semester": 2,
+    "year": 2,
+    "subject": "Fenomeni Ondulatori",
+    "faculty": "Fisica",
+    "entryYear": "2016",
+    "professorEmail": "mara.doe@gmail.com",
+    "mandatory": true
+  },
+  {
+    "cfu": 9,
+    "semester": 2,
+    "year": 2,
+    "subject": "Laboratorio di Elettronica Analogica",
+    "faculty": "Fisica",
+    "entryYear": "2016",
+    "professorEmail": "carl.doe@gmail.com",
+    "mandatory": true
+  },
+  {
+    "cfu": 12,
+    "semester": 2,
+    "year": 2,
+    "subject": "Metodi Matematici della Fisica",
+    "faculty": "Fisica",
+    "entryYear": "2016",
+    "professorEmail": "tom.doe@gmail.com",
+    "mandatory": true
+  },
+  {
+    "cfu": 9,
+    "semester": 1,
+    "year": 3,
+    "subject": "Laboratorio di Elettronica Digitale",
+    "faculty": "Fisica",
+    "entryYear": "2016",
+    "professorEmail": "elena.doe@gmail.com",
+    "mandatory": true
+  },
+  {
+    "cfu": 12,
+    "semester": 1,
+    "year": 3,
+    "subject": "Meccanica Quantistica",
+    "faculty": "Fisica",
+    "entryYear": "2016",
+    "professorEmail": "tom.doe@gmail.com",
+    "mandatory": true
+  },
+  {
+    "cfu": 12,
+    "semester": 2,
+    "year": 3,
+    "subject": "Struttura della Materia",
+    "faculty": "Fisica",
+    "entryYear": "2016",
+    "professorEmail": "mara.doe@gmail.com",
+    "mandatory": true
+  },
+  {
+    "cfu": 6,
+    "semester": 2,
+    "year": 3,
+    "subject": "Acustica Applicata",
+    "faculty": "Fisica",
+    "entryYear": "2016",
+    "professorEmail": "elena.doe@gmail.com",
+    "mandatory": false
+  },
+  {
+    "cfu": 6,
+    "semester": 2,
+    "year": 3,
+    "subject": "Fisica Nucleare e Subnucleare",
+    "faculty": "Fisica",
+    "entryYear": "2016",
+    "professorEmail": "carl.doe@gmail.com",
+    "mandatory": false
+  },
+  {
+    "cfu": 6,
+    "semester": 1,
+    "year": 3,
+    "subject": "Fisica Statistica",
+    "faculty": "Fisica",
+    "entryYear": "2016",
+    "professorEmail": "mara.doe@gmail.com",
+    "mandatory": false
+  },
+  {
+    "cfu": 6,
+    "semester": 1,
+    "year": 3,
+    "subject": "Programmazione",
+    "faculty": "Fisica",
+    "entryYear": "2016",
+    "professorEmail": "frank.doe@gmail.com",
+    "mandatory": false
+  },
+  {
+    "cfu": 6,
+    "semester": 1,
+    "year": 3,
+    "subject": "Ricerca Operativa",
+    "faculty": "Fisica",
+    "entryYear": "2016",
+    "professorEmail": "carl.doe@gmail.com",
+    "mandatory": false
+  },
+  {
+    "cfu": 12,
+    "semester": 2,
+    "year": 1,
+    "subject": "Chimica Analitica I",
+    "faculty": "Chimica",
+    "entryYear": "2016",
+    "professorEmail": "joseph.doe@gmail.com",
+    "mandatory": true
+  },
+  {
+    "cfu": 6,
+    "semester": 1,
+    "year": 1,
+    "subject": "Calcolo della Probabilità e Statistica",
+    "faculty": "Chimica",
+    "entryYear": "2016",
+    "professorEmail": "sonia.doe@gmail.com",
+    "mandatory": false
+  },
+  {
+    "cfu": 6,
+    "semester": 1,
+    "year": 1,
+    "subject": "Inglese - Livello B1",
+    "faculty": "Chimica",
+    "entryYear": "2016",
+    "professorEmail": "sonia.doe@gmail.com",
+    "mandatory": true
+  },
+  {
+    "cfu": 14,
+    "semester": 1,
+    "year": 1,
+    "subject": "Chimica Generale ed Inorganica",
+    "faculty": "Chimica",
+    "entryYear": "2016",
+    "professorEmail": "joseph.doe@gmail.com",
+    "mandatory": true
+  },
+  {
+    "cfu": 6,
+    "semester": 1,
+    "year": 1,
+    "subject": "Fisica I",
+    "faculty": "Chimica",
+    "entryYear": "2016",
+    "professorEmail": "nadia.doe@gmail.com",
+    "mandatory": true
+  },
+  {
+    "cfu": 6,
+    "semester": 2,
+    "year": 1,
+    "subject": "Fisica II",
+    "faculty": "Chimica",
+    "entryYear": "2016",
+    "professorEmail": "nadia.doe@gmail.com",
+    "mandatory": true
+  },
+  {
+    "cfu": 5,
+    "semester": 1,
+    "year": 1,
+    "subject": "Informatica e Applicazioni Numeriche",
+    "faculty": "Chimica",
+    "entryYear": "2016",
+    "professorEmail": "frank.doe@gmail.com",
+    "mandatory": true
+  },
+  {
+    "cfu": 6,
+    "semester": 1,
+    "year": 1,
+    "subject": "Matematica I",
+    "faculty": "Chimica",
+    "entryYear": "2016",
+    "professorEmail": "christian.doe@gmail.com",
+    "mandatory": true
+  },
+  {
+    "cfu": 5,
+    "semester": 2,
+    "year": 1,
+    "subject": "Matematica II",
+    "faculty": "Chimica",
+    "entryYear": "2016",
+    "professorEmail": "christian.doe@gmail.com",
+    "mandatory": true
+  },
+  {
+    "cfu": 6,
+    "semester": 2,
+    "year": 2,
+    "subject": "Biochimica",
+    "faculty": "Chimica",
+    "entryYear": "2016",
+    "professorEmail": "joseph.doe@gmail.com",
+    "mandatory": true
+  },
+
+  {
+    "cfu": 12,
+    "semester": 1,
+    "year": 2,
+    "subject": "Chimica Fisica I + Laboratorio",
+    "faculty": "Chimica",
+    "entryYear": "2016",
+    "professorEmail": "nadia.doe@gmail.com",
+    "mandatory": true
+  },
+  {
+    "cfu": 12,
+    "semester": 2,
+    "year": 2,
+    "subject": "Chimica Fisica II + Laboratorio",
+    "faculty": "Chimica",
+    "entryYear": "2016",
+    "professorEmail": "nadia.doe@gmail.com",
+    "mandatory": true
+  },
+  {
+    "cfu": 12,
+    "semester": 1,
+    "year": 2,
+    "subject": "Chimica Inorganica I + Laboratorio",
+    "faculty": "Chimica",
+    "entryYear": "2016",
+    "professorEmail": "joseph.doe@gmail.com",
+    "mandatory": true
+  },
+  {
+    "cfu": 12,
+    "semester": 1,
+    "year": 2,
+    "subject": "Chimica Organica I",
+    "faculty": "Chimica",
+    "entryYear": "2016",
+    "professorEmail": "christian.doe@gmail.com",
+    "mandatory": true
+  },
+  {
+    "cfu": 4,
+    "semester": 1,
+    "year": 2,
+    "subject": "Nozioni generali di Economia",
+    "faculty": "Chimica",
+    "entryYear": "2016",
+    "professorEmail": "sonia.doe@gmail.com",
+    "mandatory": true
+  },
+  {
+    "cfu": 12,
+    "semester": 1,
+    "year": 3,
+    "subject": "Chimica Analitica II + Laboratorio",
+    "faculty": "Chimica",
+    "entryYear": "2016",
+    "professorEmail": "joseph.doe@gmail.com",
+    "mandatory": true
+  },
+  {
+    "cfu": 6,
+    "semester": 1,
+    "year": 3,
+    "subject": "Chimica degli Alimenti",
+    "faculty": "Chimica",
+    "entryYear": "2016",
+    "professorEmail": "christian.doe@gmail.com",
+    "mandatory": true
+  },
+  {
+    "cfu": 6,
+    "semester": 2,
+    "year": 3,
+    "subject": "Chimica e Tecnologia dei Materiali",
+    "faculty": "Chimica",
+    "entryYear": "2016",
+    "professorEmail": "nadia.doe@gmail.com",
+    "mandatory": true
+  },
+  {
+    "cfu": 14,
+    "semester": 2,
+    "year": 3,
+    "subject": "Chimica Organica II + Laboratorio",
+    "faculty": "Chimica",
+    "entryYear": "2016",
+    "professorEmail": "christian.doe@gmail.com",
+    "mandatory": true
+  },
+  {
+    "cfu": 6,
+    "semester": 2,
+    "year": 3,
+    "subject": "Programmazione",
+    "faculty": "Chimica",
+    "entryYear": "2016",
+    "professorEmail": "frank.doe@gmail.com",
+    "mandatory": false
+  },
+  {
+    "cfu": 6,
+    "semester": 1,
+    "year": 3,
+    "subject": "Ricerca Operativa",
+    "faculty": "Chimica",
+    "entryYear": "2016",
+    "professorEmail": "carl.doe@gmail.com",
+    "mandatory": false
+  },
+  {
+    "cfu": 6,
+    "semester": 1,
+    "year": 3,
+    "subject": "Analisi Numerica",
+    "faculty": "Chimica",
+    "entryYear": "2016",
+    "professorEmail": "elena.doe@gmail.com",
+    "mandatory": false
+  }
+]

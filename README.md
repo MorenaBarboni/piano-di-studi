@@ -18,9 +18,10 @@ Avvia il database con:
 
 ed importa i dati di prova con:
 
-`mongoimport --db pianoDiStudi --collection users --file demoUsers.json --jsonArray`
+`mongoimport --db pianoDiStudi --collection users --drop --file demoData/demoUsers.json --jsonArray`
 
-`mongoimport --db pianoDiStudi --collection courses --file demoCourses.json --jsonArray`
+` mongoimport --db pianoDiStudi --collection courses --drop --file demoData/demoCourses.json --jsonArray `
+ 
 
 Per avviare il server:
 `node server.js` oppure `nodemon`

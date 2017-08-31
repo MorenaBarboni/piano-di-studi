@@ -1,0 +1,274 @@
+[
+  {
+    "email": "admin@gmail.com",
+    "name": "First Admin",
+    "usertype": "admin",
+    "tel": "3939997777",
+    "postalCode": "62032",
+    "street": "Via Esempio 3",
+    "city": "Camerino",
+    "mat": "",
+    "faculty": "",
+    "salt": "3791da3d6871c215e88b5b31a6b9d52b",
+    "hash":
+      "d9b231ed6894ffd1f07204acd123c3be2c00886846494adeb57dd3023f0e318840aa0772eadba770b53b28299797f29b014e7658c30f08e9eaa4af33d18a7c71"
+  },
+  {
+    "name": "John Doe",
+    "email": "john.doe@gmail.com",
+    "usertype": "studente",
+    "tel": "3993333755",
+    "postalCode": "62032",
+    "street": "Via Esempio 94",
+    "city": "Camerino",
+    "mat": "000001",
+    "faculty": "Informatica",
+    "entryYear": "2016",
+    "hash":
+      "7aec2d4d82d1200eb77bac51b8e21ae723af3259ec60f95fe5d15d751580da366ec594fe0cd83acac1fd16ff3fb75531d76678393c1f8bcfe5541381fca963d7",
+    "salt": "ec7a09b9e80f07ff4e6bebcd0aab0d4f"
+  },
+  {
+    "hash":
+      "32a45a835d0f767d75bc281201a43ce04c1c6aa2ecd1c016198fb490222d62989749bde85158b55b32fd3bdc983d5c83350b5dff4a55495e7ef61d8bbe80f4ba",
+    "salt": "833d42130709e1b8f0d1605d041a5381",
+    "entryYear": "2016",
+    "tel": "3339993938",
+    "postalCode": "62032",
+    "street": "Via Esempio 5",
+    "city": "Camerino",
+    "mat": "000002",
+    "faculty": "Chimica",
+    "usertype": "studente",
+    "email": "jane.doe@gmail.com",
+    "name": "Jane Doe"
+  },
+  {
+    "hash":
+      "2743adf64ca67c8041ae377bfe961feda9594423b7471ea27984e38bf7f9b760451de0a6acfdd6ace0e2072f9daddf395e1f1250e77e1a5bbb4f5737231ea045",
+    "salt": "d4b04ecc4bcd9c79f23d45cfddba3ea8",
+    "entryYear": "2016",
+    "tel": "3339993977",
+    "postalCode": "62032",
+    "street": "Via Esempio 6",
+    "city": "Camerino",
+    "mat": "000003",
+    "faculty": "Fisica",
+    "usertype": "studente",
+    "email": "sara.doe@gmail.com",
+    "name": "Sara Doe"
+  },
+  {
+    "hash":
+      "d7f61cfc754b282a17e0c67219dfe5ceaf5ca00f7fc61c404cf31a22126197f159727ee919211e22fe2086503fcab453dcb081e4f5015756672de5a533624c50",
+    "salt": "015d037b4b67e96f04f43226181b5071",
+    "entryYear": "2017",
+    "tel": "3457898754",
+    "postalCode": "62032",
+    "street": "Via Esempio 25",
+    "city": "Camerino",
+    "mat": "000004",
+    "faculty": "Chimica",
+    "usertype": "studente",
+    "email": "paul.doe@gmail.com",
+    "name": "Paul Doe"
+  },
+  {
+    "hash":
+      "fbea85dd3d2f251eb7210eb4e715f0b70438ee9e61c1be99e25483354c66b2a080fead93b11885a0e6f48dd81df9b64021deef71a69f4fe6519c6078894e250f",
+    "salt": "b15f18595b15175b5c9b338023cdf3ea",
+    "entryYear": "2017",
+    "tel": "3367844657",
+    "postalCode": "62032",
+    "street": "Via Esempio 44",
+    "city": "Camerino",
+    "mat": "000005",
+    "faculty": "Fisica",
+    "usertype": "studente",
+    "email": "ben.doe@gmail.com",
+    "name": "Ben Doe"
+  },
+  {
+    "hash":
+      "4f985e480f6a06f1e1112a8d664df73a3b76606de24c5857e635a8f0204cdaf3b745b27bab61e1bae989f21251da8cd0d9b2be8d3c6589325d462f698c2985d7",
+    "salt": "425961ae60a9b9a7cbdf7e0e876ea086",
+    "entryYear": "2017",
+    "tel": "3675849667",
+    "postalCode": "62032",
+    "street": "Via Esempio 45",
+    "city": "Camerino",
+    "mat": "000006",
+    "faculty": "Informatica",
+    "usertype": "studente",
+    "email": "carol.doe@gmail.com",
+    "name": "Carol Doe"
+  },
+  {
+    "hash":
+      "864f782a67c5a19dd6a7d88212d697fc8b75cb0d4a9461e896e40030b5ec9d1d837717ed1622093df358c8a9d0c24a44d23edd597a7b0a9aa572b95dd71684af",
+    "salt": "92aaaf970e588084c030cf2c66ba259e",
+    "tel": "3339993955",
+    "postalCode": "62032",
+    "street": "Via Esempio 10",
+    "city": "Camerino",
+    "mat": "",
+    "faculty": "Informatica",
+    "usertype": "docente",
+    "email": "frank.doe@gmail.com",
+    "name": "Frank Doe"
+  },
+  {
+    "hash":
+      "222a4ee88079d7f6d74c0baec9197327e15531f1f72abe77501cec38a09d94100e7eeada0267e85e95366928cf0f696ee89cb405749125ff3b0eba3b633c5647",
+    "salt": "372242837c6b0bbd1960151aba245576",
+    "tel": "3339993944",
+    "postalCode": "62032",
+    "street": "Via Esempio 11",
+    "city": "Camerino",
+    "mat": "",
+    "faculty": "Informatica",
+    "usertype": "docente",
+    "email": "mark.doe@gmail.com",
+    "name": "Mark Doe"
+  },
+  {
+    "hash":
+      "df205fa5b4428e1d6c5a00b460938e9464d96b0167dbc7e4046cdba3b19a4b9f09598bd062261cccb3bf7853f6c61fda3ba4927de3da6d3837904930c47c8b85",
+    "salt": "e9b624188431d9a76dd35328e54fa7f5",
+    "tel": "3339993933",
+    "postalCode": "62032",
+    "street": "Via Esempio 12",
+    "city": "Camerino",
+    "mat": "",
+    "faculty": "Informatica",
+    "usertype": "docente",
+    "email": "anna.doe@gmail.com",
+    "name": "Anna Doe"
+  },
+  {
+    "hash":
+      "2c8409b772f53e1396564614f81b43f7888c08177e6e1df6012215ae17063f1477cdbf3461de44f367ab5f3cdc834278ab71b45d27a992474efaf1a619b73379",
+    "salt": "e1aed238ac2f09eb289bc0d7d0fd0a17",
+    "tel": "3339993555",
+    "postalCode": "62032",
+    "street": "Via Esempio 15",
+    "city": "Camerino",
+    "mat": "",
+    "faculty": "Informatica",
+    "usertype": "docente",
+    "email": "james.doe@gmail.com",
+    "name": "James Doe"
+  },
+  {
+    "hash":
+      "d87652253c7293558ea9845572bb529b037c9d3fad796f570a845cb03d6ed2bf2e7d2e2f30abb120fa36eaefb24e48d40c7e857a09c78d0707d6b57968b524c2",
+    "salt": "7384ebb6f8d2b33b8a62bbd5d8b30558",
+    "tel": "3337788456",
+    "postalCode": "62025",
+    "street": "Via Esempio 78",
+    "city": "Camerino",
+    "mat": "",
+    "faculty": "Fisica",
+    "usertype": "docente",
+    "email": "tom.doe@gmail.com",
+    "name": "Tom Doe"
+  },
+  {
+    "hash":
+      "6f01fdcce07e15e552057089090f3f722224f83c61c5ed73738d42e9b9e41e2d82117c4d6c16fda51c911e4345d3469305e4f951355dfca190f8f3b45a5665e7",
+    "salt": "66235cee15785829b5151355ccb7302c",
+    "tel": "3773899376",
+    "postalCode": "62032",
+    "street": "Via Esempio 35",
+    "city": "Camerino",
+    "mat": "",
+    "faculty": "Fisica",
+    "usertype": "docente",
+    "email": "elena.doe@gmail.com",
+    "name": "Elena Doe"
+  },
+  {
+    "hash":
+      "34abe6ee308f9029b5fc8282524bf7cdb35a8069a003528681256d511b3054f259a0836d090655d6191153ac367ef0cd14a25ea84b3922ca31517b835fb09a87",
+    "salt": "3584b8ea98d8d36d672a0ce08b34cab3",
+    "tel": "3347697564",
+    "postalCode": "62032",
+    "street": "Via Esempio 84",
+    "city": "Camerino",
+    "mat": "",
+    "faculty": "Fisica",
+    "usertype": "docente",
+    "email": "mara.doe@gmail.com",
+    "name": "Mara Doe"
+  },
+  {
+    "hash":
+      "125f8bd410deb461c4df2cbfe7fc12bcbfbc875bea2c5ac1e0f9ad0d249a22b50792a5a953de08d00dbc230e0268be0cae285161fa0ad3c1ea908c3883a06902",
+    "salt": "519adf4ab560863e9ecb64699997fce3",
+    "tel": "3567583376",
+    "postalCode": "62032",
+    "street": "Via Esempio 44",
+    "city": "Camerino",
+    "mat": "",
+    "faculty": "Fisica",
+    "usertype": "docente",
+    "email": "carl.doe@gmail.com",
+    "name": "Carl Doe"
+  },
+  {
+    "hash":
+      "681bf8387085944b9a3e506693b54fc40420a5e885e445c41ebacc569562dcc43ab7680a03dc60f585d1488b23580243eb834861c1e795b496b8bffb95c99eb8",
+    "salt": "c20240738fd653080d0414860f1bede8",
+    "tel": "3657898745",
+    "postalCode": "62032",
+    "street": "Via Esempio 55",
+    "city": "Camerino",
+    "mat": "",
+    "faculty": "Chimica",
+    "usertype": "docente",
+    "email": "joseph.doe@gmail.com",
+    "name": "Joseph Doe"
+  },
+  {
+    "hash":
+      "63c3405471bad4bf8cc8ae243b0f798d798b061c26b1e0b78cfa4a3b6efc98149d41cf4eeb18d67e031af52da3c7a3782e2433e7fdcb02ccaa57b27dd858f2ed",
+    "salt": "e6bcfffc2b2b54442761d3107f8ddf3f",
+    "tel": "3567451178",
+    "postalCode": "62032",
+    "street": "Via Esempio 78",
+    "city": "Camerino",
+    "mat": "",
+    "faculty": "Chimica",
+    "usertype": "docente",
+    "email": "nadia.doe@gmail.com",
+    "name": "Nadia Doe"
+  },
+  {
+    "hash":
+      "67cff6144bf1376fc47042d4429ea5fe92886b204d5005305539aa780eb71f008584392a8eef503474efb540c1f645a967af94b4b20a080667eee211da5d61ba",
+    "salt": "c124d62daf2c4aa4e4dfe0c03db256f2",
+    "tel": "3564786763",
+    "postalCode": "62032",
+    "street": "Via Esempio 34",
+    "city": "Camerino",
+    "mat": "",
+    "faculty": "Chimica",
+    "usertype": "docente",
+    "email": "christian.doe@gmail.com",
+    "name": "Christian Doe"
+  },
+  {
+    "hash":
+      "e1ded817db3d336a4c32304ee4c9fc33add28cacfc93de34aa3089dcc53cbab3c038a0b4c2c4e5f9d91a601151c2194830985b63caf2763ccff0bcd0e73538ab",
+    "salt": "ffe5e3304e4c8e2b803710ac015d8b4b",
+    "tel": "3546789367",
+    "postalCode": "62032",
+    "street": "Via Esempio 63",
+    "city": "Camerino",
+    "mat": "",
+    "faculty": "Chimica",
+    "usertype": "docente",
+    "email": "sonia.doe@gmail.com",
+    "name": "Sonia Doe"
+  }
+]

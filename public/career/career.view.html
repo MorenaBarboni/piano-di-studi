@@ -1,0 +1,332 @@
+<html>
+
+<head>
+    <link href="../content/css/career.css" rel="stylesheet" type="text/css">
+    <link href="../content/css/footer.css" rel="stylesheet" type="text/css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+
+<navigation></navigation>
+
+<body>
+
+
+    <div class="container">
+        <h2>Carriera</h2>
+
+        <div class="row">
+            <div class="col-md-9">
+                <!-- Primo anno -->
+                <table ng-hide="vm.firstYear.length === 0">
+                    <caption>
+                        Primo Anno
+                    </caption>
+                    <thead>
+                        <tr>
+                            <th>Descrizione</th>
+                            <th>Crediti Attività</th>
+                            <th>Docente</th>
+                            <th>Stato</th>
+                            <th>Voto</th>
+                            <th>Data</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="data in vm.firstYear">
+                            <td>{{data.subject}}</td>
+                            <td>{{data.cfu}}</td>
+                            <td>{{data.name}}</td>
+                            <td ng-hide="data.registered === true"><img src="../content/img/circle-red.png" class="circle-icon"></td>
+                            <td ng-show="data.registered === true"><img src="../content/img/circle-green.png" class="circle-icon"></td>
+                            <td ng-hide="data.mark">-</td>
+                            <td ng-show="data.mark && data.mark!= 31">{{data.mark}}/30</td>
+                            <td ng-show="data.mark === 31">30 e Lode</td>
+                            <td ng-hide="data.registered === true">-</td>
+                            <td ng-show="data.registered === true">{{data.examDate}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- Secondo anno -->
+                <table ng-hide="vm.secondYear.length === 0">
+                    <caption>
+                        Secondo Anno
+                    </caption>
+                    <thead>
+                        <tr>
+                            <th>Descrizione</th>
+                            <th>Crediti Attività</th>
+                            <th>Docente</th>
+                            <th>Stato</th>
+                            <th>Voto</th>
+                            <th>Data</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="data in vm.secondYear">
+                            <td>{{data.subject}}</td>
+                            <td>{{data.cfu}}</td>
+                            <td>{{data.name}}</td>
+                            <td ng-hide="data.registered === true"><img src="../content/img/circle-red.png" class="circle-icon"></td>
+                            <td ng-show="data.registered === true"><img src="../content/img/circle-green.png" class="circle-icon"></td>
+                            <td ng-hide="data.mark">-</td>
+                            <td ng-show="data.mark && data.mark!= 31">{{data.mark}}/30</td>
+                            <td ng-show="data.mark === 31">30 e Lode</td>
+                            <td ng-hide="data.registered === true">-</td>
+                            <td ng-show="data.registered === true">{{data.examDate}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- Terzo anno -->
+                <table ng-hide="vm.thirdYear.length === 0">
+                    <caption>
+                        Terzo Anno
+                    </caption>
+                    <thead>
+                        <tr>
+                            <th>Descrizione</th>
+                            <th>Crediti Attività</th>
+                            <th>Docente</th>
+                            <th>Stato</th>
+                            <th>Voto</th>
+                            <th>Data</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="data in vm.thirdYear">
+                            <td>{{data.subject}}</td>
+                            <td>{{data.cfu}}</td>
+                            <td>{{data.name}}</td>
+                            <td ng-hide="data.registered === true"><img src="../content/img/circle-red.png" class="circle-icon"></td>
+                            <td ng-show="data.registered === true"><img src="../content/img/circle-green.png" class="circle-icon"></td>
+                            <td ng-hide="data.mark">-</td>
+                            <td ng-show="data.mark && data.mark!= 31">{{data.mark}}/30</td>
+                            <td ng-show="data.mark === 31">30 e Lode</td>
+                            <td ng-hide="data.registered === true">-</td>
+                            <td ng-show="data.registered === true">{{data.examDate}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- Quarto anno -->
+                <table ng-hide="vm.fourthYear.length === 0">
+                    <caption>
+                        Quarto Anno
+                    </caption>
+                    <thead>
+                        <tr>
+                            <th>Descrizione</th>
+                            <th>Crediti Attività</th>
+                            <th>Docente</th>
+                            <th>Stato</th>
+                            <th>Voto</th>
+                            <th>Data</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="data in vm.thirdYear">
+                            <td>{{data.subject}}</td>
+                            <td>{{data.cfu}}</td>
+                            <td>{{data.name}}</td>
+                            <td ng-hide="data.registered === true"><img src="../content/img/circle-red.png" class="circle-icon"></td>
+                            <td ng-show="data.registered === true"><img src="../content/img/circle-green.png" class="circle-icon"></td>
+                            <td ng-hide="data.mark">-</td>
+                            <td ng-show="data.mark && data.mark!= 31">{{data.mark}}/30</td>
+                            <td ng-show="data.mark === 31">30 e Lode</td>
+                            <td ng-hide="data.registered === true">-</td>
+                            <td ng-show="data.registered === true">{{data.examDate}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- Quinto anno -->
+                <table ng-hide="vm.fifthYear.length === 0">
+                    <caption>
+                        Quinto Anno
+                    </caption>
+                    <thead>
+                        <tr>
+                            <th>Descrizione</th>
+                            <th>Crediti Attività</th>
+                            <th>Docente</th>
+                            <th>Stato</th>
+                            <th>Voto</th>
+                            <th>Data</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="data in vm.thirdYear">
+                            <td>{{data.subject}}</td>
+                            <td>{{data.cfu}}</td>
+                            <td>{{data.name}}</td>
+                            <td ng-hide="data.registered === true"><img src="../content/img/circle-red.png" class="circle-icon"></td>
+                            <td ng-show="data.registered === true"><img src="../content/img/circle-green.png" class="circle-icon"></td>
+                            <td ng-hide="data.mark">-</td>
+                            <td ng-show="data.mark && data.mark!= 31">{{data.mark}}/30</td>
+                            <td ng-show="data.mark === 31">30 e Lode</td>
+                            <td ng-hide="data.registered === true">-</td>
+                            <td ng-show="data.registered === true">{{data.examDate}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- A scelta -->
+                <table ng-hide="vm.optional.length === 0" style="margin-bottom: 100px;">
+                    <caption>
+                        Scelta dello studente
+                    </caption>
+                    <thead>
+                        <tr>
+                            <th>Descrizione</th>
+                            <th>Crediti Attività</th>
+                            <th>Docente</th>
+                            <th>Stato</th>
+                            <th>Voto</th>
+                            <th>Data</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="data in vm.optional">
+                            <td>{{data.subject}}</td>
+                            <td>{{data.cfu}}</td>
+                            <td>{{data.name}}</td>
+                            <td ng-hide="data.registered === true"><img src="../content/img/circle-red.png" class="circle-icon"></td>
+                            <td ng-show="data.registered === true"><img src="../content/img/circle-green.png" class="circle-icon"></td>
+                            <td ng-hide="data.mark">-</td>
+                            <td ng-show="data.mark && data.mark!= 31">{{data.mark}}/30</td>
+                            <td ng-show="data.mark === 31">30 e Lode</td>
+                            <td ng-hide="data.registered === true">-</td>
+                            <td ng-show="data.registered === true">{{data.examDate}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+            <div class="col-md-3">
+                <div class="summary" style="margin-top: 58px;">
+                    <h4> Riepilogo</h4>
+                    <ul>
+                        <li>Esami Registrati: &nbsp {{vm.exams.length}} </li>
+                        <li ng-hide="vm.exams.length === 0">Media Aritmetica: &nbsp {{vm.arithmeticAvg}} </li>
+                        <li ng-show="vm.exams.length === 0">Media Aritmetica: &nbsp - </li>
+                        <li ng-hide="vm.exams.length === 0">Media Ponderata: &nbsp {{vm.weightedAvg}} </li>
+                        <li ng-show="vm.exams.length === 0">Media Ponderata: &nbsp - </li>
+                        <li>Crediti Totali: {{vm.totCfu}} </li>
+                        <li ng-hide="vm.exams.length === 0">Base di laurea: {{vm.score}} </li>
+                        <li ng-show="vm.exams.length === 0">Base di laurea: &nbsp - </li>
+                    </ul>
+                </div>
+
+                <form ng-submit="vm.getNeededAvg(vm.wantedAvg)" class="form-style" id="form-style" style="max-width: 400px;">
+                    <h4> Pianificazione</h4>
+                    <ul>
+
+                        <label for="wantedAvg">  
+                        <input type="number" min="18" max="30" class="form-control" name="wantedAvg" id="wantedAvg" 
+                                   class="form-control" ng-model="vm.wantedAvg" placeholder="Media Desiderata" required>
+                     </label>
+                    </ul>
+                    <button type="submit" class="form-control">Calcola</button>
+                    <p> Nei prossimi esami devi prendere almeno: <b> {{vm.neededAvg}} </b>
+                    </p>
+                </form>
+                <form ng-submit="vm.getExpectedAvg(vm.exMark, vm.exCfu)" class="form-style" id="form-style" style="max-width: 400px;">
+                    <h4> Proiezione Voto</h4>
+                    <ul>
+                        </label>
+                        <label for="exMark">
+                            <input type="number" min="18" max="30" class="form-control" name="exMark" id="exMark" 
+                                       class="form-control" ng-model="vm.exMark" placeholder="Voto" style="width:39%" required>
+                         </label>
+                        <label for="exCfu"> 
+                            <input type="number" min="1" class="form-control" name="exCfu" id="exCfu" 
+                                       class="form-control" ng-model="vm.exCfu" placeholder="Crediti"  style="width:39%;" required>
+                         </label>
+                    </ul>
+                    <button type="submit" class="form-control">Calcola</button>
+                    <p>Media Aritmetica: <b> {{vm.expectedArithmeticAvg}} </b> </p>
+                    <p> Media Ponderata: <b> {{vm.expectedWeightedAvg}} </b> </p>
+                    <p> Base di laurea: <b> {{vm.expectedScore}} </b> </p>
+
+                </form>
+            </div>
+        </div>
+
+
+
+        <!-- Grafico Esami -->
+        <fusioncharts ng-hide="vm.exams.length === 0" width="100%" height="400" type="column2d" dataFormat="json" dataSource="{{vm.myDataSource}}">
+        </fusioncharts>
+
+    </div>
+
+</body>
+
+<!--Footer -->
+<footer>
+    <div class="footer" id="footer">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-2  col-md-2 col-sm-4 col-xs-6">
+                    <h3> Lorem Ipsum </h3>
+                    <ul>
+                        <li> <a href="#"> Lorem Ipsum </a> </li>
+                        <li> <a href="#"> Lorem Ipsum </a> </li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+                    <h3> Lorem Ipsum </h3>
+                    <ul>
+                        <li> <a href="#"> Lorem Ipsum </a> </li>
+                        <li> <a href="#"> Lorem Ipsum </a> </li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+                    <h3> Links </h3>
+                    <ul>
+                        <li> <a href="/"> Home </a> </li>
+                        <li> <a href="profile"> Profilo </a> </li>
+                        <li ng-show="vm.user.usertype === 'admin'"> <a href="register"> Registrazione </a> </li>
+                        <li ng-show="vm.user.usertype === 'admin'"> <a href="plan"> Gestione Piano di Studi </a> </li>
+                        <li ng-show="vm.user.usertype === 'docente'"> <a href="examSession"> Gestione Appelli e Verbalizzazione </a> </li>
+                        <li ng-show="vm.user.usertype === 'studente'"> <a href="career"> Carriera </a> </li>
+                        <li ng-show="vm.user.usertype === 'studente'"> <a href="examBooking"> Prenotazione Appelli </a> </li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+                    <h3> Credits </h3>
+                    <ul>
+                        <li>
+                            Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a>
+                        </li>
+                        <li>
+                            from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+                        </li>
+                        <li>is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0"
+                                target="_blank">CC 3.0 BY</a></li>
+                    </ul>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="container">
+            <p class="pull-left"> Copyright © Footer 2017. All right reserved. </p>
+            <div class="pull-right">
+                <ul class="social">
+                    <li> <a href="#"> <i class=" fa fa-facebook">   </i> </a> </li>
+                    <li> <a href="#"> <i class="fa fa-twitter">   </i> </a> </li>
+                    <li> <a href="#"> <i class="fa fa-google-plus">   </i> </a> </li>
+                    <li> <a href="#"> <i class="fa fa-youtube">   </i> </a> </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</html>

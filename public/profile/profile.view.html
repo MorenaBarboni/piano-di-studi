@@ -41,11 +41,11 @@
           <div class="col-sm-6 col-md-8">
             <h4 class="infoTag"> Dati {{vm.user.usertype}}</h4>
 
-            <span class="infoTag" ng-show="vm.user.usertype === 'studente'">Iscritto al corso di laurea in:&nbsp; <i> {{ vm.user.faculty }}</i></span>
+            <span class="infoTag" ng-show="vm.user.usertype === 'studente'">Iscritto al corso di laurea in:&nbsp; {{ vm.user.faculty }}</span>
             <span class="infoTag" ng-show="vm.user.usertype === 'docente'">Docente della facoltà di:&nbsp;  {{ vm.user.faculty }}</span></br>
             <span class="infoTag" ng-show="vm.user.usertype === 'studente'"> Matricola:&nbsp; {{ vm.user.mat }}</span> <br/>
             <span class="infoTag" ng-show="vm.user.usertype === 'studente'"> Coorte:&nbsp; {{ vm.user.entryYear }}</span>
-
+            <span class="infoTag" ng-if="vm.user.usertype === 'studente'"> Anno di corso:&nbsp; {{ vm.getStudentYear(vm.user.entryYear) }}</span>
           </div>
         </div>
       </div>

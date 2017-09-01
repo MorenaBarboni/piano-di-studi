@@ -7,6 +7,8 @@
 
     vm.user = {};
 
+    vm.studentYear = 0; //Anno di corso a cui lo studente è iscritto
+
     vm.planData = []; //Dati piano di studi -- studente
 
     vm.professorCourses = []; //Corsi di responsabilità del docente -- docente
@@ -99,7 +101,6 @@
     };
 
     vm.checkCorrespondence = function(year) {
-    
       if (year.indexOf(vm.filterEntryYear) !== -1 || vm.filterSubject === "") {
         return true;
       }
@@ -120,6 +121,29 @@
         return true;
       }
       return false;
+    };
+
+    //Calcola l'anno di corso dello studente
+    vm.getStudentYear = function(entryYear) {
+      var entry = entryYear;
+      var currentYear = new Date().getFullYear();
+      var currentMonth = new Date().getMonth() + 1;
+
+      if (entry === currentYear.toString()) {
+        vm.studentYear = 1;
+      } else if (
+        parseInt(currentYear) === parseInt(entry) + 1 &&
+        currentMonth >= 9
+      ) {
+        vm.studentYear = 2;
+      } else if (
+        parseInt(currentYear) === parseInt(entry) + 2 &&
+        currentMonth >= 9
+      ) {
+        vm.studentYear = 3;
+      }
+
+      return vm.studentYear;
     };
 
     //Suddivide i corsi per anno

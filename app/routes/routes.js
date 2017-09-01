@@ -6,6 +6,7 @@ var auth = require("../config/authExample");
 var ctrlPlan = require("../controllers/plan");
 var ctrlProfile = require("../controllers/profile");
 var ctrlAuth = require("../controllers/authentication");
+var ctrlExam = require("../controllers/exam");
 
 // Profilo Studente, Docente o Admin
 router.get("/profile", auth, ctrlProfile.verify);
@@ -17,6 +18,9 @@ router.post("/login", ctrlAuth.login); //login utente
 
 //Piano di Studi Studente
 router.get("/studentPlan", auth, ctrlPlan.getStudentPlan); //Ottiene il piano di studi per uno studente
+
+//Carriera studente
+router.get("/career", auth, ctrlExam.getExamsByStudent); //Ottiene gli esami superati da uno studente
 
 //Corsi Docente
 router.get("/professorPlan/:email", auth, ctrlPlan.getProfessorCoursesInfo); //Ottiene tutte le informazioni sui corsi tenuti da un docente

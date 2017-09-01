@@ -28,6 +28,11 @@
         controller: "planCtrl",
         controllerAs: "vm"
       })
+      .when("/career", {
+        templateUrl: "/career/career.view.html",
+        controller: "careerCtrl",
+        controllerAs: "vm"
+      })
       .when("/usersManagement", {
         templateUrl: "/usersManagement/usersManagement.view.html",
         controller: "usersManagementCtrl",
@@ -67,6 +72,11 @@
       } else if (
         $location.path() === "/register" &&
         !authentication.isAdmin()
+      ) {
+        $location.path("/");
+      } else if (
+        $location.path() === "/career" &&
+        (!authentication.isLoggedIn() || !authentication.isStudente())
       ) {
         $location.path("/");
       } else if (

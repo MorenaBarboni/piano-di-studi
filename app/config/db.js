@@ -3,8 +3,11 @@ var url = 'mongodb://localhost/pianoDiStudi';
 
 //Models
 
-require('../models/users');
-require('../models/courses');
+require('../models/users'); //Utenti
+require('../models/courses'); //Corsi
+require('../models/exams'); //Esami Registrati
+require('../models/examSessions'); //Appelli
+require('../models/bookings'); //Prenotazioni
 
 mongoose.connect(url);
 

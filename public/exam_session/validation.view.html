@@ -1,0 +1,152 @@
+<head>
+    <link href="../content/css/validation.css" rel="stylesheet" type="text/css">
+    <link href="../content/css/footer.css" rel="stylesheet" type="text/css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<navigation></navigation>
+
+
+<div id="container">
+
+    <div class="row" style="margin-top: 50px;">
+
+        <div class="col-md-6">
+
+            <div class="well well-sm">
+                <h4 style=" margin-left: 20px;">Riepilogo Dati Appello</h4>
+                <ul class="well_ul">
+                    <li> <b>Attività:</b> &nbsp; {{vm.sessionData[0].subject}}</li>
+                    <li><b>Data:</b>&nbsp; {{vm.sessionData[0].date}}</li>
+                    <li><b>Ora:</b> &nbsp;{{vm.sessionData[0].time}}</li>
+                    <li><b>Luogo:</b> &nbsp;{{vm.sessionData[0].room}}</li>
+                    <li><b>Tipo di prova:</b> &nbsp;{{vm.sessionData[0].examType}}</li>
+                    <li><b>Numero di Iscritti:</b> &nbsp;{{vm.studentsList.length}}</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+
+            <div class="well well-sm wellRed">
+                <h4 style=" margin-left: 15px;"> <span class="glyphicon glyphicon-exclamation-sign"></span> &nbsp Verbalizzazione Appello</h4>
+                <p id="wellRed">
+                    La registrazione dell'esame può essere completata inserendo l'esito per ogni studente nel sottostante elenco degli iscritti
+                    e selezionando l'icona
+                    <i>verbalizza</i>.
+                </p>
+
+                <p style="margin-top: 20px;">
+                    <b> Assicurati di aver registrato tutti i voti prima di eliminare l'appello</b>.
+                </p>
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+    <div id="tableContainer">
+        <div ng-show="vm.isStudentsListEmpty()">
+            <h2>Nessuna Prenotazione</h2>
+        </div>
+        <div ng-hide="vm.isStudentsListEmpty()">
+
+            <div class="caption" style="margin-top:50px;">Iscritti</div>
+            <div id="table" class="page-break">
+                <div class="header-row tableRow">
+                    <span class="cell primary">Nome e Cognome</span>
+                    <span class="cell">Matricola</span>
+                    <span class="cell">Email</span>
+                    <span class="cell">Esito Prova</span>
+                    <span class="cell">Verbalizza</span>
+                </div>
+                <div class="tableRow" ng-repeat="student in vm.studentsList">
+                    <input type="radio" name="expand">
+                    <span class="cell primary" data-label="name">{{student.name}}</span>
+                    <span class="cell" data-label="mat">{{student.mat}}</span>
+                    <span class="cell" data-label="email">{{student.email}}</span>
+                    <span class="cell" ng-hide="vm.isRegistered(student.mat)"> <input type="number" id="mark" min="18" max="31" class="form-control" ng-model="vm.examData.mark" required>     </span>
+                    <span class="cell" ng-show="vm.isRegistered(student.mat)"> {{vm.isRegistered(student.mat)}} </span>
+                    <span class="cellRegister" ng-click="registerExam(vm.examData.mark, student.mat)" ng-hide="vm.isRegistered(student.mat)"></span>
+                    <span class="cell" ng-show="vm.isRegistered(student.mat)" style="color:#666">  Registrato</span>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+
+<!--Footer -->
+<footer>
+    <div class="footer" id="footer">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-2  col-md-2 col-sm-4 col-xs-6">
+                    <h3> Lorem Ipsum </h3>
+                    <ul>
+                        <li> <a href="#"> Lorem Ipsum </a> </li>
+                        <li> <a href="#"> Lorem Ipsum </a> </li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+                    <h3> Lorem Ipsum </h3>
+                    <ul>
+                        <li> <a href="#"> Lorem Ipsum </a> </li>
+                        <li> <a href="#"> Lorem Ipsum </a> </li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+                    <h3> Links </h3>
+                    <ul>
+                        <li> <a href="/"> Home </a> </li>
+                        <li> <a href="profile"> Profilo </a> </li>
+                        <li ng-show="vm.user.usertype === 'admin'"> <a href="register"> Registrazione </a> </li>
+                        <li ng-show="vm.user.usertype === 'admin'"> <a href="plan"> Gestione Piano di Studi </a> </li>
+                        <li ng-show="vm.user.usertype === 'docente'"> <a href="examSession"> Gestione Appelli e Verbalizzazione </a> </li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+                    <h3> Credits </h3>
+                    <ul>
+                        <li>
+                            Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a>
+                        </li>
+                        <li>
+                            from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+                        </li>
+                        <li>is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0"
+                                target="_blank">CC 3.0 BY</a></li>
+                    </ul>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="container">
+            <p class="pull-left"> Copyright © Footer 2017. All right reserved. </p>
+            <div class="pull-right">
+                <ul class="social">
+                    <li> <a href="#"> <i class=" fa fa-facebook">   </i> </a> </li>
+                    <li> <a href="#"> <i class="fa fa-twitter">   </i> </a> </li>
+                    <li> <a href="#"> <i class="fa fa-google-plus">   </i> </a> </li>
+                    <li> <a href="#"> <i class="fa fa-youtube">   </i> </a> </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>

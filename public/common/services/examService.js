@@ -4,6 +4,14 @@
   examService.$inject = ["$http", "$location", "authentication"];
 
   function examService($http, $location, authentication) {
+
+    //Registra l'esito di un esame
+    registerExam = function(exam) {
+      return $http.post("/api/registerExam", exam).then(function(res) {
+        return res.data;
+      });
+    };
+
     //Ottiene i dati completi degli esami superati da uno studente
     getStudentExams = function() {
       return $http
@@ -25,7 +33,8 @@
     }
 
     return {
-      getStudentExams: getStudentExams
+      getStudentExams: getStudentExams,
+      registerExam: registerExam
     };
   }
 })();

@@ -33,6 +33,16 @@
         controller: "careerCtrl",
         controllerAs: "vm"
       })
+      .when("/examSession", {
+        templateUrl: "/exam_session/examSession.view.html",
+        controller: "examSessionCtrl",
+        controllerAs: "vm"
+      })
+      .when("/examSession/validation/:sessionId", {
+        templateUrl: "/exam_session/validation.view.html",
+        controller: "validationCtrl",
+        controllerAs: "vm"
+      })
       .when("/usersManagement", {
         templateUrl: "/usersManagement/usersManagement.view.html",
         controller: "usersManagementCtrl",
@@ -77,6 +87,16 @@
       } else if (
         $location.path() === "/career" &&
         (!authentication.isLoggedIn() || !authentication.isStudente())
+      ) {
+        $location.path("/");
+      } else if (
+        $location.path() === "/examSession" &&
+        !authentication.isDocente()
+      ) {
+        $location.path("/");
+      } else if (
+        $location.path() === "/examSession/validation/:sessionId" &&
+        !authentication.isDocente()
       ) {
         $location.path("/");
       } else if (

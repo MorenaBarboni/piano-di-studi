@@ -7,6 +7,7 @@ var ctrlPlan = require("../controllers/plan");
 var ctrlProfile = require("../controllers/profile");
 var ctrlAuth = require("../controllers/authentication");
 var ctrlExam = require("../controllers/exam");
+var ctrlSession = require("../controllers/examSession");
 
 // Profilo Studente, Docente o Admin
 router.get("/profile", auth, ctrlProfile.verify);
@@ -24,6 +25,18 @@ router.get("/career", auth, ctrlExam.getExamsByStudent); //Ottiene gli esami sup
 
 //Corsi Docente
 router.get("/professorPlan/:email", auth, ctrlPlan.getProfessorCoursesInfo); //Ottiene tutte le informazioni sui corsi tenuti da un docente
+router.get("/examSession/courses/:email",  auth,  ctrlPlan.getProfessorCourses); //Ottiene l'elenco dei corsi assegnati ad un docente
+
+//Gestione Appelli Docente
+router.post("/examSession", ctrlSession.addExamSession); //Carica un nuovo appello
+router.get( "/examSession/session/:sessionId",  auth,  ctrlSession.getSessionsById); //Ottiene un appello per id
+router.delete("/examSession/session/:sessionId", ctrlSession.deleteSessionById); //Cancella un appello
+router.get("/examSession/sessions/:email",  auth,  ctrlSession.getSessionsByProfessor); //Ottiene l'elenco degli appelli caricati da un docente
+router.get("/examSession/students/:sessionId",  auth,  ctrlProfile.getStudentsBySession); //Ottiene l'elenco degli studenti prenotati ad un appello
+
+//Verbalizzazione Docente
+router.post("/registerExam", ctrlExam.addExam); //Registra un esame per uno studente
+router.get( "/examSession/registeredExams/:sessionId",  auth,  ctrlSession.getRegisteredMat); //Ottiene l'elenco di matricole degli studenti per i quali un determinato esame è già stato verbalizzato
 
 //Gestione Piano di Studi Admin
 router.get("/plan", auth, ctrlPlan.getAllPlanInfo); //Restituisce tutti i piani di studio

@@ -197,3 +197,46 @@ module.exports.getProfessorCoursesInfo = function(req, res) {
     );
   }
 };
+
+//Per ottenere il nome dei corsi di cui un docente è responsabile.
+module.exports.getProfessorCourses = function(req, res) {
+  if (!req.payload._id) {
+    res.status(401).json({
+      message: "UnauthorizedError: private profile"
+    });
+  } else {
+    Course.aggregate(
+      [
+        {
+          $lookup: {
+            from: "users",
+            localField: "professorEmail",
+            foreignField: "email",
+            as: "professor_courses"
+          }
+        },
+
+        {
+          $unwind: "$professor_courses"
+        },
+
+        {
+          $match: {
+            $and: [{ professorEmail: req.params.email }]
+          }
+        },
+
+        {
+          $project: {
+            subject: 1,
+            _id: 1
+          }
+        }
+      ],
+      function(err, data) {
+        console.log(data);
+        res.send(data);
+      }
+    );
+  }
+};

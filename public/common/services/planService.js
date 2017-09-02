@@ -48,6 +48,16 @@
         })
         .then(handleSuccess, handleError);
     };
+    //Ottiene il nome dei corsi tenuti da un docente
+    getProfessorCourses = function(email) {
+      return $http
+        .get("/api/examSession/courses/" + email, {
+          headers: {
+            Authorization: "Bearer " + authentication.getToken()
+          }
+        })
+        .then(handleSuccess, handleError);
+    };
 
     //funzioni private
     function handleSuccess(res) {
@@ -63,7 +73,8 @@
       getPlan: getPlan,
       deleteCourse: deleteCourse,
       getStudentPlan: getStudentPlan,
-      getProfessorCoursesInfo:getProfessorCoursesInfo
+      getProfessorCoursesInfo: getProfessorCoursesInfo,
+      getProfessorCourses: getProfessorCourses
     };
   }
 })();

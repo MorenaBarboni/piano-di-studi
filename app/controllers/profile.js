@@ -52,3 +52,41 @@ module.exports.getFaculties = function(req, res) {
     });
   }
 };
+
+//Ottiene l'elenco degli studenti che si sono prenotati ad un appello
+module.exports.getStudentsBySession = function(req, res) {
+  var paramId = mongoose.Types.ObjectId(req.params.sessionId);
+
+  User.aggregate(
+    [
+      {
+        $lookup: {
+          from: "bookings", // other table name
+          localField: "mat", // name of users table field
+          foreignField: "studentMat", // name of userinfo table field
+          as: "user_bookings" // alias for userinfo table
+        }
+      },
+      {
+        $unwind: "$user_bookings"
+      },
+      {
+        $project: {
+          mat: 1,
+          name: 1,
+          email: 1,
+          examSession_id: "$user_bookings.examSession_id"
+        }
+      },
+      {
+        $match: {
+          $and: [{ examSession_id: paramId }]
+        }
+      }
+    ],
+    function(err, data) {
+      console.log(data);
+      res.send(data);
+    }
+  );
+};

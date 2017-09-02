@@ -42,6 +42,16 @@
         });
     };
 
+    getSessionStudents = function(sessionId) {
+      return $http
+        .get("/api/examSession/students/" + sessionId, {
+          headers: {
+            Authorization: "Bearer " + authentication.getToken()
+          }
+        })
+        .then(handleSuccess, handleError);
+    };
+
     //funzioni private
     function handleSuccess(res) {
       return res.data;
@@ -55,7 +65,8 @@
       getProfile: getProfile,
       getFacultiesInfo: getFacultiesInfo,
       getAllUsers: getAllUsers,
-      deleteUser: deleteUser
+      deleteUser: deleteUser,
+      getSessionStudents:getSessionStudents
     };
   }
 })();

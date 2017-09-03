@@ -1,0 +1,130 @@
+#container {
+  width: 960px;
+  margin: 0 auto;
+}
+#wr{
+min-width: 1200px !important; 
+max-height: 200px !important;
+position: relative;
+}
+
+#table {
+  display: table;
+  width: 100%;
+  background: #fff;
+  margin: 0;
+  box-sizing: border-box;
+  box-shadow: 5px 5px 30px 2px #e6e6e6;
+}
+#tableContainer {
+  min-height: 230px;
+}
+
+#noInfo {
+  margin-top: 20px;
+  font-size: 17px;
+}
+
+h3 {
+  margin-top: 60px;
+  margin-bottom: 20px;
+  color: #c47d86;
+}
+h2 {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 40px;
+  color: #c47d86;
+}
+.caption {
+  text-align: right;
+  display: block;
+  width: 100%;
+  height: 75px;
+  padding-left: 10px;
+  font-size: 20px;
+  line-height: 28px;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  box-sizing: border-box;
+  box-shadow: 5px 5px 5px 2px #e6e6e6;
+}
+
+.header-row {
+  background: #8b8b8b;
+  color: #fff;
+}
+
+.tableRow {
+  display: table-row;
+}
+
+.cell {
+  display: table-cell;
+
+  padding: 6px;
+  border-bottom: 1px solid #e5e5e5;
+  text-align: center;
+}
+.cellDelete {
+  display: table-cell;
+  background-image: url("../img/delete-grey-sm.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 10px;
+  border-bottom: 1px solid #e5e5e5;
+}
+.cellDelete:hover {
+  background-image: url("../img/delete_red.png");
+  cursor: pointer;
+  transition: 0.4s;
+}
+.cellBook {
+  display: table-cell;
+  background-image: url("../img/booking_grey_sm.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 10px;
+  border-bottom: 1px solid #e5e5e5;
+}
+.cellBook:hover {
+  background-image: url("../img/booking_grey.png");
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.primary {
+  text-align: left;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  display: none;
+}
+.search {
+  float: right;
+}
+.search input[type="text"] {
+  float: right;
+  height: 30px;
+  width: 200px;
+  margin-bottom: 10px;
+  outline: 0 none;
+  padding: 3px 12px 5px 5px;
+  font-size: 16px;
+  line-height: 15px;
+  border: 1px solid #dadada;
+  color: #c47d86;
+  box-shadow: inset 0px 1px 4px #ececec;
+  -moz-box-shadow: inset 0px 1px 4px #ececec;
+  -webkit-box-shadow: inset 0px 1px 4px #ececec;
+  transition: 0.1s;
+}
+.search input[type="text"]:focus {
+  border: 1px solid #918c8b;
+}
+
+.search span {
+  margin-top: 7px;
+  margin-right: 10px;
+  font-size: 14px;
+}

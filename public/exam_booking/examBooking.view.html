@@ -1,0 +1,165 @@
+<head>
+    <link href="../content/css/booking.css" rel="stylesheet" type="text/css">
+    <link href="../content/css/footer.css" rel="stylesheet" type="text/css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<div id="wr">
+    <navigation></navigation>
+</div>
+
+
+<div id="container">
+    <h2>Prenotazione Appelli</h2>
+    <p>
+        In questa pagina puoi consultare l'elenco degli appelli disponibili e delle tue prenotazioni. <br/> </p>
+    <p> Per <i>prenotare  un appello</i> fai click sulla relativa icona &nbsp <img src="../content/img/booking_grey_sm.png">        &nbsp nell'elenco degli appelli disponibili. Hai tempo per prenotarti fino al giorno precedente allo svolgimento
+        della prova. <br/> </p>
+    <p> Per <i>cancellare una prenotazione</i> fai click sulla relativa icona &nbsp <img src="../content/img/delete-grey-sm.png">        &nbsp nell'elenco degli appelli prenotati. Hai la possibilità di cancellare la prenotazione fino al giorno precedente
+        allo svolgimento della prova.
+    </p>
+    <h3 style="margin-bottom: 10px;">Appelli Disponibili</h3>
+    <div id="noInfo" ng-show="vm.isEverySessionBooked()">
+        Nessun appello attualmente disponibile
+    </div>
+    <div ng-hide="vm.isEverySessionBooked()">
+
+        <div class="search">
+            <span class="glyphicon glyphicon-search"> </span>
+            <input type="text" class="form-control" name="filterSubject" id="filterSubject" class="form-control" placeholder="Corso"
+                ng-model="vm.filterSubject">
+
+        </div>
+
+        <div id="tableContainer">
+            <div id="table" class="page-break">
+                <div class="header-row tableRow">
+                    <span class="cell primary">Descrizione</span>
+                    <span class="cell">Luogo</span>
+                    <span class="cell">Data</span>
+                    <span class="cell">Ora</span>
+                    <span class="cell">Tipo di prova</span>
+                    <span class="cell">Prenota</span>
+                </div>
+
+
+                <div class="tableRow" ng-repeat="data in vm.sessionList" ng-show=" vm.checkCorrespondence(data._id.subject) && !vm.hideSession(data.session_id, data._id.subject, data._id.date, data.year)">
+                    <span class="cell primary">{{data._id.subject}}</span>
+                    <span class="cell">{{data.room}}</span>
+                    <span class="cell">{{data._id.date}}</span>
+                    <span class="cell">{{data.time}}</span>
+                    <span class="cell">{{data.examType}}</span>
+                    <span class="cellBook" ng-click="bookSession(data.session_id, data._id.date)" class="icon"></span>
+                    </tr>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <h3>Appelli Prenotati</h3>
+    <div id="noInfo" ng-hide="vm.isThereASessionBooked()">
+        Nessun appello attualmente prenotato
+    </div>
+    <div id="tableContainer">
+        <div ng-show="vm.isThereASessionBooked()">
+            <div id="table" class="page-break">
+                <div class="header-row tableRow">
+                    <span class="cell primary">Descrizione</span>
+                    <span class="cell">Luogo</span>
+                    <span class="cell">Data</span>
+                    <span class="cell">Ora</span>
+                    <span class="cell">Tipo di prova</span>
+                    <span class="cell">Cancella</span>
+                </div>
+
+
+                <div class="tableRow" ng-repeat="booking in vm.bookingsList">
+                    <span class="cell primary">{{booking.subject}}</span>
+                    <span class="cell">{{booking.room}}</span>
+                    <span class="cell">{{booking.date}}</span>
+                    <span class="cell">{{booking.time}}</span>
+                    <span class="cell">{{booking.examType}}</span>
+                    <span class="cellDelete" ng-click="deleteBooking(booking._id, booking.date)" class="iconCancel"></span>
+                </div>
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!--Footer -->
+<footer>
+    <div class="footer" id="footer">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-2  col-md-2 col-sm-4 col-xs-6">
+                    <h3> Lorem Ipsum </h3>
+                    <ul>
+                        <li> <a href="#"> Lorem Ipsum </a> </li>
+                        <li> <a href="#"> Lorem Ipsum </a> </li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+                    <h3> Lorem Ipsum </h3>
+                    <ul>
+                        <li> <a href="#"> Lorem Ipsum </a> </li>
+                        <li> <a href="#"> Lorem Ipsum </a> </li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+                    <h3> Links </h3>
+                    <ul>
+                        <li> <a href="/"> Home </a> </li>
+                        <li> <a href="profile"> Profilo </a> </li>
+                        <li ng-show="vm.user.usertype === 'admin'"> <a href="register"> Registrazione </a> </li>
+                        <li ng-show="vm.user.usertype === 'admin'"> <a href="plan"> Gestione Piano di Studi </a> </li>
+                        <li ng-show="vm.user.usertype === 'docente'"> <a href="examSession"> Gestione Appelli e Verbalizzazione </a> </li>
+                        <li ng-show="vm.user.usertype === 'studente'"> <a href="career"> Carriera </a> </li>
+                        <li ng-show="vm.user.usertype === 'studente'"> <a href="examBooking"> Prenotazione Appelli </a> </li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+                    <h3> Credits </h3>
+                    <ul>
+                        <li>
+                            Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a>
+                        </li>
+                        <li>
+                            from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+                        </li>
+                        <li>is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0"
+                                target="_blank">CC 3.0 BY</a></li>
+                    </ul>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="container">
+            <p class="pull-left"> Copyright © Footer 2017. All right reserved. </p>
+            <div class="pull-right">
+                <ul class="social">
+                    <li> <a href="#"> <i class=" fa fa-facebook">   </i> </a> </li>
+                    <li> <a href="#"> <i class="fa fa-twitter">   </i> </a> </li>
+                    <li> <a href="#"> <i class="fa fa-google-plus">   </i> </a> </li>
+                    <li> <a href="#"> <i class="fa fa-youtube">   </i> </a> </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>

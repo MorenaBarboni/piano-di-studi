@@ -33,7 +33,7 @@ module.exports.deleteSessionById = function(req, res) {
     },
     function(err) {
       if (err) res.send(err);
-      res.json({ message: "Session successfully deleted" });
+      res.json({ message: "exam session successfully deleted" });
     }
   );
 };
@@ -51,7 +51,7 @@ module.exports.getSessionsById = function(req, res) {
   }
 };
 
-//Ottieni tutti gli appelli caricati da uno specifico docente
+//Ottiene tutti gli appelli caricati da uno specifico docente
 module.exports.getSessionsByProfessor = function(req, res) {
   if (!req.payload._id) {
     res.status(401).json({
@@ -71,10 +71,10 @@ module.exports.getRegisteredMat = function(req, res) {
     [
       {
         $lookup: {
-          from: "exams", 
-          localField: "subject", 
-          foreignField: "subject", 
-          as: "session_exams" 
+          from: "exams",
+          localField: "subject",
+          foreignField: "subject",
+          as: "session_exams"
         }
       },
       {
@@ -88,8 +88,7 @@ module.exports.getRegisteredMat = function(req, res) {
       {
         $project: {
           mat: "$session_exams.mat",
-          mark: "$session_exams.mark",
-          L: "$session_exams.L"
+          mark: "$session_exams.mark"
         }
       }
     ],
@@ -98,4 +97,75 @@ module.exports.getRegisteredMat = function(req, res) {
       res.send(data);
     }
   );
+};
+
+//Ottiene tutti gli appelli disponibili per una facoltà e coorte
+module.exports.getAvailableSessions = function(req, res) {
+  if (!req.payload._id) {
+    res.status(401).json({
+      message: "UnauthorizedError: private profile"
+    });
+  } else {
+    ExamSession.aggregate(
+      [
+        {
+          $lookup: {
+            from: "courses",
+            localField: "subject",
+            foreignField: "subject",
+            as: "session_courses"
+          }
+        },
+        {
+          $unwind: "$session_courses"
+        },
+        {
+          $match: {
+            $and: [
+              { faculty: req.params.faculty, entryYear: req.params.entryYear }
+            ]
+          }
+        },
+        {
+          $project: {
+            _id: 1,
+            subject: 1,
+            faculty: 1,
+            room: 1,
+            year: 1,
+            date: 1,
+            time: 1,
+            examType: 1,
+            entryYear: 1,
+            professorEmail: 1,
+            year: "$session_courses.year"
+          }
+        },
+        {
+          $group: {
+            _id: {
+              subject: "$subject",
+              faculty: "$faculty",
+              date: "$date"
+            },
+            session_id: { $first: "$_id" },
+            room: { $first: "$room" },
+            year: { $first: "$year" },
+            time: { $first: "$time" },
+            examType: { $first: "$examType" },
+            professorEmail: { $first: "$professorEmail" },
+            entryYear: { $first: "$entryYear" }
+          }
+        },
+        {
+          $sort: {
+            subject: 1
+          }
+        }
+      ],
+      function(err, data) {
+        res.send(data);
+      }
+    );
+  }
 };

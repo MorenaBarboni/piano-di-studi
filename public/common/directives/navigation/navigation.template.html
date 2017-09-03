@@ -1,6 +1,6 @@
-<div class="navbar navbar-default">
-  <div class="container">
-    <div id="navbar-main">
+<div class="navbar navbar-default" >
+  <div class="container" >
+    <div id="navbar-main" style="min-width: 1200px; max-height:60px;">
       <ul class="nav navbar-nav">
         <div class="navbar-header">
           <a class="navbar-brand" href="/">Piano di Studi</a>
@@ -20,6 +20,8 @@
         </li>
         <!--Gestione Piano-->
         <li ng-show="navvm.isAdmin"><a href="plan">Modifica Piano di Studi</a></li>
+        <!--Prenotazione Appelli-->
+        <li ng-show="navvm.isStudente"><a href="examBooking">Prenota Appelli</a></li>
         <!--Carriera Studente-->
         <li ng-show="navvm.isStudente"><a href="career">Carriera</a></li>
         <!--Gestione Appelli e Verbalizzazione-->

@@ -33,6 +33,11 @@
         controller: "careerCtrl",
         controllerAs: "vm"
       })
+      .when("/examBooking", {
+        templateUrl: "/exam_booking/examBooking.view.html",
+        controller: "bookingCtrl",
+        controllerAs: "vm"
+      })
       .when("/examSession", {
         templateUrl: "/exam_session/examSession.view.html",
         controller: "examSessionCtrl",
@@ -87,6 +92,11 @@
       } else if (
         $location.path() === "/career" &&
         (!authentication.isLoggedIn() || !authentication.isStudente())
+      ) {
+        $location.path("/");
+      } else if (
+        $location.path() === "/examBooking" &&
+        !authentication.isStudente()
       ) {
         $location.path("/");
       } else if (

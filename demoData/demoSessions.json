@@ -1,0 +1,22 @@
+[
+  {
+    "professorEmail": "elena.doe@gmail.com",
+    "entryYear": "2016",
+    "examType": "Scritto",
+    "time": "15:00",
+    "date": "12/02/2018",
+    "room": "Aula A1, polo Lodovici",
+    "subject": "Analisi Numerica",
+    "faculty": "Informatica"
+  },
+  {
+    "professorEmail": "frank.doe@gmail.com",
+    "entryYear": "2016",
+    "examType": "Scritto",
+    "time": "09:00",
+    "date": "22/02/2018",
+    "room": "Aula AB2, polo Lodovici",
+    "subject": "Gestione dell'informazione",
+    "faculty": "Informatica"
+  }
+]

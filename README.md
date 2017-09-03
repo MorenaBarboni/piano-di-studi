@@ -21,6 +21,10 @@ ed importa i dati di prova con:
 `mongoimport --db pianoDiStudi --collection users --drop --file demoData/demoUsers.json --jsonArray`
 
 ` mongoimport --db pianoDiStudi --collection courses --drop --file demoData/demoCourses.json --jsonArray `
+
+` mongoimport --db pianoDiStudi --collection exams --drop --file demoData/demoExams.json --jsonArray `
+
+` mongoimport --db pianoDiStudi --collection examsessions --drop --file demoData/demoSessions.json --jsonArray `
  
 
 Per avviare il server:

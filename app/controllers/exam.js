@@ -39,3 +39,18 @@ module.exports.getExamsByStudent = function(req, res) {
     });
   }
 };
+
+//Consente allo studente di ottenere la lista dei nomi degli esami superati
+
+module.exports.getExamsNames = function(req, res) {
+  if (!req.payload._id) {
+    res.status(401).json({
+      message: "UnauthorizedError: private profile"
+    });
+  }
+  if (req.params.mat) {
+    Exam.find({ mat: req.params.mat }, { subject: 1 }, function(err, data) {
+      res.send(data);
+    });
+  }
+};

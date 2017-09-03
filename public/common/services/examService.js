@@ -4,7 +4,6 @@
   examService.$inject = ["$http", "$location", "authentication"];
 
   function examService($http, $location, authentication) {
-
     //Registra l'esito di un esame
     registerExam = function(exam) {
       return $http.post("/api/registerExam", exam).then(function(res) {
@@ -23,6 +22,17 @@
         .then(handleSuccess, handleError);
     };
 
+    //Ottiene solo i nomi degli esami superati da uno studente
+    getStudentExamsNames = function(mat) {
+      return $http
+        .get("api/examBooking/studentExams/" + mat, {
+          headers: {
+            Authorization: "Bearer " + authentication.getToken()
+          }
+        })
+        .then(handleSuccess, handleError);
+    };
+
     //funzioni private
     function handleSuccess(res) {
       return res.data;
@@ -34,7 +44,8 @@
 
     return {
       getStudentExams: getStudentExams,
-      registerExam: registerExam
+      registerExam: registerExam,
+      getStudentExamsNames: getStudentExamsNames
     };
   }
 })();

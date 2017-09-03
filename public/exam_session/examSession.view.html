@@ -1,0 +1,234 @@
+<head>
+    <link href="../content/css/footer.css" rel="stylesheet" type="text/css">
+    <link href="../content/css/examSession.css" rel="stylesheet" type="text/css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <navigation></navigation>
+
+
+    <div id="container">
+        <div class="row">
+            <div class="col-sm-8">
+                <!--Aggiungi corso al piano -->
+                <form ng-submit="vm.onSubmit()" class="form-style">
+
+                    <h1>
+                        Carica Appello
+                    </h1>
+
+                    <div class="row">
+                        <!-- Corso di Laurea  -->
+                        <div class="col-sm-12">
+                            <label for="faculty">  Corso di Laurea  </label>
+                            <select name="faculty" id="faculty" class="form-control" ng-model="vm.session.faculty" required style="width:500px;">
+                                  <option  value="">Seleziona un corso di Laurea</option>
+                                  <option  value="Informatica">Informatica</option>
+                                 <option value="Fisica">Fisica</option>
+                                 <option value="Chimica">Chimica</option>
+                    </select>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <!-- Corso  -->
+                        <div class="col-sm-6">
+                            <label for="subject">   Corso:  </label>
+                            <select name="subject" id="subject" class="form-control" ng-model="vm.session.subject" required>
+                          <option value="">Seleziona un corso</option> 
+                          <option  ng-repeat="data in vm.courses">{{data}}</option>
+                       </select>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <!-- Coorte  -->
+                            <label for="entryYear"> Coorte </label>
+                            <input type="number" id="entryYear" min="2016" max="2099" step="1" placeholder="Inserisci la coorte" ng-model="vm.session.entryYear"
+                                required/>
+
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <!-- Tipo di Prova -->
+                            <label for="examType">  Tipo di prova:  </label>
+                            <select name="examType" id="examType" class="form-control" ng-model="vm.session.examType" required>
+                       <option  value="">Seleziona il tipo di prova</option>
+                       <option  value="Scritto">Scritto</option>
+                      <option value="Orale">Orale</option>
+                        </select>
+                        </div>
+                        <!-- Luogo -->
+                        <div class="col-sm-6">
+                            <label for="room">Luogo  </label>
+                            <input type="text" class="form-control" placeholder="Aula AB 2, polo Lodovici" ng-model="vm.session.room" required>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <!--  Data  -->
+                        <div class="col-sm-6">
+                            <label for="date"> Data appello </label>
+                            <input type="date" class="form-control" id="date" min="2017-01-01" ng-model="vm.session.date" required>
+
+                        </div>
+                        <!-- Ora -->
+                        <div class="col-sm-6">
+                            <label for="time">   Ora appello  </label>
+                            <input type="time" class="form-control" id="time" ng-model="vm.session.time" required>
+                        </div>
+                    </div>
+                    <div style="text-align:center">
+                        <button type="reset" value="Reset" style="margin-right:10px;"> Ripristina </button>
+                        <button type="submit" style="margin-left:10px;">Aggiungi Appello</button>
+
+                    </div>
+                </form>
+            </div>
+
+            <div class="col-sm-4" style="margin-top: 50px;">
+                <p style="font-size: 17px;"><b>Gestione Appelli</b></p>
+                <p> Completa tutti i campi del form e seleziona <i>Aggiungi Appello</i> per <b>caricare un nuovo appello</b>.
+                </p>
+
+                <p> Per <b>eliminare un appello</b> seleziona l'icona corrispondente &nbsp <img src="../content/img/delete-grey3.png">                    &nbsp nella tabella degli appelli attivi.</p>
+                <p> <b>Attenzione!</b> Eliminando un appello, anche le relative prenotazioni degli studenti verranno eliminate,
+                    e non sarà più possibile registrare gli esiti dell'esame.</p>
+                <p style="font-size: 17px;"><br/><b>Verbalizzazione</b></p>
+                <p> Seleziona l'icona &nbsp <img src="../content/img/validation.png"> &nbsp nella tabella degli appelli attivi
+                    per accedere all'elenco degli studenti prenotati ad un appello e registrare i risultati dell'esame.</p>
+
+            </div>
+
+
+
+
+
+            <div class="row">
+
+                <div class="col-sm-12">
+                    <h3>Appelli Caricati</h3>
+                    <div id="noData" ng-hide="vm.isThereASession()">
+
+                        <p>Nessun appello attualmente caricato.</p>
+                    </div>
+
+                    <div id="tableContainer">
+                        <div ng-show="vm.isThereASession()">
+
+                            <table>
+                                <caption>
+                                    <div class="search">
+                                        <span style="color:black" class="glyphicon glyphicon-search"> </span>
+                                        <input type="text" class="form-control" name="filterSubject" id="filterSubject" class="form-control" placeholder="Corso"
+                                            ng-model="vm.filterSubject">
+
+                                    </div>
+                                </caption>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Corso</th>
+                                        <th scope="col">Coorte</th>
+                                        <th scope="col">Luogo</th>
+                                        <th scope="col">Data</th>
+                                        <th scope="col">Ora</th>
+                                        <th scope="col">Prova</th>
+                                        <th scope="col">Verbalizzazione</th>
+                                        <th scope="col">Cancella Appello</th>
+
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr ng-repeat="session in vm.uploadedSessions" ng-show="vm.checkCorrespondence(session.subject)">
+                                        <td>{{session.subject}}</td>
+                                        <td>{{session.entryYear}}</td>
+                                        <td>{{session.room}}</td>
+                                        <td>{{session.date}}</td>
+                                        <td>{{session.time}}</td>
+                                        <td>{{session.examType}}</td>
+                                        <td ng-click="getStudentList(session._id)" class="iconValidate"></td>
+                                        <td ng-click="deleteSession(session._id)" class="iconDelete"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!--Footer -->
+    <footer>
+        <div class="footer" id="footer">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-2  col-md-2 col-sm-4 col-xs-6">
+                        <h3> Lorem Ipsum </h3>
+                        <ul>
+                            <li> <a href="#"> Lorem Ipsum </a> </li>
+                            <li> <a href="#"> Lorem Ipsum </a> </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+                        <h3> Lorem Ipsum </h3>
+                        <ul>
+                            <li> <a href="#"> Lorem Ipsum </a> </li>
+                            <li> <a href="#"> Lorem Ipsum </a> </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+                        <h3> Links </h3>
+                        <ul>
+                            <li> <a href="/"> Home </a> </li>
+                            <li> <a href="profile"> Profilo </a> </li>
+                            <li ng-show="vm.user.usertype === 'admin'"> <a href="register"> Registrazione </a> </li>
+                            <li ng-show="vm.user.usertype === 'admin'"> <a href="plan"> Gestione Piano di Studi </a> </li>
+                            <li ng-show="vm.user.usertype === 'docente'"> <a href="examSession"> Gestione Appelli e Verbalizzazione </a> </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+                        <h3> Credits </h3>
+                        <ul>
+                            <li>
+                                Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a>
+                            </li>
+                            <li>
+                                from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+                            </li>
+                            <li>is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0"
+                                    target="_blank">CC 3.0 BY</a></li>
+                        </ul>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <p class="pull-left"> Copyright © Footer 2017. All right reserved. </p>
+                <div class="pull-right">
+                    <ul class="social">
+                        <li> <a href="#"> <i class=" fa fa-facebook">   </i> </a> </li>
+                        <li> <a href="#"> <i class="fa fa-twitter">   </i> </a> </li>
+                        <li> <a href="#"> <i class="fa fa-google-plus">   </i> </a> </li>
+                        <li> <a href="#"> <i class="fa fa-youtube">   </i> </a> </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>

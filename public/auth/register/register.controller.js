@@ -20,11 +20,14 @@
     };
 
     vm.onSubmit = function() {
-      authentication.register(vm.userData).error(function(err) {
-        alert("err");
+      authentication.register(vm.userData).then(function(response) {
+        if (response.data === "error") {
+          window.alert("Matricola già esistente!");
+        } else {
+          window.alert("Utente registrato con successo");
+          window.location.reload();
+        }
       });
-      window.alert("Utente Registrato");
-      window.location.reload();
     };
 
     //Resetta il controller al cambiare dei permessi utente

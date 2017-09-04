@@ -21,7 +21,8 @@ var userSchema = new mongoose.Schema({
     type: String
   },
   mat: {
-    type: String
+    type: String,
+    unique: true
   },
   city: {
     type: String
@@ -35,7 +36,10 @@ var userSchema = new mongoose.Schema({
   tel: {
     type: String
   },
-  entryYear: { type: String },
+  entryYear: {
+    type: String,
+    required: true
+  },
   hash: String,
   salt: String
 });

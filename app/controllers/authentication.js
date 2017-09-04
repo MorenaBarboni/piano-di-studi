@@ -39,13 +39,20 @@ module.exports.registerUser = function(req, res) {
 
   user.setPassword(req.body.password);
 
-  user.save(function(err) {
-    var token;
-    token = user.generateToken();
-    res.status(200);
-    res.json({
-      token: token
-    });
+  User.findOne({ mat: user.mat }, function(err, data) {
+    if (data) {
+      res.send("error");
+    } else {
+      user.save(function(err) {
+        var token;
+        token = user.generateToken();
+        res.status(200);
+        res.json({
+          token: token
+        });
+      });
+    }
   });
+
   console.log("User registered");
 };

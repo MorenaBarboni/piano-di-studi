@@ -14,8 +14,7 @@ var courseSchema = new mongoose.Schema({
     required: true
   },
   semester: {
-    type: Number,
-    required: true
+    type: Number
   },
   cfu: {
     type: Number,
@@ -26,8 +25,7 @@ var courseSchema = new mongoose.Schema({
     required: true
   },
   professorEmail: {
-    type: String,
-    required: true
+    type: String
   },
   mandatory: {
     type: Boolean,

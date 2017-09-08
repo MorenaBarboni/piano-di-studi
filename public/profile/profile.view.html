@@ -6,46 +6,60 @@
 
 <navigation></navigation>
 
+<button onclick="topFunction()" class="btn btn-primary" id="goToTop"><span class="glyphicon glyphicon-chevron-up"></span></button>
+
 <div id="container">
   <h3>Area {{vm.user.usertype}}</h3>
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-md-6">
 
       <!-- Profilo -->
-      <div class="well well-sm" ng-show="vm.user.usertype != 'admin'">
-        <div class="row">
-          <div class="col-sm-4">
-            <img ng-show="vm.user.usertype != 'admin'" src="../content/img/user.svg" alt="Profile Picture" style="margin-top:7px;">
-          </div>
-          <div class="col-sm-6 col-md-8">
-            <h4> {{vm.user.name}}</h4>
-            <small><cite title="city">{{ vm.user.street }}, {{ vm.user.city }}, {{ vm.user.postalCode }} <i class="glyphicon glyphicon-map-marker margin">
-                        </i></cite></small>
-            <p>
-              <i class="glyphicon glyphicon-envelope margin"></i>{{ vm.user.email }}
-              <br />
-              <i class="glyphicon glyphicon-earphone margin"></i> {{ vm.user.tel }}
-              <br />
-            </p>
+      <div class="panel panel-primary" ng-show="vm.user.usertype != 'admin'">
+        <div class="panel-heading">
+          <h3 class="panel-title" style="text-align:left;"> <span class="glyphicon glyphicon-user"></span> &nbsp {{vm.user.name}} <small><cite title="city">{{ vm.user.street }}, {{ vm.user.city }}, {{ vm.user.postalCode }} <i class="glyphicon glyphicon-map-marker margin">
+            </i></cite></small></h3>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-sm-10">
+              <br>
+              <p>
+                <i class="glyphicon glyphicon-envelope margin"></i> <i>{{ vm.user.email }}</i>
+                <br />
+                <i class="glyphicon glyphicon-earphone margin"></i><i> {{ vm.user.tel }}</i>
+                <br />
+              </p>
+            </div>
           </div>
         </div>
       </div>
-
 
     </div>
 
     <!-- Dati studente / docente -->
     <div class="col-xs-12 col-sm-6 col-md-6" ng-show="vm.user.usertype != 'admin'">
-      <div class="well well-sm">
-        <div class="row">
-          <div class="col-sm-6 col-md-8">
-            <h4 class="infoTag"> Dati {{vm.user.usertype}}</h4>
 
-            <span class="infoTag" ng-show="vm.user.usertype === 'studente'">Iscritto al corso di laurea in:&nbsp; {{ vm.user.faculty }}</span>
-            <span class="infoTag" ng-show="vm.user.usertype === 'docente'">Docente della facoltà di:&nbsp;  {{ vm.user.faculty }}</span></br>
-            <span class="infoTag" ng-show="vm.user.usertype === 'studente'"> Matricola:&nbsp; {{ vm.user.mat }}</span> <br/>
-            <span class="infoTag" ng-show="vm.user.usertype === 'studente'"> Coorte:&nbsp; {{ vm.user.entryYear }}</span>
-            <span class="infoTag" ng-if="vm.user.usertype === 'studente'"> Anno di corso:&nbsp; {{ vm.getStudentYear(vm.user.entryYear) }}</span>
+      <div class="panel panel-primary">
+        <div class="panel-heading-white">
+          <h3 class="panel-title-white" style="text-align:left;"> <span class="glyphicon glyphicon-info-sign"></span> &nbsp Dati {{vm.user.usertype}}
+            <span ng-if="vm.user.usertype === 'studente'" style="font-size:18px;"> &nbsp - &nbsp Matricola {{vm.user.mat}}</span>
+          </h3>
+        </div>
+        <div class="row">
+          <div class="panel-body">
+            <div ng-if="vm.user.usertype === 'docente'"> <span class="infoTag" ><span style="color:#212632; font-size:16px;">Docente della facoltà di</span>&nbsp;
+              {{ vm.user.faculty }}</span>
+              </span><br/>
+              <span class="infoTag"><span style="color:#212632;font-size:16px;">Corsi Attivi:</span>&nbsp;
+              {{ vm.professorCourses.length }}</span>
+              </span>
+            </div>
+            <span class="infoTag" ng-show="vm.user.usertype === 'studente'"><span style="color:#212632;font-size:16px;">Iscritto al corso di laurea in: &nbsp {{
+            vm.user.faculty }}</span></span><br/>
+            <span class="infoTag" ng-show="vm.user.usertype === 'studente'"> <span style="color:#212632; font-size:16px;">Coorte: &nbsp
+            {{ vm.user.entryYear }}</span></span><br/>
+            <span class="infoTag" ng-if="vm.user.usertype === 'studente'"> <span style="color:#212632;font-size:16px;">Anno di corso: &nbsp
+            {{vm.getStudentYear(vm.user.entryYear) }}</span></span>
           </div>
         </div>
       </div>
@@ -54,9 +68,9 @@
 
 
   <!-- Piano di studi studente -->
-  <div class="row" ng-show="vm.user.usertype === 'studente'">
+  <div class="row" ng-if="vm.user.usertype === 'studente'">
     <!-- PRIMO ANNO -->
-    <table ng-hide="vm.firstYear.length === 0" style="margin-top:60px;">
+    <table ng-hide="vm.firstYear.length === 0" style="margin-top:25px;">
       <caption>Attività didattiche - Anno di corso 1 <span>{{vm.user.entryYear.toString() + '/'      
         + (vm.parseInt(vm.user.entryYear) + 1) }}</span></caption>
       <thead>
@@ -132,7 +146,7 @@
           <td>{{data.cfu}}</td>
           <td>{{data.name}} </td>
           <td><cite>{{data.professorEmail}}</cite></td>
-        </tr>       
+        </tr>
       </tbody>
     </table>
     <!--QUARTO ANNO -->
@@ -192,6 +206,39 @@
     <p ng-show="vm.isPlanDataEmpty()" class="courses">
       Piano di studi non ancora attivato.
     </p>
+    <!-- Tesi -->
+    <table ng-hide="vm.firstYear.length === 0">
+      <caption>Prova Finale</caption>
+      <thead>
+        <tr>
+          <th scope="col">Descrizione</th>
+          <th scope="col">Attività Obbligatoria</th>
+          <th scope="col">Punteggio Massimo</th>
+          <th scope="col"> Docente</th>
+          <th scope="col"> Contatto</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-if="vm.thesis.length === 1">
+          <td>Prova Finale: <i>{{vm.thesis[0].title}}</i></td>
+          <td> <img src="../content/img/check_green.png" alt=""></td>
+          <td ng-if="vm.planThesis.length === 1">{{vm.planThesis[0].cfu}}</td>
+          <td ng-if="vm.planThesis.length === 0">N.D.</td>
+          <td> {{vm.thesis[0].name}} </td>
+          <td><cite>{{vm.thesis[0].professorEmail}}</cite></td>
+        </tr>
+        <tr ng-if="vm.thesis.length === 0">
+          <td>Prova Finale</td>
+          <td> <img src="../content/img/check_green.png" alt=""></td>
+          <td ng-if="vm.planThesis.length === 1">{{vm.planThesis[0].cfu}}</td>
+          <td ng-if="vm.planThesis.length === 0">N.D.</td>
+          <td>Non ancora selezionato.<br> <a href="thesis"> Richiedi Tesi </a> </td>
+          <td>-</td>
+        </tr>
+      </tbody>
+
+    </table>
+
   </div>
 
 
@@ -226,7 +273,7 @@
 
 
   <!-- Elenco corsi docente -->
-  <div class="row" ng-show="vm.user.usertype === 'docente'">
+  <div class="row" ng-if="vm.user.usertype === 'docente'">
     <div id="tableContainer">
       <table ng-show="!vm.isProfessorCoursesEmpty()">
 
@@ -249,7 +296,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="data in vm.professorCourses" ng-show="vm.checkCorrespondence(data._id.entryYear)">
+          <tr ng-repeat="data in vm.professorCourses" ng-if="vm.checkCorrespondence(data._id.entryYear)">
             <td>{{data._id.subject}}</td>
             <td ng-show="data.faculties.length === 1"> {{data.faculties[0]}} </td>
             <td ng-show="data.faculties.length === 2"> {{data.faculties[0]}} <br> {{data.faculties[1]}} </td>
@@ -303,6 +350,9 @@
             <li ng-show="vm.user.usertype === 'admin'"> <a href="register"> Registrazione </a> </li>
             <li ng-show="vm.user.usertype === 'admin'"> <a href="usersManagement"> Gestione Utenti e Account </a> </li>
             <li ng-show="vm.user.usertype === 'admin'"> <a href="plan"> Gestione Piano di Studi </a> </li>
+            <li ng-show="vm.user.usertype === 'docente'"> <a href="examSession"> Gestione Appelli e Verbalizzazione </a> </li>
+            <li ng-show="vm.user.usertype === 'studente'"> <a href="career"> Carriera </a> </li>
+            <li ng-show="vm.user.usertype === 'studente'"> <a href="examBooking"> Prenota Appelli </a> </li>
           </ul>
         </div>
 

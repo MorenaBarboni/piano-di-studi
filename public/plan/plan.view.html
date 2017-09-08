@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 
-<html>
 
 <head>
   <link href="../content/css/plan.css" rel="stylesheet" type="text/css">
@@ -8,217 +7,284 @@
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 
-<body>
+<navigation></navigation>
+<button onclick="topFunction()" class="btn btn-primary" id="goToTop"><span class="glyphicon glyphicon-chevron-up"></span></button>
 
-  <navigation></navigation>
-
-  <div id="container">
-    <div class="row">
-      <div class="col-md-5">
-
-        <form ng-submit="vm.onSubmit()" class="form-style">
+<div id="container">
+  <div class="row">
+    <div class="col-md-6">
+      <!--COLONNA SINISTRA-->
+      <!--Aggiungi corso al piano -->
+      <form ng-submit="vm.onSubmit()" class="form-style">
+        <div class="form-group">
+          <h1>Gestione Corsi</h1>
           <!--  Facoltà -->
-          <div class="form-group">
-            <label for="faculty">
-                   <span>Corso di Laurea in:</span>
-                    <select name="faculty" id="faculty" class="form-control" ng-model="vm.courseData.faculty" required>
-                          <option  value="Informatica">Informatica</option>
-                          <option value="Fisica">Fisica</option>
-                          <option value="Chimica">Chimica</option>
-                   </select>
-            </label>
-          </div>
-
-          <div class="row">
-            <div class="col-sm-6">
-              <!--  Corso  -->
-              <div class="form-group">
-                <label for="subject">
-            <span>Corso</span>          
-              <input type="text" class="form-control" id="subject" ng-model="vm.courseData.subject" style="width:170px;" required>            
-            </label>
-              </div>
-            </div>
-            <div class="col-sm-6">
-
-              <!--  Corso Obbligatorio  -->
-              <div class="form-group">
-
-                <label for="mandatory">
-                  <span >Obbligatorio</span>
-                <input type="checkbox" class="form-control" id="mandatory" ng-model="vm.courseData.mandatory">
-               </label>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-sm-6">
-              <!-- Coorte  -->
-              <div>
-                <label for="entryYear">
-                 <span >Coorte</span>
-                  <input type="number" class="form-control" id="entryYear" min="2016" max="2099" step="1"  ng-model="vm.courseData.entryYear" style="width:170px;" required/>
+          <label for="faculty">
+                     <span id="spanLeft">Corso di Laurea in:</span>
+                      <select name="faculty" id="faculty" class="form-control" ng-model="vm.courseData.faculty" required>
+                            <option  value="Informatica">Informatica</option>
+                            <option value="Fisica">Fisica</option>
+                            <option value="Chimica">Chimica</option>
+                     </select>
               </label>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <!-- Anno di Corso  -->
-              <div class="form-group">
-                <label for="year">
-                        <span>Anno di Corso</span>
-                       <input type="number" class="form-control" min="1" max="5" id="year"  ng-model="vm.courseData.year" style="width:135px;" required>
-                    </label>
-              </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-6">
+            <!--  Corso  -->
+            <div class="form-group">
+              <label for="subject">
+              <span id="spanLeft">Corso</span>          
+                <input type="text" class="form-control" id="subject" ng-model="vm.courseData.subject" style="width:180px; margin-left:22px;" required>            
+              </label>
             </div>
           </div>
+          <div class="col-sm-6">
 
-          <div class="row">
-            <div class="col-sm-6">
-              <!--  Semestre -->
-              <div class="form-group">
-                <label for="semester">
-                  <span>Semestre</span>
-                  <input type="number" class="form-control" min="1" max="2" id="semester"  ng-model="vm.courseData.semester" style="width:170px;" required>
+            <!--  Corso Obbligatorio  -->
+            <div class="form-group">
+              <label for="mandatory">
+                    <span >Obbligatorio</span>
+                  <input type="checkbox" class="form-control" id="mandatory" ng-model="vm.courseData.mandatory">
+                 </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-6">
+            <!-- Coorte  -->
+            <div>
+              <label for="entryYear">
+                   <span id="spanLeft" >Coorte</span>
+                    <input type="number" class="form-control" id="entryYear" min="2016" max="2099" step="1"  ng-model="vm.courseData.entryYear" style="width:180px; margin-left:22px;" required/>
                 </label>
-              </div>
             </div>
-            <div class="col-sm-6">
-              <!--  CFU  -->
-              <div class="form-group">
-                <label for="cfu">
-                <span>CFU</span>
-                <input type="number" class="form-control" min="1" id="cfu"ng-model="vm.courseData.cfu" style="width:135px;" required>
+          </div>
+          <div class="col-sm-6">
+            <!-- Anno di Corso  -->
+            <div class="form-group">
+              <label for="year">
+                          <span id="spanRight">Anno di Corso</span>
+                         <input type="number" class="form-control" min="1" max="5" id="year"  ng-model="vm.courseData.year" style="width:180px; margin-right:22px;" required>
+                      </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-6">
+
+            <!--  Semestre -->
+            <div class="form-group">
+              <label for="semester">
+                    <span id="spanLeft">Semestre</span>
+                    <input type="number" class="form-control" min="1" max="2" id="semester"  ng-model="vm.courseData.semester" style="width:180px; margin-left:22px;" required>
+                  </label>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <!--  CFU  -->
+            <div class="form-group">
+              <label for="cfu">
+                  <span id="spanRight">CFU</span>
+                  <input type="number" class="form-control" min="1" id="cfu"ng-model="vm.courseData.cfu" style="width:180px; margin-right:22px;" required>
+                </label>
+            </div>
+          </div>
+        </div>
+
+        <!--  Email Docente  -->
+        <div class="form-group">
+          <label for="email">
+                     <span id="spanLeft"> Email Docente Responsabile</span>
+                     <input type="email" class="form-control" id="email" ng-model="vm.courseData.professorEmail" required>
               </label>
-              </div>
-            </div>
-          </div>
+        </div>
+        <button type="reset" value="Reset" style="margin-left:5px; margin-top:15px;"> Ripristina </button>
+        <button type="submit" style="width: 175px; margin-left:5px; margin-top:15px;"><span class="glyphicon glyphicon-plus"></span> &nbsp Aggiungi Corso</button>
 
-          <!--  Email Docente  -->
-          <div class="form-group">
-            <label for="email">
-                   <span> Email Docente Responsabile</span>
-                   <input type="email" class="form-control" id="email" ng-model="vm.courseData.professorEmail" required>
-            </label>
-          </div>
+      </form>
+    </div>
+    <div class="col-md-6">
 
 
-          <button type="reset" value="Reset" style="margin-left:5px; margin-top:15px;"> Ripristina </button>
-          <button type="submit" style="width: 175px; margin-left:5px; margin-top:15px;">Aggiungi Corso &nbsp <span class="glyphicon glyphicon-chevron-right"></span></button>
+      <div class="well well-sm">
+        <div id="infoWrapper">
+          <p> <span style="margin-top: 25px;" class="glyphicon glyphicon-chevron-left"></span>
 
-        </form>
-
+            <div class="well white"> Per aggiungere un corso a un piano di studi, completa tutti i campi del form e seleziona &nbsp
+              <span class="glyphicon glyphicon-plus"></span> &nbsp <i>Aggiungi Corso </i></div>
+          </p>
+        </div>
+        <div id="infoWrapper">
+          <p> <span style="margin-top:25px;" class="glyphicon glyphicon-chevron-down"></span>
+            <div class="well white">Per aggiungere una prova finale a un piano di studi, completa i campi del form e seleziona &nbsp
+              <span class="glyphicon glyphicon-plus"></span> &nbsp <i>Aggiungi Tesi </i></div>
+          </p>
+        </div>
       </div>
 
+      <!--COLONNA DESTRA-->
+      <!--Tesi-->
+      <form class="form-style">
+        <h1>Gestione Tesi</h1>
+        <div class="form-group">
+          <label for="faculty">
+                        <span id="spanLeft">Corso di Laurea</span>
+                     <select name="faculty" id="faculty" class="form-control" ng-model="vm.thesis.faculty" required>
+                      <option  value="Informatica">Informatica</option>
+                      <option value="Fisica">Fisica</option>
+                      <option value="Chimica">Chimica</option>
+               </select>
+          </label>
+        </div>
 
-      <div class="col-md-7" style="margin-top:60px;">
-        <div class="caption">
-          <label>
-         <h5><span class="glyphicon glyphicon-search"> </span> Filtra Corsi </h5>
+        <div class="row">
+          <div class="col-sm-6">
+            <!-- Coorte  -->
+            <div>
+              <label for="entryYear">
+                       <span id="spanLeft" >Coorte</span>
+                        <input type="number" class="form-control" id="entryYear" min="2016" max="2099" step="1"  ng-model="vm.thesis.entryYear" style="width:180px; margin-left:22px;" required/>
+                    </label>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="cfu">
+                          <span style="margin-left:15px;">Punteggio Massimo</span>
+                          <input type="number" class="form-control" min="1" id="cfu" ng-model="vm.thesis.cfu" required>
+                          </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Punteggio  -->
+
+
+        <button type="reset" value="Reset" style="width: 100px; margin-top:15px;"> Ripristina </button>
+        <button type="submit" style="width: 165px; margin-top:15px;" ng-click="vm.submitThesis()"> <span class="glyphicon glyphicon-plus"></span>  &nbsp Aggiungi Tesi</button>
+      </form>
+    </div>
+  </div>
+
+
+
+  <div class="row" style="margin-top:60px; text-align:center;">
+    <div id="tableContainer">
+      <div class="caption">
+        <label id="tableTitle">
+         <h5 style="margin-right:300px;"><span class="glyphicon glyphicon-search"> </span> Filtra Corsi </h5>
         </label>
-          <label for="filterFaculty">  <span style="margin-right:88px;">Facoltà </span>
+
+        <label for="filterFaculty">  <span style="margin-right:88px;">Facoltà </span>
           <input type="text" class="form-control" name="filterFaculty" id="filterFaculty" class="form-control" ng-model="vm.filter.filterFaculty" style="width: 140px";>
          </label>
-          <label for="filterEntryYear"> <span style="margin-right:42px;"> Coorte
+        <label for="filterEntryYear"> <span style="margin-right:42px;"> Coorte
               </span>
             <input type="text" class="form-control" name="filterEntryYear" id="filterEntryYear" ng-model="vm.filter.filterEntryYear" style="margin-left:10px;">
         </label>
-          <label for="filterYear">  <span style="margin-right:5px;"> Anno di corso </span>
+        <label for="filterYear">  <span style="margin-right:5px;"> Anno di corso </span>
             <input type="text" class="form-control" name="filterYear" id="filterYear" ng-model="vm.filter.filterYear" style="margin-left:10px;">
         </label>
-        </div>
-
-        <div id="table" class="page-break">
-          <div class="header-row tableRow">
-            <span class="cell primary">Corso</span>
-            <span class="cell">Obbligatorio</span>
-            <span class="cell">Semestre</span>
-            <span class="cell">Crediti</span>
-            <span class="cell">Docente</span>
-            <span class="cell">Elimina</span>
-          </div>
-          <div class="tableRow" ng-repeat="data in vm.courses" ng-show=" vm.show(data.faculty, data.entryYear, data.year)">
-            <input type="radio" name="expand">
-            <span class="cell primary" data-label="subject">{{data.subject}}</span>
-            <span class="cell" data-label="mandatory"> <img src="../content/img/check_green.png" ng-show="data.mandatory"></span>
-            <span class="cell" data-label="semester">{{data.semester}}</span>
-            <span class="cell" data-label="cfu">{{data.cfu}}</span>
-            <span class="cell" data-label="name">{{data.name}}</span>
-            <span class="cellDelete" ng-click="deleteCourse(data._id, data.subject, data.faculty, data.entryYear)"></span>
-
-          </div>
-        </div>
       </div>
 
+      <div id="table" class="page-break">
+        <div class="header-row tableRow">
+          <span class="cell primary">Corso</span>
+          <span class="cell">Obbligatorio</span>
+          <span class="cell">Semestre</span>
+          <span class="cell">Crediti</span>
+          <span class="cell">Docente</span>
+          <span class="cell">Elimina</span>
+        </div>
+        <div class="tableRow" ng-repeat="data in vm.courses" ng-show=" vm.show(data.faculty, data.entryYear, data.year)">
+          <input type="radio" name="expand">
+          <span class="cell primary" data-label="subject">{{data.subject}}</span>
+          <span class="cell" data-label="mandatory"> <img src="../content/img/check_green.png" ng-show="data.mandatory"></span>
+          <span class="cell" data-label="semester">{{data.semester}}</span>
+          <span class="cell" data-label="cfu">{{data.cfu}}</span>
+          <span class="cell" data-label="name">{{data.name}}</span>
+          <span class="cellDelete" ng-click="deleteCourse(data._id, data.subject, data.faculty, data.entryYear)"></span>
+        </div>
+        <div class="tableRow" ng-repeat="data in vm.planThesis" ng-if="vm.show(data.faculty, data.entryYear, data.year)">
+          <input type="radio" name="expand">
+          <span class="cell primary" data-label="subject">{{data.subject}}</span>
+          <span class="cell" data-label="mandatory"> <img src="../content/img/check_green.png" ng-show="data.mandatory"></span>
+          <span class="cell" data-label="semester">-</span>
+          <span class="cell" data-label="cfu">{{data.cfu}}</span>
+          <span class="cell" data-label="name">Selezionato dallo studente</span>
+          <span class="cellDelete" ng-click="deleteCourse(data._id)"></span>
+        </div>
+      </div>
     </div>
+  </div>
+</div>
 
 
-    <footer>
-      <div class="footer" id="footer">
-        <div class="container">
-          <div class="row">
+<footer>
+  <div class="footer" id="footer">
+    <div class="container">
+      <div class="row">
 
-            <div class="col-md-2  col-md-2 col-sm-4 col-xs-6">
-              <h3> Lorem Ipsum </h3>
-              <ul>
-                <li> <a href="#"> Lorem Ipsum </a> </li>
-                <li> <a href="#"> Lorem Ipsum </a> </li>
-              </ul>
-            </div>
-
-            <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
-              <h3> Contatti Admin</h3>
-              <ul>
-                <li> <a href="#"> Lorem Ipsum </a> </li>
-                <li> <a href="#"> Lorem Ipsum </a> </li>
-              </ul>
-            </div>
-
-            <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
-              <h3> Links </h3>
-              <ul>
-                <li> <a href="/"> Home </a> </li>
-                <li> <a href="profile"> Profilo </a> </li>
-                <li> <a href="register"> Registrazione </a> </li>
-                <li> <a href="usersManagement"> Gestione Utenti e Account </a> </li>
-                <li> <a href="plan"> Gestione Piano di Studi </a> </li>
-
-              </ul>
-            </div>
-
-            <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
-              <h3> Credits </h3>
-              <ul>
-                <li>
-                  Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a>
-                </li>
-                <li>
-                  from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
-                </li>
-                <li>is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></li>
-              </ul>
-
-            </div>
-
-          </div>
+        <div class="col-md-2  col-md-2 col-sm-4 col-xs-6">
+          <h3> Lorem Ipsum </h3>
+          <ul>
+            <li> <a href="#"> Lorem Ipsum </a> </li>
+            <li> <a href="#"> Lorem Ipsum </a> </li>
+          </ul>
         </div>
-      </div>
 
-      <div class="footer-bottom">
-        <div class="container">
-          <p class="pull-left"> Copyright © Footer 2017. All right reserved. </p>
-          <div class="pull-right">
-            <ul class="social">
-              <li> <a href="#"> <i class=" fa fa-facebook">   </i> </a> </li>
-              <li> <a href="#"> <i class="fa fa-twitter">   </i> </a> </li>
-              <li> <a href="#"> <i class="fa fa-google-plus">   </i> </a> </li>
-              <li> <a href="#"> <i class="fa fa-youtube">   </i> </a> </li>
-            </ul>
-          </div>
+        <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+          <h3> Contatti Admin</h3>
+          <ul>
+            <li> <a href="#"> Lorem Ipsum </a> </li>
+            <li> <a href="#"> Lorem Ipsum </a> </li>
+          </ul>
         </div>
+
+        <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+          <h3> Links </h3>
+          <ul>
+            <li> <a href="/"> Home </a> </li>
+            <li> <a href="profile"> Profilo </a> </li>
+            <li> <a href="register"> Registrazione </a> </li>
+            <li> <a href="usersManagement"> Gestione Utenti e Account </a> </li>
+            <li> <a href="plan"> Gestione Piano di Studi </a> </li>
+
+          </ul>
+        </div>
+
+        <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+          <h3> Credits </h3>
+          <ul>
+            <li>
+              Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a>
+            </li>
+            <li>
+              from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+            </li>
+            <li>is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></li>
+          </ul>
+
+        </div>
+
       </div>
-    </footer>
+    </div>
+  </div>
 
-</body>
-
-</html>
+  <div class="footer-bottom">
+    <div class="container">
+      <p class="pull-left"> Copyright © Footer 2017. All right reserved. </p>
+      <div class="pull-right">
+        <ul class="social">
+          <li> <a href="#"> <i class=" fa fa-facebook">   </i> </a> </li>
+          <li> <a href="#"> <i class="fa fa-twitter">   </i> </a> </li>
+          <li> <a href="#"> <i class="fa fa-google-plus">   </i> </a> </li>
+          <li> <a href="#"> <i class="fa fa-youtube">   </i> </a> </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>

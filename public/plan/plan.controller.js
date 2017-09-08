@@ -9,7 +9,7 @@
     vm.courses = [];
 
     //Anni Accademici
-    vm.academicYears = [];
+    vm.entryYears = [];
 
     //Nuovo corso
     vm.courseData = {
@@ -22,6 +22,20 @@
       entryYear: "",
       mandatory: ""
     };
+    //nuova tesi
+    vm.thesis = {
+      faculty: "",
+      subject: "Prova Finale",
+      year: "",
+      semester: "",
+      cfu: "",
+      email: "",
+      entryYear: "",
+      mandatory: true
+    };
+
+    //Tutte le tesi per il piano
+    vm.planThesis = {};
 
     //Filtri per i dati da mostrare
     vm.filter = {
@@ -47,10 +61,47 @@
       return false;
     };
 
+    //Registra un corso
     vm.onSubmit = function() {
-      planService.registerCourse(vm.courseData);
-      window.alert("Corso aggiunto con successo");
-      $window.location.reload();
+      if (
+        vm.courseData.entryYear === 3 &&
+        (vm.courseData === "Informatica" ||
+          (vm.courseData === "Chimica")(vm.courseData === "Fisica"))
+      ) {
+        alert(
+          "Inserito un anno di corso maggiore di 3 per una laurea triennale."
+        );
+      } else {
+        planService.registerCourse(vm.courseData).then(function(status) {
+          if (status.data === "error") {
+            window.alert("Corso già registrato!");
+          } else {
+            window.alert("Corso registrato con successo");
+            $window.location.reload();
+          }
+        });
+      }
+    };
+
+    //Registra una tesi
+    vm.submitThesis = function() {
+      if (
+        vm.thesis.faculty === "Informatica" ||
+        vm.thesis.faculty === "Chimica" ||
+        vm.thesis.faculty === "Fisica"
+      ) {
+        vm.thesis.year = 3;
+      }
+      planService.registerCourse(vm.thesis).then(function(status) {
+        if (status.data === "error") {
+          window.alert(
+            "Tesi già registrata per questa facoltà ed anno accademico"
+          );
+        } else {
+          window.alert("Tesi registrata con successo");
+        }
+        $window.location.reload();
+      });
     };
 
     //inizializza il controller
@@ -63,16 +114,30 @@
           vm.courses = plan;
         })
         .then(function() {
+          planService.getAllPlanThesis().then(function(thesis) {
+            vm.planThesis = thesis;
+            console.log(vm.planThesis);
+          });
+        })
+        .then(function() {
           removeDuplicateYears();
         });
     }
 
-    //Cancella un corso.
+    //Cancella un corso o una tesi.
     $scope.deleteCourse = function(id, subj, deg, year) {
-      if (confirm("Vuoi davvero eliminare il corso?") == true) {
-        planService.deleteCourse(id);
-        alert("Corso eliminato con successo!");
-        $window.location.reload();
+      if (!subj) {
+        if (confirm("Vuoi davvero eliminare la tesi?") == true) {
+          planService.deleteCourse(id);
+          alert("Tesi eliminata con successo!");
+          $window.location.reload();
+        }
+      } else {
+        if (confirm("Vuoi davvero eliminare il corso?") == true) {
+          planService.deleteCourse(id);
+          alert("Corso eliminato con successo!");
+          $window.location.reload();
+        }
       }
     };
 
@@ -85,7 +150,7 @@
         i++;
         if (keys.indexOf(key) === -1) {
           keys.push(key);
-          vm.entryYear.push(value.entryYear);
+          vm.entryYears.push(value.entryYear);
         }
       });
     }

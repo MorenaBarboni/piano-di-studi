@@ -1,8 +1,13 @@
 (function() {
   angular.module("planApp").controller("profileCtrl", profileCtrl);
 
-  profileCtrl.$inject = ["$location", "userService", "planService"];
-  function profileCtrl($location, userService, planService) {
+  profileCtrl.$inject = [
+    "$location",
+    "userService",
+    "planService",
+    "thesisService"
+  ];
+  function profileCtrl($location, userService, planService, thesisService) {
     var vm = this;
 
     vm.user = {};
@@ -10,6 +15,10 @@
     vm.studentYear = 0; //Anno di corso a cui lo studente è iscritto
 
     vm.planData = []; //Dati piano di studi -- studente
+
+    vm.thesis = []; //Tesi assegnata allo studente
+
+    vm.planThesis = {}; //Dettagli tesi del piano di studi
 
     vm.professorCourses = []; //Corsi di responsabilità del docente -- docente
 
@@ -68,6 +77,19 @@
               })
               .then(function() {
                 sortYears();
+              })
+              .then(function() {
+                planService
+                  .getPlanThesis(vm.user.faculty, vm.user.entryYear)
+                  .then(function(planThesis) {
+                    vm.planThesis = planThesis;
+                    console.log(planThesis);
+                  });
+              })
+              .then(function() {
+                thesisService.getThesis(vm.user.email).then(function(thesis) {
+                  vm.thesis = thesis;
+                });
               });
           }
         })
@@ -77,6 +99,7 @@
             planService
               .getProfessorCoursesInfo(vm.user.email)
               .then(function(professorCourses) {
+                console.log(professorCourses);
                 vm.professorCourses = professorCourses;
               });
           }

@@ -59,6 +59,28 @@
         .then(handleSuccess, handleError);
     };
 
+    //Ottiene informazioni sulla tesi del piano di studi
+    getPlanThesis = function(faculty, entryYear) {
+      return $http
+        .get("/api/plan/thesis/" + faculty + "/" + entryYear, {
+          headers: {
+            Authorization: "Bearer " + authentication.getToken()
+          }
+        })
+        .then(handleSuccess, handleError);
+    };
+
+    //Ottiene informazioni sulle tesi di tutti i piani
+    getAllPlanThesis = function() {
+      return $http
+        .get("/api/plan/allThesis", {
+          headers: {
+            Authorization: "Bearer " + authentication.getToken()
+          }
+        })
+        .then(handleSuccess, handleError);
+    };
+
     //funzioni private
     function handleSuccess(res) {
       return res.data;
@@ -74,7 +96,9 @@
       deleteCourse: deleteCourse,
       getStudentPlan: getStudentPlan,
       getProfessorCoursesInfo: getProfessorCoursesInfo,
-      getProfessorCourses: getProfessorCourses
+      getProfessorCourses: getProfessorCourses,
+      getPlanThesis: getPlanThesis,
+      getAllPlanThesis: getAllPlanThesis
     };
   }
 })();

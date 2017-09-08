@@ -1,5 +1,5 @@
-<div class="navbar navbar-default" >
-  <div class="container" >
+<div class="navbar navbar-default">
+  <div class="container">
     <div id="navbar-main" style="min-width: 1200px; max-height:60px;">
       <ul class="nav navbar-nav">
         <div class="navbar-header">
@@ -26,6 +26,10 @@
         <li ng-show="navvm.isStudente"><a href="career">Carriera</a></li>
         <!--Gestione Appelli e Verbalizzazione-->
         <li ng-show="navvm.isDocente"><a href="examSession">Gestione Appelli e Verbalizzazione</a></li>
+        <!--Gestione Tesi Studente-->
+        <li ng-show="navvm.isStudente"><a href="thesis">Richiedi Tesi</a></li>
+        <!--Gestione Tesi Docente-->
+        <li ng-show="navvm.isDocente"><a href="thesis">Tesi</a></li>
         <!--Logout -->
         <li ng-show="navvm.isLoggedIn"><a href="logout"><span class="glyphicon glyphicon-log-out"></span>&nbspLogout</a></li>
 

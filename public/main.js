@@ -53,6 +53,11 @@
         controller: "usersManagementCtrl",
         controllerAs: "vm"
       })
+      .when("/thesis", {
+        templateUrl: "/thesis/thesis.view.html",
+        controller: "thesisCtrl",
+        controllerAs: "vm"
+      })
       .when("/logout", {
         resolve: {
           logout: [
@@ -107,6 +112,11 @@
       } else if (
         $location.path() === "/examSession/validation/:sessionId" &&
         !authentication.isDocente()
+      ) {
+        $location.path("/");
+      } else if (
+        $location.path() === "/thesis" &&
+        (!authentication.isLoggedIn() || authentication.isAdmin())
       ) {
         $location.path("/");
       } else if (

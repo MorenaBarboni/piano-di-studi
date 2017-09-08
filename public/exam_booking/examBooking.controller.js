@@ -84,7 +84,7 @@
     //Ottiene l'elenco degli appelli per facoltà e anno accademico
     function getSessionList() {
       sessionService
-        .getStudentSessions(vm.user.faculty, vm.user.entryYear)
+        .getAvailableSessions(vm.user.faculty, vm.user.entryYear)
         .then(function(sessionList) {
           vm.sessionList = sessionList;
         })

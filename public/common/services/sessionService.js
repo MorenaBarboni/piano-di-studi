@@ -51,6 +51,20 @@
         });
     };
 
+     //Ottiene l'elenco degli appelli per facoltà e anno accademico
+    getAvailableSessions = function(faculty, entryYear) {
+      return $http
+        .get(
+          "/api/examBooking/availableSessions/" + faculty + "/" + entryYear,
+          {
+            headers: {
+              Authorization: "Bearer " + authentication.getToken()
+            }
+          }
+        )
+        .then(handleSuccess, handleError);
+    };
+
     //funzioni private
 
     function handleSuccess(res) {
@@ -66,7 +80,8 @@
       getSessionsByProfessor: getSessionsByProfessor,
       deleteSessionById: deleteSessionById,
       getSessionById: getSessionById,
-      getRegisteredExamsMats: getRegisteredExamsMats
+      getRegisteredExamsMats: getRegisteredExamsMats,
+      getAvailableSessions:getAvailableSessions
     };
   }
 })();

@@ -1,206 +1,314 @@
 [
   {
     "mark": 26,
-    "examDate": "21/01/2016",
+    "examDate": "21/01/2015",
     "mat": "000001",
     "subject": "Inglese - Livello B1"
   },
   {
     "mark": 31,
-    "examDate": "10/02/2016",
+    "examDate": "10/02/2015",
     "mat": "000001",
     "subject": "Finanza Comunitaria"
   },
   {
     "mark": 25,
-    "examDate": "25/02/2016",
+    "examDate": "25/02/2015",
     "mat": "000001",
     "subject": "Analisi"
   },
   {
     "mark": 18,
-    "examDate": "15/02/2016",
+    "examDate": "15/02/2015",
     "mat": "000001",
     "subject": "Programmazione"
   },
   {
     "mark": 23,
-    "examDate": "03/02/2016",
+    "examDate": "03/02/2015",
     "mat": "000001",
     "subject": "Logica Matematica"
   },
   {
     "mark": 28,
-    "examDate": "13/06/2016",
+    "examDate": "13/06/2015",
     "mat": "000001",
     "subject": "Diritto delle Nuove Tecnologie"
   },
   {
     "mark": 27,
-    "examDate": "25/06/2016",
+    "examDate": "25/06/2015",
     "mat": "000001",
     "subject": "Fondamenti di Informatica"
   },
   {
     "mark": 24,
-    "examDate": "20/07/2016",
+    "examDate": "20/07/2015",
     "mat": "000001",
     "subject": "Algebra Lineare"
   },
   {
     "mark": 25,
-    "examDate": "28/07/2016",
+    "examDate": "28/07/2015",
     "mat": "000001",
     "subject": "Architettura degli elaboratori"
   },
   {
+    "mark": 24,
+    "examDate": "20/02/2016",
+    "mat": "000001",
+    "subject": "Gestione dell'informazione"
+  },
+  {
+    "mark": 25,
+    "examDate": "10/07/2016",
+    "mat": "000001",
+    "subject": "Sistemi Operativi"
+  },
+  {
     "mark": 27,
-    "examDate": "10/02/2016",
+    "examDate": "10/02/2015",
     "mat": "000002",
     "subject": "Fisica I"
   },
   {
     "mark": 27,
-    "examDate": "25/02/2016",
+    "examDate": "25/02/2015",
     "mat": "000002",
     "subject": "Matematica I"
   },
   {
     "mark": 29,
-    "examDate": "25/02/2016",
+    "examDate": "25/02/2015",
     "mat": "000002",
     "subject": "Chimica Generale ed Inorganica"
   },
   {
     "mark": 25,
-    "examDate": "29/01/2016",
+    "examDate": "29/01/2015",
     "mat": "000002",
     "subject": "Informatica e Applicazioni Numeriche"
   },
   {
     "mark": 28,
-    "examDate": "29/06/2016",
+    "examDate": "29/06/2015",
     "mat": "000002",
     "subject": "Chimica Analitica I"
   },
   {
     "mark": 27,
-    "examDate": "17/07/2016",
+    "examDate": "17/07/2015",
     "mat": "000002",
     "subject": "Calcolo della Probabilità e Statistica"
   },
   {
     "mark": 25,
-    "examDate": "27/01/2016",
+    "examDate": "27/01/2015",
     "mat": "000003",
     "subject": "Analisi Matematica I"
   },
   {
     "mark": 28,
-    "examDate": "03/02/2016",
+    "examDate": "03/02/2015",
     "mat": "000003",
     "subject": "Inglese - Livello B1"
   },
   {
     "mark": 20,
-    "examDate": "15/02/2016",
+    "examDate": "15/02/2015",
     "mat": "000003",
     "subject": "Chimica"
   },
   {
     "mark": 24,
-    "examDate": "25/02/2016",
+    "examDate": "25/02/2015",
     "mat": "000003",
     "subject": "Geometria"
   },
   {
     "mark": 27,
-    "examDate": "23/07/2016",
+    "examDate": "23/07/2015",
     "mat": "000003",
     "subject": "Tecniche di misura e trattamento dati"
   },
   {
     "mark": 23,
-    "examDate": "21/02/2016",
+    "examDate": "21/02/2015",
     "mat": "000004",
     "subject": "Chimica Generale ed Inorganica"
   },
   {
     "mark": 25,
-    "examDate": "29/01/2016",
+    "examDate": "29/01/2015",
     "mat": "000004",
     "subject": "Informatica e Applicazioni Numeriche"
   },
   {
     "mark": 25,
-    "examDate": "18/02/2016",
+    "examDate": "18/02/2015",
     "mat": "000005",
     "subject": "Meccanica e Termodinamica"
   },
   {
     "mark": 22,
-    "examDate": "24/02/2016",
+    "examDate": "24/02/2015",
     "mat": "000005",
     "subject": "Chimica"
-  }, {
+  },
+  {
     "mark": 21,
-    "examDate": "07/02/2016",
+    "examDate": "07/02/2015",
     "mat": "000005",
     "subject": "Analisi Matematica I"
   },
   {
     "mark": 27,
-    "examDate": "02/07/2016",
+    "examDate": "02/07/2015",
     "mat": "000006",
     "subject": "Fondamenti di Informatica"
-  }, {
+  },
+  {
     "mark": 28,
-    "examDate": "07/07/2016",
+    "examDate": "07/07/2015",
     "mat": "000006",
     "subject": "Diritto delle Nuove Tecnologie"
   },
   {
     "mark": 22,
-    "examDate": "15/02/2016",
+    "examDate": "15/02/2015",
     "mat": "000006",
     "subject": "Programmazione"
   },
   {
     "mark": 20,
-    "examDate": "25/02/2016",
+    "examDate": "25/02/2015",
     "mat": "000007",
     "subject": "Fisica I"
   },
   {
     "mark": 28,
-    "examDate": "25/02/2016",
+    "examDate": "25/02/2015",
     "mat": "000007",
     "subject": "Matematica I"
   },
   {
     "mark": 27,
-    "examDate": "25/02/2016",
+    "examDate": "25/02/2015",
     "mat": "000008",
     "subject": "Analisi"
   },
   {
     "mark": 23,
-    "examDate": "18/02/2016",
+    "examDate": "18/02/2015",
     "mat": "000008",
     "subject": "Logica Matematica"
   },
   {
     "mark": 18,
-    "examDate": "20/02/2016",
+    "examDate": "20/02/2015",
     "mat": "000009",
     "subject": "Analisi Matematica I"
   },
   {
     "mark": 28,
-    "examDate": "02/03/2016",
+    "examDate": "02/03/2015",
     "mat": "000009",
     "subject": "Chimica"
+  },
+  {
+    "mark": 24,
+    "examDate": "15/02/2015",
+    "mat": "000012",
+    "subject": "Programmazione"
+  },
+  {
+    "mark": 22,
+    "examDate": "03/02/2015",
+    "mat": "000012",
+    "subject": "Logica Matematica"
+  },
+  {
+    "mark": 26,
+    "examDate": "13/06/2015",
+    "mat": "000012",
+    "subject": "Diritto delle Nuove Tecnologie"
+  },
+  {
+    "mark": 26,
+    "examDate": "10/02/2015",
+    "mat": "000013",
+    "subject": "Fisica I"
+  },
+  {
+    "mark": 27,
+    "examDate": "25/02/2015",
+    "mat": "000013",
+    "subject": "Matematica I"
+  },
+  {
+    "mark": 30,
+    "examDate": "25/02/2015",
+    "mat": "000013",
+    "subject": "Chimica Generale ed Inorganica"
+  },
+  {
+    "mark": 30,
+    "examDate": "29/01/2015",
+    "mat": "000013",
+    "subject": "Informatica e Applicazioni Numeriche"
+  },
+  {
+    "mark": 28,
+    "examDate": "29/06/2015",
+    "mat": "000013",
+    "subject": "Chimica Analitica I"
+  },
+  {
+    "mark": 19,
+    "examDate": "15/02/2015",
+    "mat": "000014",
+    "subject": "Chimica"
+  },
+  {
+    "mark": 18,
+    "examDate": "25/02/2015",
+    "mat": "000014",
+    "subject": "Geometria"
+  },
+  {
+    "mark": 18,
+    "examDate": "23/07/2015",
+    "mat": "000014",
+    "subject": "Tecniche di misura e trattamento dati"
+  },
+  {
+    "mark": 20,
+    "examDate": "15/02/2015",
+    "mat": "000015",
+    "subject": "Chimica"
+  },
+  {
+    "mark": 18,
+    "examDate": "25/02/2015",
+    "mat": "000015",
+    "subject": "Geometria"
+  },
+  {
+    "mark": 24,
+    "examDate": "15/02/2015",
+    "mat": "000016",
+    "subject": "Programmazione"
+  },
+  {
+    "mark": 21,
+    "examDate": "03/02/2015",
+    "mat": "000016",
+    "subject": "Logica Matematica"
+  },
+  {
+    "mark": 21,
+    "examDate": "20/07/2015",
+    "mat": "000016",
+    "subject": "Algebra Lineare"
   }
-
-
 ]

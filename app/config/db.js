@@ -8,6 +8,7 @@ require('../models/courses'); //Corsi
 require('../models/exams'); //Esami Registrati
 require('../models/examSessions'); //Appelli
 require('../models/bookings'); //Prenotazioni
+require('../models/thesis'); //Richieste Tesi
 
 mongoose.connect(url);
 

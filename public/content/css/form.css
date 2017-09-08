@@ -1,3 +1,8 @@
+#container {
+  width: 960px;
+  margin: 0 auto;
+}
+
 .form-style {
   margin-left: auto;
   margin-right: auto;
@@ -6,7 +11,6 @@
   max-width: 550px;
   background: #f7f7f7;
   padding: 25px 15px 25px 10px;
-  font: 14px Arial, Helvetica, Verdana, Sans-serif;
   color: #888;
   text-shadow: 1px 1px 1px #fff;
   border: 1px solid #e4e4e4;
@@ -33,27 +37,28 @@
 .form-style label > span {
   float: left;
   width: 20%;
-  text-align: right;
+  text-align: left;
+  margin-left: 15px;
   padding-right: 10px;
-  margin-top: 5px;
   color: #888;
 }
 .form-style input[type="text"],
 .form-style input[type="email"],
 .form-style input[type="password"],
 .form-style input[type="number"],
+.form-style input[type="date"],
+.form-style input[type="time"],
 .form-style textarea {
   border: 1px solid #dadada;
   color: #888;
   height: 35px;
-  margin-bottom: 16px;
+  margin-bottom: 30px;
   margin-right: 6px;
   margin-top: 2px;
   outline: 0 none;
-  padding: 3px 3px 3px 5px;
+  padding: 8px 8px 8px 8px;
   width: 70%;
-
-  font-size: 12px;
+  font-size: 14px;
   line-height: 15px;
   box-shadow: inset 0px 1px 4px #ececec;
   -moz-box-shadow: inset 0px 1px 4px #ececec;
@@ -64,36 +69,39 @@
 .form-style input[type="email"]:focus,
 .form-style input[type="password"]:focus,
 .form-style input[type="number"]:focus,
+.form-style input[type="date"]:focus,
+.form-style input[type="time"]:focus,
+.form-style textarea:focus,
 .form-style select:focus {
   border: 1px solid #918c8b;
 }
 .form-style select {
-  background: #fff url('../img/arrow.png') no-repeat right;
+  background: #fff url("../img/arrow.png") no-repeat right;
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
   text-indent: 0.01px;
-  text-overflow: '';
+  text-overflow: "";
   width: 70%;
-  height: 35px;
-  line-height: 25px;
+  height: 38px;
   color: #888;
+  font-size: 15px;
   margin-bottom: 16px;
   margin-right: 6px;
   margin-top: 2px;
+  margin-bottom: 30px;
   outline: 0 none;
   padding: 3px 3px 3px 5px;
-  width: 70%;
-  font-size: 12px;
-  line-height: 15px;
+  line-height: 14px;
   box-shadow: inset 0px 1px 4px #ececec;
   -moz-box-shadow: inset 0px 1px 4px #ececec;
   -webkit-box-shadow: inset 0px 1px 4px #ececec;
+  border: 1px solid #dadada;
   cursor: pointer;
 }
 
 .form-style button {
-  width: 380px;
+  width: 270px;
   text-align: center;
   background: #ab5963;
   border: none;
@@ -106,10 +114,9 @@
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 10px;
-  margin-top: 10px;
 }
 .form-style button:hover {
   background: #c47d86;
   transition: 0.4s;
-  width:400px;
+  width: 265px;
 }

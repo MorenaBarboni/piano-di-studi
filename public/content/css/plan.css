@@ -3,17 +3,15 @@ body {
   margin: 0;
   padding: 0;
 }
+#container {
+  width: 960px;
+  margin: 0 auto;
+}
 
 #wrapper {
   margin-left: auto;
   margin-right: auto;
   min-width: 1200px;
-}
-
-#container {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 1000px;
 }
 
 h4 {
@@ -23,33 +21,61 @@ h4 {
   margin-top: 30px;
   margin-bottom: 30px;
 }
-
+.well {
+  margin-top: 30px;
+  height: 174px;
+  background-color: whitesmoke;
+  border: 1px solid #e4e4e4;
+}
+.well.white {
+  padding: 12px;
+  margin-top: 0px;
+  height: 65px;
+  width: 90%;
+  float: right;
+  background-color: white;
+  border: 1px solid #efefef;
+  margin: auto;
+}
+#infoWrapper {
+  margin-top: 5px;
+  height: 65px;
+}
+p {
+  display: inline;
+}
+p .glyphicon {
+  margin-left: 10px;
+  font-size: 20px;
+  color: #666;
+}
 .form-style {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 50px;
-  margin-top: 60px;
-  max-width: 500px;
-  background: white;
+  margin-top: 30px;
+  max-width: 550px;
+  background: #f7f7f7;
   padding: 25px 15px 25px 10px;
-  font: 14px Arial, Helvetica, Verdana, Sans-serif;
   color: #888;
   text-shadow: 1px 1px 1px #fff;
-  }
+  border: 1px solid #e4e4e4;
+  text-align: center;
+}
 .form-style h1 {
   font-size: 27px;
   padding: 0px 0px 10px 40px;
   display: block;
-  margin-bottom: 20px;
-  margin-right: 20px;
+  border-bottom: 1px solid #e4e4e4;
+  margin: -10px -15px 30px -10px;
   color: #ab5963;
 }
-
 .form-style h3 {
-  text-align: left;
+  text-align: center;
   padding: 0px 0px 0px 40px;
   display: block;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
+  color: #ab5963;
 }
 
 .form-style h1 > span {
@@ -62,7 +88,18 @@ h4 {
 }
 .form-style label {
   display: block;
-  margin: 0px;
+  text-align: left;
+}
+#tableTitle {
+  margin-top: 20px;
+  margin-left: 20px;
+  float: left;
+}
+#spanRight {
+  margin-left: 5px;
+}
+#spanLeft {
+  margin-left: 25px;
 }
 .form-style label > span {
   width: 20%;
@@ -78,22 +115,24 @@ h4 {
 .form-style input[type="date"],
 .form-style input[type="time"],
 .form-style input[type="datetime-local"],
-.form-style textarea,
-.form-style select {
+.form-style textarea {
   border: 1px solid #dadada;
   color: #888;
   height: 30px;
-  margin-bottom: 16px;
-  margin-right: 6px;
-  margin-top: 2px;
   outline: 0 none;
   padding: 3px 3px 3px 5px;
+  padding-left: 5px;
   width: 90%;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 15px;
   box-shadow: inset 0px 1px 4px #ececec;
   -moz-box-shadow: inset 0px 1px 4px #ececec;
   -webkit-box-shadow: inset 0px 1px 4px #ececec;
+  margin: auto;
+  margin-top: 2px;
+}
+.form-style input[type="number"] {
+  padding-left: 15px;
 }
 
 .form-style input[type="text"]:focus,
@@ -112,11 +151,30 @@ h4 {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
+  color: #888;
   text-indent: 0.01px;
   text-overflow: "";
   width: 90%;
   height: 35px;
-  line-height: 25px;
+  font-size: 14px;
+  line-height: 15px;
+  outline: 0 none;
+  padding: 3px 3px 3px 5px;
+  padding-left: 10px;
+  box-shadow: inset 0px 1px 4px #ececec;
+  -moz-box-shadow: inset 0px 1px 4px #ececec;
+  -webkit-box-shadow: inset 0px 1px 4px #ececec;
+  border: 1px solid #dadada;
+  cursor: pointer;
+  margin: auto;
+  margin-top: 2px;
+}
+.form-style checkbox {
+  -webkit-appearance: checkbox;
+  height: 20px;
+  width: 20px;
+  margin-left: 5px;
+  margin-top: 5px;
 }
 .form-style button {
   width: 130px;
@@ -136,20 +194,20 @@ h4 {
 }
 
 #table {
-  float: right;
   display: table;
-  width: 580px;
+  width: 100%;
   background: #fff;
   margin: 0;
   box-sizing: border-box;
   box-shadow: 5px 5px 30px 2px #e6e6e6;
+  margin: auto;
+  margin-left: 13px;
+  margin-bottom: 100px;
 }
-
 .caption {
-  float: right;
   text-align: right;
   display: block;
-  width: 580px;
+  width: 100%;
   background: #84c5ce;
   height: 75px;
   padding-right: 20px;
@@ -159,12 +217,12 @@ h4 {
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
   box-sizing: border-box;
   box-shadow: 5px 5px 30px 2px #e6e6e6;
+  margin-left: 13px;
 }
 .caption span {
   text-align: left;
   font-size: 14px;
 }
-
 .caption input[type="text"] {
   height: 30px;
   width: 90px;
@@ -190,7 +248,7 @@ h4 {
 
 .caption h5 {
   text-align: left;
-  font-size: 20px;
+  font-size: 22px;
   margin-left: 10px;
   margin-right: 25px;
 }
@@ -199,21 +257,23 @@ h4 {
   background: #8b8b8b;
   color: #fff;
 }
-
+#tableContainer {
+  min-height: 320px;
+}
 .tableRow {
   display: table-row;
 }
 
-.cell {
+.cell,
+.primary {
   display: table-cell;
-
   padding: 6px;
   border-bottom: 1px solid #e5e5e5;
   text-align: center;
 }
 
 .cell img {
-  width: 15px;
+  width: 18px;
   height: 18px;
 }
 .cellDelete {
@@ -241,4 +301,22 @@ input[type="radio"] {
   -webkit-appearance: checkbox;
   height: 20px;
   width: 20px;
+}
+#goToTop {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 12px;
+  height: 45px;
+  transition-duration: 0.3s;
+  border-radius: 50px;
+}
+
+#goToTop:hover {
+  transition-duration: 0.3s;
 }

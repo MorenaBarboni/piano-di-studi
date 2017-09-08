@@ -15,10 +15,23 @@ module.exports.addCourse = function(req, res) {
   course.professorEmail = req.body.professorEmail;
   course.mandatory = req.body.mandatory;
 
-  course.save(function(err) {
-    res.status(200);
-    console.log("Course successfully saved to db.");
-  });
+  Course.findOne(
+    {
+      subject: course.subject,
+      faculty: course.faculty,
+      entryYear: course.entryYear
+    },
+    function(err, data) {
+      if (data) {
+        res.send("error");
+      } else {
+        course.save(function(err) {
+          res.send("ok");
+          res.status(200);
+        });
+      }
+    }
+  );
 };
 
 //Cancella un corso selezionandolo tramite id
@@ -139,7 +152,7 @@ module.exports.getStudentPlan = function(req, res) {
   }
 };
 
-//Per ottenere tutte le iformazioni sui corsi di responsabilità di un docente.
+//Per ottenere tutte le informazioni sui corsi di responsabilità di un docente.
 module.exports.getProfessorCoursesInfo = function(req, res) {
   if (!req.payload._id) {
     res.status(401).json({
@@ -187,7 +200,7 @@ module.exports.getProfessorCoursesInfo = function(req, res) {
           }
         },
         {
-          $sort: { subject: 1 }
+          $sort: { _id: 1}
         }
       ],
       function(err, data) {
@@ -239,4 +252,27 @@ module.exports.getProfessorCourses = function(req, res) {
       }
     );
   }
+};
+
+//Per ottenere la tesi di un piano di studi.
+module.exports.getPlanThesis = function(req, res) {
+  Course.find(
+    {
+      subject: "Prova Finale",
+      faculty: req.params.faculty,
+      entryYear: req.params.entryYear
+    },
+    function(err, data) {
+      console.log(data);
+      res.send(data);
+    }
+  );
+};
+
+//Per ottenere la tesi di tutti piani di studi.
+module.exports.getAllPlanThesis = function(req, res) {
+  Course.find({ subject: "Prova Finale" }, function(err, data) {
+    res.send(data);
+    console.log(data);
+  });
 };

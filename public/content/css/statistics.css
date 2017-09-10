@@ -1,0 +1,123 @@
+#container {
+  width: 960px;
+  margin: 0 auto;
+}
+
+fusioncharts {
+  margin-bottom: 600px;
+}
+
+h2 {
+  margin-top: 30px;
+  text-align: center;
+  color:rgba(116, 9, 9, 0.65);
+}
+
+h3 {
+  color: #cb999a;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+h4 {
+  font-size: 24px;
+}
+
+h4.infoTag {
+  font-size: 20px;
+  margin-left: 10px;
+}
+p.title {
+  text-align: left;
+  margin-left: 20px;
+  font-size: 13px;
+  padding-bottom: 15px;
+  color: #cb999a;
+}
+a.title {
+  color: #cb999a;
+}
+
+p.courses {
+  text-align: center;
+  font-size: 20px;
+  padding-top: 80px;
+  padding-bottom: 230px;
+  color: #cb999a;
+}
+
+.glyphicon.margin {
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+ul.chartList {
+  list-style-type: none;
+  margin-left: 0px;
+}
+
+li.chartList {
+  text-align: left;
+  padding: 3px;
+  margin-top: 5px;
+  margin-left: 0px;
+}
+
+span.infoTag {
+  display: inline-block;
+  text-align: left;
+  padding: 2px;
+  margin-left: 10px;
+  margin-bottom: 5px;
+}
+
+.well {
+  box-shadow: 5px 5px 10px 2px #e6e6e6;
+  min-height: 160px;
+}
+
+.well.pie {
+  background-color: rgba(138, 20, 20, 0.28);
+  float: right;
+  width: 330px;
+  max-height: 500px;
+  box-shadow: 5px 5px 10px 2px #e6e6e6;
+  padding: 10px;
+  margin: auto;
+  color: #320404;
+}
+
+#circle {
+  margin-left: 10px;
+  text-align: center;
+  width: 100px;
+  height: 100px;
+  background: #BE6F71;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+}
+#circle p {
+  color: whitesmoke;
+  font-size: 22px;
+  padding-top: 35px;
+}
+#finalAvg {
+  margin-top: 80px;
+}
+#finalAvg h3 {
+  margin-left: 20px;
+  color: #BE6F71;
+}
+
+.pieChart {
+  margin-top: 50px;
+  margin-bottom: 70px;
+}
+.lineChart {
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+.chartInfo {
+  margin-top: 50px;
+  color: rgba(116, 9, 9, 0.65);
+}

@@ -10,7 +10,7 @@
         <!-- Login-->
         <li ng-hide="navvm.isLoggedIn"><a href="login"> <span class="glyphicon glyphicon-log-in"></span> &nbspLogin</a></li>
         <!-- Profilo -->
-        <li ng-show="navvm.isLoggedIn"><a href="profile">{{ navvm.currentUser.name }}</a></li>
+        <li ng-show="navvm.isLoggedIn && !navvm.isAdmin"><a href="profile">{{ navvm.currentUser.name }}</a></li>
         <!-- Gestione Utenti / Admin -->
         <li class="dropdown" ng-show="navvm.isAdmin"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Gestione Utenti <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -30,6 +30,8 @@
         <li ng-show="navvm.isStudente"><a href="thesis">Richiedi Tesi</a></li>
         <!--Gestione Tesi Docente-->
         <li ng-show="navvm.isDocente"><a href="thesis">Tesi</a></li>
+        <!--Statistiche-->
+        <li ng-show="navvm.isLoggedIn"><a href="statistics">Statistiche</a></li>
         <!--Logout -->
         <li ng-show="navvm.isLoggedIn"><a href="logout"><span class="glyphicon glyphicon-log-out"></span>&nbspLogout</a></li>
 

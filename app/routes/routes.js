@@ -68,4 +68,7 @@ router.get("/thesis/requestedThesis/:email", ctrlThesis.getRequestedThesis); //O
 router.get("/thesis/approvedThesis/:email", ctrlThesis.getApprovedThesis); //Ottiene la tesi approvata dal relatore
 router.put("/thesis/approveRequest/:requestId", ctrlThesis.approveRequest); //Approva una richiesta di tesi
 
+//Statistiche
+router.get("/statistics/studentsAvg", auth, ctrlExam.getStudentsAvg); //Medie degli studenti per il grafico
+
 module.exports = router;

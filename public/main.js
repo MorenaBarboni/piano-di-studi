@@ -58,6 +58,11 @@
         controller: "thesisCtrl",
         controllerAs: "vm"
       })
+      .when("/statistics", {
+        templateUrl: "/statistics/statistics.view.html",
+        controller: "statisticsCtrl",
+        controllerAs: "vm"
+      })
       .when("/logout", {
         resolve: {
           logout: [
@@ -80,7 +85,10 @@
       nextRoute,
       currentRoute
     ) {
-      if ($location.path() === "/profile" && !authentication.isLoggedIn()) {
+      if (
+        $location.path() === "/profile" &&
+        (!authentication.isLoggedIn() || authentication.isAdmin())
+      ) {
         $location.path("/");
       } else if (
         $location.path() === "/plan" &&
@@ -122,6 +130,11 @@
       } else if (
         $location.path() === "/usersManagement" &&
         (!authentication.isLoggedIn() || !authentication.isAdmin())
+      ) {
+        $location.path("/");
+      } else if (
+        $location.path() === "/statistics" &&
+        !authentication.isLoggedIn()
       ) {
         $location.path("/");
       }

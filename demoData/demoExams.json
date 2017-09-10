@@ -215,6 +215,36 @@
     "mat": "000009",
     "subject": "Chimica"
   },
+    {
+    "mark": 24,
+    "examDate": "12/02/2016",
+    "mat": "000010",
+    "subject": "Chimica"
+  },
+  {
+    "mark": 24,
+    "examDate": "02/07/2016",
+    "mat": "000010",
+    "subject": "Meccanica e Termodinamica"
+  },
+  {
+    "mark": 21,
+    "examDate": "02/03/2016",
+    "mat": "000011",
+    "subject": "Logica Matematica"
+  },
+  {
+    "mark": 25,
+    "examDate": "11/03/2016",
+    "mat": "000011",
+    "subject": "Programmazione"
+  },
+  {
+    "mark": 23,
+    "examDate": "22/02/2016",
+    "mat": "000011",
+    "subject": "Analisi"
+  },
   {
     "mark": 24,
     "examDate": "15/02/2015",

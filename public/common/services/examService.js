@@ -33,6 +33,17 @@
         .then(handleSuccess, handleError);
     };
 
+    //Ottiene la media aritmetica di ogni studente
+    getStudentsAvg = function() {
+      return $http
+        .get("api/statistics/studentsAvg", {
+          headers: {
+            Authorization: "Bearer " + authentication.getToken()
+          }
+        })
+        .then(handleSuccess, handleError);
+    };
+
     //funzioni private
     function handleSuccess(res) {
       return res.data;
@@ -45,7 +56,8 @@
     return {
       getStudentExams: getStudentExams,
       registerExam: registerExam,
-      getStudentExamsNames: getStudentExamsNames
+      getStudentExamsNames: getStudentExamsNames,
+      getStudentsAvg: getStudentsAvg
     };
   }
 })();

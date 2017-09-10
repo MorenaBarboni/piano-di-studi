@@ -54,3 +54,51 @@ module.exports.getExamsNames = function(req, res) {
     });
   }
 };
+
+//Ottiene la media aritmetica per ogni studente
+module.exports.getStudentsAvg = function(req, res) {
+  if (!req.payload._id) {
+    res.status(401).json({
+      message: "UnauthorizedError: private profile"
+    });
+  }
+  Exam.aggregate(
+    [
+      {
+        $lookup: {
+          from: "users",
+          localField: "mat",
+          foreignField: "mat",
+          as: "students_marks"
+        }
+      },
+      {
+        $unwind: "$students_marks"
+      },
+      {
+        $project: {
+          mat: 1,
+          mark: 1,
+          faculty: "$students_marks.faculty"
+        }
+      },
+      {
+        $group: {
+          _id: {
+            mat: "$mat",
+            faculty: "$faculty"
+          },
+          avgMark: { $avg: "$mark" }
+        }
+      },
+      {
+        $sort: {
+          avgMark: 1
+        }
+      }
+    ],
+    function(err, data) {
+      res.send(data);
+    }
+  );
+};

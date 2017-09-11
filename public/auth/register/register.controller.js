@@ -1,9 +1,13 @@
 (function() {
   angular.module("planApp").controller("registerCtrl", registerCtrl);
 
-  registerCtrl.$inject = ["$location", "authentication", "$window"];
-  function registerCtrl($location, authentication, $window) {
+  registerCtrl.$inject = ["$location", "authentication", "$window", "userService"];
+  function registerCtrl($location, authentication, $window, userService) {
     var vm = this;
+
+    vm.contacts = {}; //Contatti per il footer
+
+    var user = {}; //Utente Corrente
 
     vm.userData = {
       name: "",
@@ -18,6 +22,22 @@
       tel: "",
       entryYear: ""
     };
+
+    initController();
+
+    function initController() {
+      userService.getAdminEmails().then(function(data) {
+        vm.contacts = data;
+      });
+      userService
+        .getProfile()
+        .success(function(data) {
+          vm.user = data;
+        })
+        .error(function(e) {
+          console.log(e);
+        });
+    }
 
     vm.onSubmit = function() {
       authentication.register(vm.userData).then(function(response) {

@@ -5,15 +5,25 @@
   function homeCtrl($location, userService) {
     var vm = this;
 
-    vm.user = {};
+    vm.user = [];
 
-    userService
-      .getProfile()
-      .success(function(data) {
-        vm.user = data;
-      })
-      .error(function(e) {
-        console.log(e);
+    //email degli admin per il footer
+    vm.contacts = {};
+
+    initController(); //Inizializza il controller
+
+    function initController() {
+      userService.getAdminEmails().then(function(data) {
+        vm.contacts = data;      
       });
+      userService
+        .getProfile()
+        .success(function(data) {
+          vm.user = data;
+        })
+        .error(function(e) {
+          console.log(e);
+        });
+    }
   }
 })();

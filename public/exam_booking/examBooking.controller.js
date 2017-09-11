@@ -23,6 +23,8 @@
 
     vm.user = {}; //Dati studente
 
+    vm.contacts = {}; //Contatti per il footer
+
     vm.studentYear = 1; //Anno di corso a cui lo studente è iscritto
 
     vm.sessionList = []; //Elenco degli appelli disponibili
@@ -53,6 +55,9 @@
     initController(); //Inizializza il controller
 
     function initController() {
+      userService.getAdminEmails().then(function(data) {
+        vm.contacts = data;
+      });
       userService
         .getProfile()
         .success(function(data) {

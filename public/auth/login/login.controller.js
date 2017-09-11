@@ -5,12 +5,22 @@
   function loginCtrl($location, authentication, userService) {
     var vm = this;
 
+    vm.contacts = {};
+
     vm.user = {};
 
     vm.accessData = {
       email: "",
       password: ""
     };
+
+    initController();
+
+    function initController() {
+      userService.getAdminEmails().then(function(data) {
+        vm.contacts = data;
+      });
+    }
 
     vm.onSubmit = function() {
       authentication

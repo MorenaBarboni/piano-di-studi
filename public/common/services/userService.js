@@ -42,6 +42,17 @@
         });
     };
 
+    //Restituisce le email degli amministratori
+    getAdminEmails = function() {
+      return $http
+        .get("/api/user/adminEmail", {
+          headers: {
+            Authorization: "Bearer " + authentication.getToken()
+          }
+        })
+        .then(handleSuccess, handleError);
+    };
+
     getSessionStudents = function(sessionId) {
       return $http
         .get("/api/examSession/students/" + sessionId, {
@@ -66,7 +77,8 @@
       getFacultiesInfo: getFacultiesInfo,
       getAllUsers: getAllUsers,
       deleteUser: deleteUser,
-      getSessionStudents:getSessionStudents
+      getSessionStudents: getSessionStudents,
+      getAdminEmails: getAdminEmails
     };
   }
 })();

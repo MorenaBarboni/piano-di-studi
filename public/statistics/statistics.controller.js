@@ -17,7 +17,9 @@
   ) {
     var vm = this; //Controller
 
-    vm.user = {}; //Dati utente
+    vm.user = {}; //Utente Corrente
+
+    vm.contacts = {} //Contatti per il footer
 
     vm.studentsAvg = {}; //Medie di ogni studente
 
@@ -39,6 +41,9 @@
     initController(); //Inizializza il controller
 
     function initController() {
+      userService.getAdminEmails().then(function(data) {
+        vm.contacts = data;
+      });
       userService
         .getProfile()
         .success(function(data) {

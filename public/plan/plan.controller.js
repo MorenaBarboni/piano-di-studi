@@ -1,12 +1,15 @@
 (function() {
   angular.module("planApp").controller("planCtrl", planCtrl);
 
-  planCtrl.$inject = ["$location", "planService", "$http", "$window", "$scope"];
-  function planCtrl($location, planService, $http, $window, $scope) {
+  planCtrl.$inject = ["$location", "planService", "userService", "$http", "$window", "$scope"];
+  function planCtrl($location, planService, userService, $http, $window, $scope) {
     var vm = this;
 
     //Array contenente tutti i corsi
     vm.courses = [];
+
+    //contatti per il footer
+    vm.contacts = {};
 
     //Anni Accademici
     vm.entryYears = [];
@@ -108,6 +111,9 @@
     initController();
 
     function initController() {
+      userService.getAdminEmails().then(function(data) {
+        vm.contacts = data;
+      });
       planService
         .getPlan()
         .then(function(plan) {

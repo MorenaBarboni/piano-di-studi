@@ -10,24 +10,17 @@
   function profileCtrl($location, userService, planService, thesisService) {
     var vm = this;
 
-    vm.user = {};
+    vm.user = {}; //Utente corrente
+
+    vm.planData = []; //Dati per il piano di studi studente
 
     vm.studentYear = 0; //Anno di corso a cui lo studente è iscritto
-
-    vm.planData = []; //Dati piano di studi -- studente
 
     vm.thesis = []; //Tesi assegnata allo studente
 
     vm.planThesis = {}; //Dettagli tesi del piano di studi
 
-    vm.professorCourses = []; //Corsi di responsabilità del docente -- docente
-
-    var chartData = []; //dati per il grafico a torta -- admin
-
-    vm.totStudents = 0; //numero totale iscritti -- admin
-    vm.informatica = 0; //numero totale iscritti informatica -- admin
-    vm.chimica = 0; //numero totale iscritti  chimica -- admin
-    vm.fisica = 0; //numero totale iscritti fisica  -- admin
+    vm.professorCourses = []; //Corsi di responsabilità del docente
 
     //Corsi suddivisi per anno
     vm.firstYear = [];
@@ -36,29 +29,15 @@
     vm.fourthYear = [];
     vm.fifthYear = [];
 
+    //Filtro per i corsi del docente
     vm.filterEntryYear = 2016;
-
-    //Grafico
-    vm.myDataSource = {
-      chart: {
-        caption: "Iscritti",
-        startingangle: "120",
-        showlabels: "0",
-        showlegend: "1",
-        enablemultislicing: "0",
-        slicingdistance: "15",
-        showpercentvalues: "1",
-        showpercentintooltip: "0",
-        palettecolors: "#BE3243,#986667,#BE6F71,#CB999A,#DFC0B1,#E0D0D0",
-        plottooltext: "Facoltà : $label Iscritti : $datavalue %",
-        theme: "fint"
-      },
-      data: {}
-    };
 
     initController();
 
     function initController() {
+      userService.getAdminEmails().then(function(data) {
+        vm.contacts = data;
+      });
       userService
         .getProfile()
         .success(function(data) {
@@ -68,7 +47,6 @@
           console.log(e);
         })
         .then(function() {
-          //Dati piano di studi
           if (vm.user.usertype === "studente") {
             planService
               .getStudentPlan()
@@ -94,26 +72,12 @@
           }
         })
         .then(function() {
-          //Dati corsi docente
           if (vm.user.usertype === "docente") {
             planService
               .getProfessorCoursesInfo(vm.user.email)
               .then(function(professorCourses) {
                 console.log(professorCourses);
                 vm.professorCourses = professorCourses;
-              });
-          }
-        })
-        .then(function() {
-          if (vm.user.usertype === "admin") {
-            //Dati per il grafico
-            userService
-              .getFacultiesInfo()
-              .then(function(data) {
-                vm.chartData = data;
-              })
-              .then(function() {
-                initPieChart();
               });
           }
         });
@@ -123,6 +87,7 @@
       return parseInt(year);
     };
 
+    //Filtro per coorte
     vm.checkCorrespondence = function(year) {
       if (year.indexOf(vm.filterEntryYear) !== -1 || vm.filterSubject === "") {
         return true;
@@ -184,45 +149,6 @@
           vm.fifthYear.push(element);
         }
       }, this);
-    }
-
-    //Inizializza il grafico
-    function initPieChart() {
-      vm.totStudents = vm.chartData.length;
-
-      for (var i = 0, len = vm.chartData.length; i < len; i++) {
-        if (vm.chartData[i].faculty === "Informatica") {
-          vm.informatica++;
-        } else if (vm.chartData[i].faculty === "Chimica") {
-          vm.chimica++;
-        } else if (vm.chartData[i].faculty === "Fisica") {
-          vm.fisica++;
-        }
-      }
-
-      if (vm.informatica === 0) {
-        percInf = 0;
-      } else {
-        var percInf = vm.informatica * 100 / vm.totStudents;
-      }
-
-      if (vm.chimica === 0) {
-        percChim = 0;
-      } else {
-        var percChim = vm.chimica * 100 / vm.totStudents;
-      }
-
-      if (vm.fisica === 0) {
-        percFis = 0;
-      } else {
-        var percFis = vm.fisica * 100 / vm.totStudents;
-      }
-      chartData.push(
-        { label: "Informatica", value: percInf },
-        { label: "Chimica", value: percChim },
-        { label: "Fisica", value: percFis }
-      );
-      vm.myDataSource.data = chartData;
     }
   }
 })();

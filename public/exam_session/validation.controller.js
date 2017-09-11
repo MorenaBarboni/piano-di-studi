@@ -18,6 +18,8 @@
 
     vm.registeredMatsList = {}; //Matricole degli studenti per cui l'esame è stato verbalizzato
 
+    vm.contacts = {};
+
     //Esame da registrare
     var examData = {
       subject: "",
@@ -30,6 +32,9 @@
 
     //Inizializza il controller
     function initController() {
+      userService.getAdminEmails().then(function(data) {
+        vm.contacts = data;
+      });
       userService
         .getProfile()
         .success(function(data) {

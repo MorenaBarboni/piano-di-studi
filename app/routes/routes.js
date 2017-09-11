@@ -14,6 +14,7 @@ var ctrlThesis = require("../controllers/thesis");
 // Profilo Studente, Docente o Admin
 router.get("/profile", auth, ctrlProfile.verify);
 router.get("/facultiesInfo", auth, ctrlProfile.getFaculties); //Per ottenere i dati delle iscrizioni degli studenti.
+router.get("/user/adminEmail", ctrlProfile.getAdminEmails); //Per ottenere le mail degli admin.
 
 // Autenticazione e Registrazione Utente
 router.post("/register", ctrlAuth.registerUser); //registrazione utente

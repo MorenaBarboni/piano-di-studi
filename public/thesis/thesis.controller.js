@@ -11,8 +11,10 @@
   function thesisCtrl($location, userService, thesisService, $window, $scope) {
     var vm = this;
 
-    vm.user = {};
+    vm.user = {}; //Utente corrente
 
+    vm.contacts = {}; //Contatti per il footer
+    
     //richiesta da inviare
     vm.thesisRequest = {
       title: "",
@@ -31,6 +33,9 @@
     initController();
 
     function initController() {
+      userService.getAdminEmails().then(function(data) {
+        vm.contacts = data;
+      });
       userService
         .getProfile()
         .success(function(data) {

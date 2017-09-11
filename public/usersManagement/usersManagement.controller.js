@@ -22,23 +22,26 @@
 
     vm.user = {}; //Utente corrente
 
-    vm.users = []; //Elenco di tutti gli utenti
+    vm.contacts = {}; //conatti per il footer
 
+    vm.users = []; //Elenco di tutti gli utenti
 
     //Filtri utente
     vm.filter = {
       filterName: "",
       filterMat: "",
-      filterType: "",
-      filterFaculty: ""
+      filterType: "studente",
+      filterFaculty: "Informatica"
     };
 
     //Determina quali righe della tabella filtrare
     vm.checkCorrespondence = function(name, mat, userType, faculty) {
       vm.filter.filterFaculty =
-      vm.filter.filterFaculty.charAt(0).toUpperCase() + vm.filter.filterFaculty.slice(1);
+        vm.filter.filterFaculty.charAt(0).toUpperCase() +
+        vm.filter.filterFaculty.slice(1);
       vm.filter.filterType =
-      vm.filter.filterType.charAt(0).toLowerCase() + vm.filter.filterType.slice(1);
+        vm.filter.filterType.charAt(0).toLowerCase() +
+        vm.filter.filterType.slice(1);
       if (
         name.indexOf(vm.filter.filterName) !== -1 &&
         mat.indexOf(vm.filter.filterMat) !== -1 &&
@@ -53,6 +56,9 @@
     initController();
 
     function initController() {
+      userService.getAdminEmails().then(function(data) {
+        vm.contacts = data;
+      });
       userService
         .getProfile()
         .success(function(data) {

@@ -22,7 +22,7 @@ module.exports.getAllUsers = function(req, res) {
     });
   } else {
     User.find({}, function(err, data) {
-        res.send(data);
+      res.send(data);
     }).sort({ name: 1 });
   }
 };
@@ -40,6 +40,14 @@ module.exports.deleteUserById = function(req, res) {
   );
 };
 
+//Per ottenere le mail degli amministratori.
+module.exports.getAdminEmails = function(req, res) {
+  User.find({ usertype: "admin" }, { email: 1 }, function(err, data) {
+    console.log(data);
+    res.send(data);
+  }).sort({ email: 1 });
+};
+
 //Per ottenere i dati delle iscrizioni degli studenti.
 module.exports.getFaculties = function(req, res) {
   if (!req.payload._id) {
@@ -47,7 +55,10 @@ module.exports.getFaculties = function(req, res) {
       message: "UnauthorizedError: private profile"
     });
   } else {
-    User.find({ usertype: "studente" }, { faculty: 1, entryYear: 1 }, function(err, data ) {
+    User.find({ usertype: "studente" }, { faculty: 1, entryYear: 1 }, function(
+      err,
+      data
+    ) {
       res.send(data);
     });
   }

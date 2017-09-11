@@ -15,6 +15,8 @@
 
     vm.filterSubject = "";
 
+    vm.contacts = {};
+
     //appello da caricare
     vm.session = {
       subject: "",
@@ -42,6 +44,9 @@
 
    //inizializza il controller
     function initController() {
+      userService.getAdminEmails().then(function(data) {
+        vm.contacts = data;
+      });
       userService
         .getProfile()
         .success(function(data) {

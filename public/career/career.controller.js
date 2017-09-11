@@ -1,10 +1,12 @@
 (function() {
-    angular.module("planApp").controller("careerCtrl", careerCtrl);
+  angular.module("planApp").controller("careerCtrl", careerCtrl);
 
   function careerCtrl(planService, userService, examService, $http) {
     var vm = this;
 
     vm.user = {}; //Dati utente
+
+    vm.contacts = {}; //Contatti per il footer
 
     vm.courses = []; //Lista corsi
 
@@ -41,6 +43,16 @@
           (180 - vm.totCfu)).toFixed(2);
       }
     };
+    // Resetta i form
+    vm.resetFirstForm = function() {
+      vm.neededAvg = "";     
+      };
+
+    vm.resetSecondForm = function() {
+      vm.expectedArithmeticAvg = "";
+      vm.expectedWeightedAvg = "";
+      vm.expectedScore = "";
+      };
 
     // Calcola l'eventuale media ponderata, aritmetica e base di laurea a seconda del voto e dei crediti inseriti dall'utente
     vm.getExpectedAvg = function(inputMark, inputCfu) {
@@ -58,7 +70,7 @@
       }
       vm.expectedArithmeticAvg = (markSum / (vm.exams.length + 1)).toFixed(2);
       vm.expectedWeightedAvg = (weightedMarkSum / cfus).toFixed(2);
-      vm.expectedScore = ((vm.expectedWeightedAvg * 110) / 30).toFixed(2);
+      vm.expectedScore = (vm.expectedWeightedAvg * 110 / 30).toFixed(2);
     };
 
     //Dati per il grafico
@@ -76,7 +88,7 @@
         usePlotGradientColor: "0",
         plotBorderAlpha: "10",
         placevaluesInside: "1",
-        rotatevalues: "1",
+        rotatevalues: "0",
         valueFontColor: "#ffffff",
         showXAxisLine: "1",
         xAxisLineColor: "#999999",
@@ -98,6 +110,9 @@
     initController();
 
     function initController() {
+      userService.getAdminEmails().then(function(data) {
+        vm.contacts = data;
+      });
       userService
         .getProfile()
         .success(function(data) {
@@ -145,7 +160,7 @@
           vm.fourthYear.push(element);
         } else if (element.year === 5 && element.mandatory) {
           vm.fifthYear.push(element);
-        }else if (!element.mandatory) {
+        } else if (!element.mandatory) {
           vm.optional.push(element);
         }
       }, this);

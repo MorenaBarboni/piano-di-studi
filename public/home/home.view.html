@@ -1,18 +1,150 @@
+<head>
+
+  <link href="../content/css/home.css" rel="stylesheet" type="text/css">
+  <link href="../content/css/footer.css" rel="stylesheet" type="text/css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+
+<div class="page-header">
+  <span> <img id="logo" src="../content/img/unimarche.png"> <img id="title" src="../content/img/namelogo.png">  </span>
+</div>
+
+<div id="border_line">
+</div>
+
 <navigation></navigation>
 
+<button onclick="topFunction()" class="btn btn-primary" id="goToTop"><span class="glyphicon glyphicon-chevron-up"></span></button>
+
+
 <div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h1 style="margin-bottom:5px;">Benvenuto</h1>
+      <!-- Utente non loggato -->
+      <div ng-show="!vm.user.usertype">
+        <p style="font-size: 20px;">Per accedere al tuo profilo effettua il <a href="login">login</a>.</p>
+      </div>
+      <div ng-show="vm.user.usertype">
+        <p style="font-size: 25px;">{{vm.user.name}}!</p>
+      </div>
+    </div>
 
-  <h1>Benvenuto</h1>
 
-  <!-- Utente non loggato -->
-  <div ng-show="!vm.user.usertype">
-    <p>Per accedere al tuo profilo effettua il <a href="login">login</a>.</p>
+    <div class="col-md-6">
+
+      <div class="css-slideshow">
+        <figure>
+          <img src="../content/img/slide1.jpg" width="495" height="370" class="alignnone size-full wp-image-172" />
+        </figure>
+        <figure>
+          <img src="../content/img/slide2.jpeg" alt="class-header-semantics" width="495" height="370" class="alignnone size-full wp-image-179"
+          />
+        </figure>
+        <figure>
+          <img src="../content/img/slide3.jpeg" alt="class-header-offline" width="495" height="370" class="alignnone size-large wp-image-178"
+          />
+
+        </figure>
+        <figure>
+          <img src="../content/img/slide4.jpg" width="495" height="370" class="alignnone size-full wp-image-177" />
+
+        </figure>
+        <figure>
+          <img src="../content/img/slide5.jpg" alt="class-header-connectivity" width="495" height="370" class="alignnone size-large wp-image-176"
+          />
+        </figure>
+        <figure>
+          <img src="../content/img/slide6.jpeg" alt="class-header-multimedia" width="495" height="370" class="alignnone size-large wp-image-175"
+          />
+        </figure>
+        <figure>
+          <img src="../content/img/slide7.jpg" alt="class-header-3d" width="495" height="370" class="alignnone size-large wp-image-174"
+          />
+        </figure>
+        <figure>
+          <img src="../content/img/slide8.jpeg" alt="class-header-performance" width="495" height="370" class="alignnone size-large wp-image-173"
+          /> </figure>
+      </div>
+    </div>
   </div>
-    <!-- Utente loggato -->
-  <div ng-show="vm.user.usertype">
-    <p>{{vm.user.name}}!</p>
-  </div>
-
-
-
 </div>
+<!--Footer -->
+<footer>
+  <div class="footer" id="footer">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+          <h3> Contatti </h3>
+          <ul>
+            <li ng-repeat="data in vm.contacts"> <i>{{data.email}}</i> </li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+          <h3> Links </h3>
+          <ul>
+            <li> <a href="/"> Home </a> </li>
+            <li> <a ng-show="vm.user.usertype !== 'admin'" href="profile"> Profilo </a> </li>
+            <li ng-show="vm.user.usertype === 'admin'"> <a href="register"> Registrazione </a> </li>
+            <li ng-show="vm.user.usertype === 'admin'"> <a href="usersManagement"> Gestione Utenti e Account </a> </li>
+            <li ng-show="vm.user.usertype === 'admin'"> <a href="plan"> Gestione Piano di Studi </a> </li>
+            <li ng-show="vm.user.usertype === 'studente'"> <a href="career"> Carriera </a> </li>
+            <li ng-show="vm.user.usertype === 'studente'"> <a href="examBooking"> Prenotazione Appelli </a> </li>
+            <li ng-show="vm.user.usertype === 'studente'"> <a href="thesis"> Richiedi Tesi </a> </li>
+            <li ng-show="vm.user.usertype === 'docente'"> <a href="thesis"> Gestione Tesi </a> </li>
+            <li ng-show="vm.user.usertype === 'docente'"> <a href="examSession"> Gestione Appelli e Verbalizzazione </a> </li>
+            <li ng-show="vm.user.usertype"> <a href="statistics"> Statistiche </a> </li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+          <h3> Credits </h3>
+          <ul>
+            <li>
+              Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a>
+            </li>
+            <li>
+              from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+            </li>
+            <li>is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></li>
+            <li><a href='http://www.freepik.com/free-vector/logos-made-with-lines-for-the-university_927183.htm'>Logo Designed by Freepik</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4  col-md-2 col-sm-4">
+        </div>
+        <div ng-if="vm.user.faculty === 'Informatica'" class="col-md-4  col-md-2 col-sm-4" style="text-align:right;">
+          <img src="../content/img/logoInformatica.png" style="height:100px;">
+      </div>
+      <div ng-if="vm.user.faculty === 'Fisica'" class="col-md-4  col-md-2 col-sm-4" style="text-align:right;">
+          <img src="../content/img/logoFisica.png" style="height:100px;">
+      </div>
+      <div ng-if="vm.user.faculty === 'Chimica'" class="col-md-4  col-md-2 col-sm-4" style="text-align:right;">
+          <img src="../content/img/logoChimica.png" style="height:100px;">
+      </div>
+        <div ng-if="!vm.user.usertype" class="col-md-4  col-md-2 col-sm-4">
+        </div>
+        <div class="col-md-4  col-md-2 col-sm-4" style="text-align:right;">
+          <img src="../content/img/unimarche.png" style="height:100px;">
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container">
+      <p class="pull-left"> Copyright © Footer 2017. All right reserved. </p>
+      <div class="pull-right">
+        <ul class="social">
+          <li> <a href="#"> <i class=" fa fa-facebook">   </i> </a> </li>
+          <li> <a href="#"> <i class="fa fa-twitter">   </i> </a> </li>
+          <li> <a href="#"> <i class="fa fa-google-plus">   </i> </a> </li>
+          <li> <a href="#"> <i class="fa fa-youtube">   </i> </a> </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>

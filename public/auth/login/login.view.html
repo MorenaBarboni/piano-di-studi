@@ -1,3 +1,16 @@
+<head>
+  <link href="../content/css/login.css" rel="stylesheet" type="text/css">
+  <link href="../content/css/footer.css" rel="stylesheet" type="text/css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<div class="page-header">
+  <span> <img id="logo" src="../content/img/unimarche.png"> <img id="title" src="../content/img/namelogo.png">  </span>
+</div>
+
+<div id="red_line">
+</div>
+
 <navigation></navigation>
 
 <div class="container">
@@ -22,6 +35,73 @@
       </form>
 
     </div>
+    <div class="col-md-6" style="text-align:center">
+      <img src="../../content/img/bannerInformatica.jpg" style="max-width:400px; margin-bottom:5px; margin-top:40px;">
+      <img src="../../content/img/bannerChimica.jpg" style="max-width:400px; margin-bottom:5px;">
+      <img src="../../content/img/bannerFisica.jpg" style="max-width:400px;">
+
+    </div>
   </div>
 
 </div>
+
+<!--Footer -->
+<footer>
+  <div class="footer" id="footer">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+          <h3> Contatti </h3>
+          <ul>
+            <li ng-repeat="data in vm.contacts"> <i>{{data.email}}</i> </li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+          <h3> Links </h3>
+          <ul>
+            <li> <a href="/"> Home </a> </li>
+            <li> <a href="login"> Login </a> </li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+          <h3> Credits </h3>
+          <ul>
+            <li>
+              Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a>
+            </li>
+            <li>
+              from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+            </li>
+            <li>is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></li>
+            <li><a href='http://www.freepik.com/free-vector/logos-made-with-lines-for-the-university_927183.htm'>Logo Designed by Freepik</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4  col-md-2 col-sm-4">
+        </div>
+        <div class="col-md-4  col-md-2 col-sm-4">
+        </div>
+        <div class="col-md-4  col-md-2 col-sm-4" style="text-align:right;">
+          <img src="../content/img/unimarche.png" style="height:100px;">
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container">
+      <p class="pull-left"> Copyright © Footer 2017. All right reserved. </p>
+      <div class="pull-right">
+        <ul class="social">
+          <li> <a href="#"> <i class=" fa fa-facebook">   </i> </a> </li>
+          <li> <a href="#"> <i class="fa fa-twitter">   </i> </a> </li>
+          <li> <a href="#"> <i class="fa fa-google-plus">   </i> </a> </li>
+          <li> <a href="#"> <i class="fa fa-youtube">   </i> </a> </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>

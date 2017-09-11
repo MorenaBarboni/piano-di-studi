@@ -2,10 +2,10 @@
   width: 960px;
   margin: 0 auto;
 }
-#wr{
-min-width: 1200px !important; 
-max-height: 200px !important;
-position: relative;
+#wr {
+  min-width: 1200px !important;
+  max-height: 200px !important;
+  position: relative;
 }
 
 #table {
@@ -17,14 +17,17 @@ position: relative;
   box-shadow: 5px 5px 30px 2px #e6e6e6;
 }
 #tableContainer {
-  min-height: 230px;
+  min-height: 200px;
 }
 
 #noInfo {
   margin-top: 20px;
   font-size: 17px;
+  color: #666;
 }
-
+#noInfo > p {
+  margin-bottom: 180px;
+}
 h3 {
   margin-top: 60px;
   margin-bottom: 20px;
@@ -127,4 +130,26 @@ input[type="checkbox"] {
   margin-top: 7px;
   margin-right: 10px;
   font-size: 14px;
+}
+
+#goToTop {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 12px;
+  height: 45px;
+  transition-duration: 0.3s;
+  border-radius: 50px;
+}
+
+#goToTop:hover {
+  transition-duration: 0.3s;
+}
+p {
+  font-size: 16px;
 }

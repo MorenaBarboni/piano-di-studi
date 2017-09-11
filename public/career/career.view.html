@@ -9,6 +9,8 @@
 
 <navigation></navigation>
 
+<button onclick="topFunction()" class="btn btn-primary" id="goToTop"><span class="glyphicon glyphicon-chevron-up"></span></button>
+
 <body>
 
 
@@ -222,9 +224,13 @@
                         <label for="wantedAvg">  
                         <input type="number" min="18" max="30" class="form-control" name="wantedAvg" id="wantedAvg" 
                                    class="form-control" ng-model="vm.wantedAvg" placeholder="Media Desiderata" required>
+                                   
                      </label>
                     </ul>
-                    <button type="submit" class="form-control">Calcola</button>
+                    <div id="buttons">
+                        <button type="submit" class="form-control">Calcola</button>
+                        <button type="reset" value="Reset" class="form-control" ng-click="vm.resetFirstForm()"> Ripristina </button>
+                    </div>
                     <p> Nei prossimi esami devi prendere almeno: <b> {{vm.neededAvg}} </b>
                     </p>
                 </form>
@@ -241,7 +247,10 @@
                                        class="form-control" ng-model="vm.exCfu" placeholder="Crediti"  style="width:39%;" required>
                          </label>
                     </ul>
-                    <button type="submit" class="form-control">Calcola</button>
+                    <div id="buttons">
+                        <button type="submit" class="form-control">Calcola</button>
+                        <button type="reset" value="Reset" class="form-control" ng-click="vm.resetSecondForm()"> Ripristina </button>
+                    </div>
                     <p>Media Aritmetica: <b> {{vm.expectedArithmeticAvg}} </b> </p>
                     <p> Media Ponderata: <b> {{vm.expectedWeightedAvg}} </b> </p>
                     <p> Base di laurea: <b> {{vm.expectedScore}} </b> </p>
@@ -266,19 +275,10 @@
         <div class="container">
             <div class="row">
 
-                <div class="col-md-2  col-md-2 col-sm-4 col-xs-6">
-                    <h3> Lorem Ipsum </h3>
-                    <ul>
-                        <li> <a href="#"> Lorem Ipsum </a> </li>
-                        <li> <a href="#"> Lorem Ipsum </a> </li>
-                    </ul>
-                </div>
-
                 <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
-                    <h3> Lorem Ipsum </h3>
+                    <h3> Contatti </h3>
                     <ul>
-                        <li> <a href="#"> Lorem Ipsum </a> </li>
-                        <li> <a href="#"> Lorem Ipsum </a> </li>
+                        <li ng-repeat="data in vm.contacts"> <i ng ng-if="data.email !== vm.user.email">{{data.email}}</i> </li>
                     </ul>
                 </div>
 
@@ -287,11 +287,10 @@
                     <ul>
                         <li> <a href="/"> Home </a> </li>
                         <li> <a href="profile"> Profilo </a> </li>
-                        <li ng-show="vm.user.usertype === 'admin'"> <a href="register"> Registrazione </a> </li>
-                        <li ng-show="vm.user.usertype === 'admin'"> <a href="plan"> Gestione Piano di Studi </a> </li>
-                        <li ng-show="vm.user.usertype === 'docente'"> <a href="examSession"> Gestione Appelli e Verbalizzazione </a> </li>
                         <li ng-show="vm.user.usertype === 'studente'"> <a href="career"> Carriera </a> </li>
                         <li ng-show="vm.user.usertype === 'studente'"> <a href="examBooking"> Prenotazione Appelli </a> </li>
+                        <li ng-show="vm.user.usertype === 'studente'"> <a href="thesis"> Richiedi Tesi </a> </li>
+                        <li> <a href="statistics"> Statistiche </a> </li>
                     </ul>
                 </div>
 
@@ -306,8 +305,22 @@
                         </li>
                         <li>is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0"
                                 target="_blank">CC 3.0 BY</a></li>
+                        <li><a href='http://www.freepik.com/free-vector/logos-made-with-lines-for-the-university_927183.htm'>Logo Designed by Freepik</a></li>
                     </ul>
-
+                </div>
+                <div class="col-md-4  col-md-2 col-sm-4">
+                </div>
+                <div ng-if="vm.user.faculty === 'Informatica'" class="col-md-4  col-md-2 col-sm-4" style="text-align:right;">
+                    <img src="../content/img/logoInformatica.png" style="height:100px;">
+                </div>
+                <div ng-if="vm.user.faculty === 'Fisica'" class="col-md-4  col-md-2 col-sm-4" style="text-align:right;">
+                    <img src="../content/img/logoFisica.png" style="height:100px;">
+                </div>
+                <div ng-if="vm.user.faculty === 'Chimica'" class="col-md-4  col-md-2 col-sm-4" style="text-align:right;">
+                    <img src="../content/img/logoChimica.png" style="height:100px;">
+                </div>
+                <div class="col-md-4  col-md-2 col-sm-4" style="text-align:right;">
+                    <img src="../content/img/unimarche.png" style="height:100px;">
                 </div>
 
             </div>

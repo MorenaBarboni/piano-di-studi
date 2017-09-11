@@ -7,18 +7,16 @@
 <div id="wr">
     <navigation></navigation>
 </div>
-
+<button onclick="topFunction()" class="btn btn-primary" id="goToTop"><span class="glyphicon glyphicon-chevron-up"></span></button>
 
 <div id="container">
     <h2>Prenotazione Appelli</h2>
-    <p>
-        In questa pagina puoi consultare l'elenco degli appelli disponibili e delle tue prenotazioni. <br/> </p>
-    <p> Per <i>prenotare  un appello</i> fai click sulla relativa icona &nbsp <img src="../content/img/booking_grey_sm.png">        &nbsp nell'elenco degli appelli disponibili. Hai tempo per prenotarti fino al giorno precedente allo svolgimento
-        della prova. <br/> </p>
-    <p> Per <i>cancellare una prenotazione</i> fai click sulla relativa icona &nbsp <img src="../content/img/delete-grey-sm.png">        &nbsp nell'elenco degli appelli prenotati. Hai la possibilità di cancellare la prenotazione fino al giorno precedente
-        allo svolgimento della prova.
-    </p>
-    <h3 style="margin-bottom: 10px;">Appelli Disponibili</h3>
+
+    <p> Per <i>prenotare  un appello</i> seleziona la relativa icona &nbsp <img src="../content/img/booking_grey_sm.png"> &nbsp
+        nell'elenco degli appelli disponibili. Hai tempo per prenotarti fino al giorno precedente allo svolgimento della
+        prova. <br/> </p>
+
+    <h3 style="margin-bottom: 10px;"> <span class="glyphicon glyphicon-list"></span> &nbsp Appelli Disponibili</h3>
     <div id="noInfo" ng-show="vm.isEverySessionBooked()">
         Nessun appello attualmente disponibile
     </div>
@@ -51,21 +49,20 @@
                     <span class="cell">{{data.examType}}</span>
                     <span class="cellBook" ng-click="bookSession(data.session_id, data._id.date)" class="icon"></span>
                     </tr>
-
-
                 </div>
             </div>
         </div>
     </div>
 
-
-
-    <h3>Appelli Prenotati</h3>
+    <p> Per <i>cancellare una prenotazione</i> seleziona la relativa icona &nbsp <img src="../content/img/delete-grey-sm.png">        &nbsp nell'elenco degli appelli prenotati. Hai la possibilità di cancellare una prenotazione fino al giorno precedente
+        allo svolgimento della prova.
+    </p>
+    <h3><span class="glyphicon glyphicon-book"></span>&nbsp Appelli Prenotati</h3>
     <div id="noInfo" ng-hide="vm.isThereASessionBooked()">
-        Nessun appello attualmente prenotato
+        <p>Nessun appello attualmente prenotato</p>
     </div>
-    <div id="tableContainer">
-        <div ng-show="vm.isThereASessionBooked()">
+    <div id="tableContainer" ng-if="vm.isThereASessionBooked()">
+        <div>
             <div id="table" class="page-break">
                 <div class="header-row tableRow">
                     <span class="cell primary">Descrizione</span>
@@ -75,8 +72,6 @@
                     <span class="cell">Tipo di prova</span>
                     <span class="cell">Cancella</span>
                 </div>
-
-
                 <div class="tableRow" ng-repeat="booking in vm.bookingsList">
                     <span class="cell primary">{{booking.subject}}</span>
                     <span class="cell">{{booking.room}}</span>
@@ -101,19 +96,10 @@
         <div class="container">
             <div class="row">
 
-                <div class="col-md-2  col-md-2 col-sm-4 col-xs-6">
-                    <h3> Lorem Ipsum </h3>
-                    <ul>
-                        <li> <a href="#"> Lorem Ipsum </a> </li>
-                        <li> <a href="#"> Lorem Ipsum </a> </li>
-                    </ul>
-                </div>
-
                 <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
-                    <h3> Lorem Ipsum </h3>
+                    <h3> Contatti </h3>
                     <ul>
-                        <li> <a href="#"> Lorem Ipsum </a> </li>
-                        <li> <a href="#"> Lorem Ipsum </a> </li>
+                        <li ng-repeat="data in vm.contacts"> <i ng ng-if="data.email !== vm.user.email">{{data.email}}</i> </li>
                     </ul>
                 </div>
 
@@ -122,11 +108,10 @@
                     <ul>
                         <li> <a href="/"> Home </a> </li>
                         <li> <a href="profile"> Profilo </a> </li>
-                        <li ng-show="vm.user.usertype === 'admin'"> <a href="register"> Registrazione </a> </li>
-                        <li ng-show="vm.user.usertype === 'admin'"> <a href="plan"> Gestione Piano di Studi </a> </li>
-                        <li ng-show="vm.user.usertype === 'docente'"> <a href="examSession"> Gestione Appelli e Verbalizzazione </a> </li>
                         <li ng-show="vm.user.usertype === 'studente'"> <a href="career"> Carriera </a> </li>
                         <li ng-show="vm.user.usertype === 'studente'"> <a href="examBooking"> Prenotazione Appelli </a> </li>
+                        <li ng-show="vm.user.usertype === 'studente'"> <a href="thesis"> Richiedi Tesi </a> </li>
+                        <li> <a href="statistics"> Statistiche </a> </li>
                     </ul>
                 </div>
 
@@ -141,8 +126,24 @@
                         </li>
                         <li>is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0"
                                 target="_blank">CC 3.0 BY</a></li>
+                        <li>
+                            <a href='http://www.freepik.com/free-vector/logos-made-with-lines-for-the-university_927183.htm'>Logo Designed by Freepik</a>
+                        </li>
                     </ul>
-
+                </div>
+                <div class="col-md-4  col-md-2 col-sm-4">
+                </div>
+                <div ng-if="vm.user.faculty === 'Informatica'" class="col-md-4  col-md-2 col-sm-4" style="text-align:right;">
+                    <img src="../content/img/logoInformatica.png" style="height:100px;">
+                </div>
+                <div ng-if="vm.user.faculty === 'Fisica'" class="col-md-4  col-md-2 col-sm-4" style="text-align:right;">
+                    <img src="../content/img/logoFisica.png" style="height:100px;">
+                </div>
+                <div ng-if="vm.user.faculty === 'Chimica'" class="col-md-4  col-md-2 col-sm-4" style="text-align:right;">
+                    <img src="../content/img/logoChimica.png" style="height:100px;">
+                </div>
+                <div class="col-md-4  col-md-2 col-sm-4" style="text-align:right;">
+                    <img src="../content/img/unimarche.png" style="height:100px;">
                 </div>
 
             </div>

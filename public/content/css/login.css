@@ -1,0 +1,141 @@
+h1{
+  margin-top: 50px;
+}
+.page-header {
+    height: 110px;
+    margin: 0px;
+    margin-bottom: 10px;
+    padding: 10px;
+  }
+  #red_line {
+    width: 100%;
+    height: 10px;
+    background-color: #d3d3d3;
+  }
+  .navbar {
+    border-top: 5px solid #c26c6c;
+  }
+  
+  #logo {
+    height: 95px;
+    width: 115px;
+    margin: 0px;
+    margin-left: 50px;
+  }
+  #title {
+    height: 100px;
+    margin: 0px;
+    margin-left: 20px;
+  }
+  .css-slideshow {
+    position: relative;
+    max-width: 495px;
+    height: 370px;
+    margin: 5em auto 0.5em auto;
+  }
+  .css-slideshow figure {
+    margin: 0;
+    max-width: 495px;
+    height: 370px;
+    background: #000;
+    position: absolute;
+  }
+  .css-slideshow img {
+    box-shadow: 0 0 2px #666;
+  }
+  .css-slideshow figcaption {
+    position: absolute;
+    top: 0;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.3);
+    font-size: 0.8em;
+    padding: 8px 12px;
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
+  .css-slideshow:hover figure figcaption {
+    transition: opacity 0.5s;
+    opacity: 1;
+  }
+  .css-slideshow-attr {
+    max-width: 495px;
+    text-align: right;
+    font-size: 0.7em;
+    font-style: italic;
+    margin: 0 auto;
+  }
+  .css-slideshow-attr a {
+    color: #666;
+  }
+  .css-slideshow figure {
+    opacity: 0;
+  }
+  figure:nth-child(1) {
+    animation: xfade 48s 42s infinite;
+  }
+  figure:nth-child(2) {
+    animation: xfade 48s 36s infinite;
+  }
+  figure:nth-child(3) {
+    animation: xfade 48s 30s infinite;
+  }
+  figure:nth-child(4) {
+    animation: xfade 48s 24s infinite;
+  }
+  figure:nth-child(5) {
+    animation: xfade 48s 18s infinite;
+  }
+  figure:nth-child(6) {
+    animation: xfade 48s 12s infinite;
+  }
+  figure:nth-child(7) {
+    animation: xfade 48s 6s infinite;
+  }
+  figure:nth-child(8) {
+    animation: xfade 48s 0s infinite;
+  }
+  
+  @keyframes xfade {
+    0% {
+      opacity: 1;
+    }
+    10.5% {
+      opacity: 1;
+    }
+    12.5% {
+      opacity: 0;
+    }
+    98% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  #goToTop {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 15px;
+    transition-duration: 0.3s;
+    border-radius: 10px;
+  }
+  
+  #goToTop:hover {
+    transition-duration: 0.3s;
+  }
+  
+  #shw {
+    width: 500px;
+    height: 500px;
+    float: right;
+    margin-right: 100px;
+    margin-top: 0px;
+  }
+  

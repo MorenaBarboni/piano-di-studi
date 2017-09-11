@@ -1,4 +1,7 @@
-if (window.location.href.indexOf("profile") !== -1) {
+if (
+  window.location.href.indexOf("profile") !== -1 ||
+  window.location.href.indexOf("career") !== -1
+) {
   window.onscroll = function() {
     scrollFunction();
   };

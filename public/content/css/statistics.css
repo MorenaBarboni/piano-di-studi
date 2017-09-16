@@ -2,6 +2,28 @@
   width: 960px;
   margin: 0 auto;
 }
+.page-header {
+  height: 90px;
+  margin: 0px;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.navbar {
+  border-top: 5px solid #c26c6c;
+}
+
+#logo {
+  height: 70px;
+  margin: 0px;
+  margin-left: 50px;
+}
+#title {
+  height: 70px;
+  margin: 0px;
+  margin-left: 20px;
+}
+
 
 fusioncharts {
   margin-bottom: 600px;

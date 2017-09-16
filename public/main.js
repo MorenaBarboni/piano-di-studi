@@ -23,6 +23,11 @@
         controller: "profileCtrl",
         controllerAs: "vm"
       })
+      .when("/professorSearch", {
+        templateUrl: "/professorSearch/professorSearch.view.html",
+        controller: "professorSearchCtrl",
+        controllerAs: "vm"
+      })
       .when("/plan", {
         templateUrl: "/plan/plan.view.html",
         controller: "planCtrl",
@@ -130,6 +135,11 @@
       } else if (
         $location.path() === "/usersManagement" &&
         (!authentication.isLoggedIn() || !authentication.isAdmin())
+      ) {
+        $location.path("/");
+      } else if (
+        $location.path() === "/professorSearch" &&
+        (!authentication.isLoggedIn() || !authentication.isStudente())
       ) {
         $location.path("/");
       } else if (

@@ -1,0 +1,159 @@
+<head>
+  <link href="../content/css/usersManagement.css" rel="stylesheet" type="text/css">
+  <link href="../content/css/footer.css" rel="stylesheet" type="text/css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+</head>
+<div class="page-header">
+  <span> <img id="logo" src="../content/img/unimarche.png">
+ <img id="title" src="../content/img/namelogo.png"> </span>
+</div>
+<navigation></navigation>
+
+<div id="container">
+  <!--<div class="row">
+    <div class="col-sm-8">
+      <div class="form-style">
+
+        <h3> <span class="glyphicon glyphicon-cog"></span> &nbsp Gestione Utenti</h3>
+        <p>
+          L'eliminazione di uno studente o di un docente può essere effettuata selezionando l'icona &nbsp <img src="../content/img/delete-grey-sm.png">          &nbsp nella tabella degli utenti.
+        </p>
+
+        <p style="color:#666;">
+          L'eliminazione è permanente e tutti i dati dell'utente andranno persi.
+        </p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="well wellRed" style="float:left;">
+        <h3> <span class="glyphicon glyphicon glyphicon-trash"></span> &nbsp Elimina Account</h3>
+        <p> Eliminando il tuo account
+          <b>  tutti i tuoi dati adranno persi</b> e non potrai più effettuare l'accesso.
+          <button class="deleteButton" ng-click="deleteUser(vm.user._id)">Elimina il mio account</button>
+        </p>
+      </div>
+    </div>
+  </div>-->
+
+
+  <div id="tableContainer">
+    <div class="caption">
+
+      <label>
+            <h5><span  class="glyphicon glyphicon-search"> </span> Ricerca Docenti </h5>
+      </label>
+
+      <label for="filterName"> 
+          <span style="margin-right:78px;">Nome e Cognome </span> 
+       <input type="text" class="form-control" name="filterName" id="filterName" class="form-control" ng-model="vm.filter.filterName" >
+      </label>
+      <div id="inutili" style="display:none;">
+      <label for="filterMat">     
+          <span style="margin-right:85px;">Matricola </span>
+              <input type="text" maxlength="6" class="form-control"  name="filterMat" id="filterMat" ng-model="vm.filter.filterMat" style="width: 150px; margin-left:10px;">
+      </label>
+      </label>
+      <label for="filterType">   
+          <span style="margin-right:85px;"> Permessi </span> 
+            <input type="text" class="form-control"  name="filterType" id="filterType" ng-model="vm.filter.filterType" style="width: 150px; margin-left:10px;">
+    </label>
+      </label>
+      </div>
+      <label for="filterFaculty">  
+          <span style="margin-right:119px;">Facoltà </span>
+        <input type="text" class="form-control"  name="filterFaculty" id="filterFaculty" ng-model="vm.filter.filterFaculty" style="width: 150px; margin-left:10px; margin-right:20px;">
+        </label>
+    </div>
+    <div id="table" class="page-break">
+      <div class="header-row tableRow">
+        <span class="cell primary">Nome</span>
+        
+        <span class="cell">Email</span>
+        
+        <span class="cell">Facoltà</span>
+        
+
+      </div>
+      <div class="tableRow" ng-repeat="data in vm.users" ng-show=" vm.checkCorrespondence(data.name, data.mat, data.usertype, data.faculty)">
+        <input type="radio" name="expand">
+        <span class="cell primary" data-label="name" ng-show="data._id != vm.user._id">{{data.name}}</span>
+        <!--<span class="cell" data-label="usertype" ng-show="data._id != vm.user._id">{{data.usertype}}</span>-->
+        <span class="cell" data-label="email" ng-show="data._id != vm.user._id">{{data.email}}</span>
+        <!--<span class="cell" data-label="mat" ng-show="data.usertype === 'studente' && data._id != vm.user._id">{{data.mat}}</span>-->
+       <!-- <span class="cell" data-label="mat" ng-show="data.usertype != 'studente'&& data._id != vm.user._id">-</span>-->
+        <span class="cell" data-label="faculty" ng-show="data.usertype != 'admin' && data._id != vm.user._id">{{data.faculty}}</span>
+        <span class="cell" data-label="faculty" ng-show="data.usertype === 'admin'&& data._id != vm.user._id">-</span>
+        <!--<span class="cellDelete" ng-click="deleteUser(data._id)" ng-show="data.usertype != 'admin' && data._id != vm.user._id"></span>-->
+        <span class="cell" ng-show="data.usertype === 'admin' && data._id != vm.user._id"></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Footer -->
+<footer>
+  <div class="footer" id="footer">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+          <h3> Contatti </h3>
+          <ul>
+            <li ng-repeat="data in vm.contacts"> <i ng ng-if="data.email !== vm.user.email">{{data.email}}</i> </li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+          <h3> Links </h3>
+          <ul>
+            <li> <a href="/"> Home </a> </li>
+            <li> <a href="profile"> Profilo </a> </li>
+            <li ng-show="vm.user.usertype === 'admin'"> <a href="register"> Registrazione </a> </li>
+            <li ng-show="vm.user.usertype === 'admin'"> <a href="usersManagement"> Gestione Utenti e Account </a> </li>
+            <li ng-show="vm.user.usertype === 'admin'"> <a href="plan"> Gestione Piano di Studi </a> </li>
+            <li ng-show="vm.user.usertype === 'docente'"> <a href="examSession"> Gestione Appelli e Verbalizzazione </a> </li>
+            <li ng-show="vm.user.usertype === 'studente'"> <a href="career"> Carriera </a> </li>
+            <li ng-show="vm.user.usertype === 'studente'"> <a href="examBooking"> Prenota Appelli </a> </li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+          <h3> Credits </h3>
+          <ul>
+            <li>
+              Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a>
+            </li>
+            <li>
+              from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+            </li>
+            <li>is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></li>
+            <li><a href='http://www.freepik.com/free-vector/logos-made-with-lines-for-the-university_927183.htm'>Logo Designed by Freepik</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4  col-md-2 col-sm-4">
+        </div>
+        <div class="col-md-4  col-md-2 col-sm-4">
+        </div>
+        <div class="col-md-4  col-md-2 col-sm-4" style="text-align:right;">
+          <img src="../content/img/unimarche.png" style="height:100px;">
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container">
+      <p class="pull-left"> Copyright © Footer 2017. All right reserved. </p>
+      <div class="pull-right">
+        <ul class="social">
+          <li> <a href="#"> <i class=" fa fa-facebook">   </i> </a> </li>
+          <li> <a href="#"> <i class="fa fa-twitter">   </i> </a> </li>
+          <li> <a href="#"> <i class="fa fa-google-plus">   </i> </a> </li>
+          <li> <a href="#"> <i class="fa fa-youtube">   </i> </a> </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>

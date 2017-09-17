@@ -1,4 +1,5 @@
 <head>
+  <link href="../content/css/form.css" rel="stylesheet" type="text/css">
   <link href="../content/css/usersManagement.css" rel="stylesheet" type="text/css">
   <link href="../content/css/footer.css" rel="stylesheet" type="text/css">
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -13,20 +14,115 @@
 <div id="container">
   <div class="row">
     <div class="col-sm-8">
-      <div class="form-style">
+      <form ng-submit="vm.onSubmit()" class="form-style" id="form-style">
+        <h1>Registrazione Utente
+          <span>Seleziona i permessi per registrare diverse tipologie di utente</span>
+        </h1>
 
+
+        <!--  Permessi utente  -->
+        <label for="usertype">
+    <span>Permessi Utente :</span>
+    <select name="usertype" id="usertype" class="form-control" ng-model="vm.userData.usertype" onchange="resetForm(), resetCtrl()" required>
+           <option value="studente">Studente</option>
+           <option value="docente">Docente</option>
+           <option value="admin">Admin</option>
+    </select>
+    </label>
+
+        <!--  Nome e Cognome  -->
+
+        <label for="name">
+    <span>Nome e Cognome:</span>
+    <input type="text" class="form-control" id="name"  ng-model="vm.userData.name" required>
+    </label>
+        <!--  Città  -->
+
+        <label for="city">
+    <span>Città di residenza:</span>
+    <input type="text" class="form-control" id="city"  ng-model="vm.userData.city" required>
+    </label>
+
+
+        <!--  Indirizzo  -->
+        <label for="street">
+     <span>Indirizzo di residenza:</span>
+    <input type="text" class="form-control" id="street"  ng-model="vm.userData.street" required>
+   </label>
+
+
+        <!--  CAP  -->
+        <label for="postalCode">
+      <span> Codice Postale: </span>
+    <input type="text" class="form-control" id="postalCode" ng-model="vm.userData.postalCode" required>
+    </label>
+        <!--  Telefono  -->
+        <label for="tel">
+      <span> Numero di telefono: </span>
+    <input type="text" class="form-control" id="tel"  ng-model="vm.userData.tel" required>
+    </label>
+
+
+        <!--  Email  -->
+        <label for="email">
+       <span> Indirizzo email: </span>
+    <input type="email" class="form-control" id="email"  ng-model="vm.userData.email" required>
+    </label>
+
+        <!--  Password  -->
+        <label for="password">
+      <span>Password:</span>
+    <input type="password" class="form-control" id="password"  ng-model="vm.userData.password" required>
+    </label>
+
+        <!--  Matricola (Solo studente)  -->
+        <div>
+          <label for="mat">
+           <span ng-show="vm.userData.usertype === 'studente'">Matricola:</span>
+      <input type="text" class="form-control" id="mat"  minlength="6" maxlength="6" ng-model="vm.userData.mat" ng-show="vm.userData.usertype === 'studente'" required>
+     </label>
+        </div>
+
+        <!-- Anno di Iscrizione (Solo studente)  -->
+        <div>
+          <label for="entryYear">
+           <span ng-show="vm.userData.usertype === 'studente'">Anno di Iscrizione:</span>
+     <input type="number" id="entryYear" min="2017" max="2099" step="1"  ng-model="vm.userData.entryYear" ng-show="vm.userData.usertype === 'studente'" required/>
+     </label>
+        </div>
+
+        <!--  Corso di Studi (Solo studente) / Facoltà (Solo docente)  -->
+        <div ng-show="vm.userData.usertype != 'admin'">
+          <label for="faculty">
+          <span ng-show="vm.userData.usertype === 'studente'" >Corso di studi: </span>
+          <span ng-show="vm.userData.usertype === 'docente'">Docente della facoltà di: </span>
+          <select name="faculty" id="faculty" class="form-control" ng-model="vm.userData.faculty" ng-show="vm.userData.usertype != 'admin'"  required>
+                                                 
+           <option value="">Seleziona una facoltà</option>                                                
+           <option value="Informatica">Informatica</option>
+           <option value="Chimica">Chimica</option>
+           <option value="Fisica">Fisica</option>
+     </select>
+    </label>
+        </div>
+        <!--  Submit & Reset  -->
+        <button type="submit" class="form-control">Registra Utente</button>
+        <button type="reset" value="Reset" class="form-control"> Ripristina </button>
+      </form>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="form-style-info">
         <h3> <span class="glyphicon glyphicon-cog"></span> &nbsp Gestione Utenti</h3>
+        <p>Per <u>registrare un utente</u> seleziona i permessi e completa i campi del form.</p>
         <p>
-          L'eliminazione di uno studente o di un docente può essere effettuata selezionando l'icona &nbsp <img src="../content/img/delete-grey-sm.png">          &nbsp nella tabella degli utenti.
-        </p>
-
-        <p style="color:#666;">
-          L'eliminazione è permanente e tutti i dati dell'utente andranno persi.
+          L' <u>eliminazione</u>  di uno studente o di un docente può essere effettuata selezionando &nbsp <img src="../content/img/delete-grey-sm.png">          &nbsp nella tabella degli utenti. </p>
+          <p style="color:#c47d86"> L'eliminazione è permanente e tutti i dati dell'utente andranno persi.
         </p>
       </div>
-    </div>
-    <div class="col-sm-4">
-      <div class="well wellRed" style="float:left;">
+
+
+      <div class="well wellRed">
         <h3> <span class="glyphicon glyphicon glyphicon-trash"></span> &nbsp Elimina Account</h3>
         <p> Eliminando il tuo account
           <b>  tutti i tuoi dati adranno persi</b> e non potrai più effettuare l'accesso.

@@ -3,21 +3,8 @@
     .module("planApp")
     .controller("usersManagementCtrl", usersManagementCtrl);
   usersManagementCtrl.$inject = [
-    "$location",
-    "userService",
-    "$http",
-    "$window",
-    "$scope",
-    "$window"
-  ];
-  function usersManagementCtrl(
-    $location,
-    userService,
-    $http,
-    $window,
-    $scope,
-    $location
-  ) {
+    "$location",  "userService", "$http", "$window", "$scope", "$window", "authentication" ];
+  function usersManagementCtrl( $location, userService, $http, $window, $scope, $location, authentication ) {
     var vm = this;
 
     vm.user = {}; //Utente corrente
@@ -34,6 +21,20 @@
       filterFaculty: "Informatica"
     };
 
+    vm.userData = {
+      name: "",
+      email: "",
+      password: "",
+      usertype: "studente", //default
+      faculty: "",
+      mat: "",
+      city: "",
+      street: "",
+      postalCode: "",
+      tel: "",
+      entryYear: ""
+    };
+    
     //Determina quali righe della tabella filtrare
     vm.checkCorrespondence = function(name, mat, userType, faculty) {
       vm.filter.filterFaculty =
@@ -88,6 +89,34 @@
           $window.location.reload();
         }
       }
+    };
+
+    //registra un nuovo utente
+    vm.onSubmit = function() {
+      authentication.register(vm.userData).then(function(response) {
+        if (response.data === "error") {
+          window.alert("Matricola già esistente!");
+        } else {
+          window.alert("Utente registrato con successo");
+          window.location.reload();
+        }
+      });
+    };
+
+    //Resetta il controller al cambiare dei permessi utente
+    resetCtrl = function() {
+      vm.userData = {
+        name: "",
+        email: "",
+        password: "",
+        faculty: "",
+        mat: "",
+        city: "",
+        street: "",
+        postalCode: "",
+        tel: "",
+        entryYear: ""
+      };
     };
   }
 })();

@@ -38,21 +38,33 @@ module.exports.registerUser = function(req, res) {
   user.entryYear = req.body.entryYear;
 
   user.setPassword(req.body.password);
-
-  User.findOne({ mat: user.mat }, function(err, data) {
-    if (data) {
-      res.send("error");
-    } else {
-      user.save(function(err) {
-        var token;
-        token = user.generateToken();
-        res.status(200);
-        res.json({
-          token: token
-        });
+  if (user.mat === "" && user.usertype === "studente") {
+    res.send("error");
+  }else  if (user.mat === "") {
+    user.save(function(err) {
+      var token;
+      token = user.generateToken();
+      res.status(200);
+      res.json({
+        token: token
       });
-    }
-  });
-
-  console.log("User registered");
+    });
+    console.log("User registered");
+  } else {
+    User.findOne({ mat: user.mat }, function(err, data) {
+      if (data) {
+        res.send("error");
+      } else {
+        user.save(function(err) {
+          var token;
+          token = user.generateToken();
+          res.status(200);
+          res.json({
+            token: token
+          });
+        });
+      }
+    });
+    console.log("User registered");
+  }
 };

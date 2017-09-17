@@ -169,3 +169,54 @@ module.exports.getAvailableSessions = function(req, res) {
     );
   }
 };
+//Modifica il tipo di prova di un appello
+module.exports.updateSessionType = function(req, res) {
+   ExamSession.update(
+    { _id: req.params.sessionId },
+    {
+      $set: {
+        examType: req.params.examType
+      }
+    },
+    function(err) {
+      if (err) {
+        console.log(err);
+      }
+      res.status(200);
+    }
+  );
+};
+//Modifica l'ora di un appello
+module.exports.updateSessionTime = function(req, res) {
+  ExamSession.update(
+    { _id: req.params.sessionId },
+    {
+      $set: {
+        time: req.params.time
+      }
+    },
+    function(err) {
+      if (err) {
+        console.log(err);
+      }
+      res.status(200);
+    }
+  );
+};
+//Modifica il luogo di un appello
+module.exports.updateSessionRoom = function(req, res) {
+  ExamSession.update(
+    { _id: req.params.sessionId },
+    {
+      $set: {
+        room: req.params.room
+      }
+    },
+    function(err) {
+      if (err) {
+        console.log(err);
+      }
+      res.status(200);
+    }
+  );
+};

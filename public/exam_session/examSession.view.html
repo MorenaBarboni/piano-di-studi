@@ -6,163 +6,238 @@
 </head>
 
 <div class="page-header">
-  <span> <img id="logo" src="../content/img/unimarche.png">
+    <span> <img id="logo" src="../content/img/unimarche.png">
  <img id="title" src="../content/img/namelogo.png"> </span>
 </div>
 <navigation></navigation>
 <div id="container">
-    <div class="row">
-        <div class="col-sm-8">
-            <!--Aggiungi corso al piano -->
-            <form ng-submit="vm.onSubmit()" class="form-style">
+    <div class="row" style=" margin-top: 50px;">
+        <div class="panel with-nav-tabs panel-default">
+            <div class="panel-heading">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#upload" data-toggle="tab" aria-expanded="true"><span class="glyphicon glyphicon-plus"></span> &nbsp  Carica Appello</a></li>
+                    <li class=""><a href="#edit" data-toggle="tab" aria-expanded="false"><span class="glyphicon glyphicon-pencil"></span> &nbsp Modifica Appelli</a></li>
+                </ul>
+            </div>
+            <div class="panel-body">
+                <div id="myTabContent" class="tab-content">
+                    <div class="tab-pane fade active in" id="upload">
+                        <!--CARICA APPELLO -->
 
-                <h1>
-                    Carica Appello
-                </h1>
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <form ng-submit="vm.onSubmit()" class="form-style">
+                                    <div class="row">
+                                        <!-- Corso di Laurea  -->
+                                        <div class="col-sm-12">
+                                            <label for="faculty">  Corso di Laurea  </label>
+                                            <select name="faculty" id="faculty" class="form-control" ng-model="vm.session.faculty" required style="width:500px;">
+                                                              <option  value="">Seleziona un corso di Laurea</option>
+                                                              <option  value="Informatica">Informatica</option>
+                                                             <option value="Fisica">Fisica</option>
+                                                             <option value="Chimica">Chimica</option>
+                                            </select>
+                                        </div>
+                                    </div>
 
-                <div class="row">
-                    <!-- Corso di Laurea  -->
-                    <div class="col-sm-12">
-                        <label for="faculty">  Corso di Laurea  </label>
-                        <select name="faculty" id="faculty" class="form-control" ng-model="vm.session.faculty" required style="width:500px;">
-                                  <option  value="">Seleziona un corso di Laurea</option>
-                                  <option  value="Informatica">Informatica</option>
-                                 <option value="Fisica">Fisica</option>
-                                 <option value="Chimica">Chimica</option>
-                    </select>
+                                    <div class="row">
+                                        <!-- Corso  -->
+                                        <div class="col-sm-6">
+                                            <label for="subject">   Corso:  </label>
+                                            <select name="subject" id="subject" class="form-control" ng-model="vm.session.subject" required>
+                                                      <option value="">Seleziona un corso</option> 
+                                                      <option  ng-repeat="data in vm.courses">{{data}}</option>
+                                                   </select>
+                                        </div>
 
-                    </div>
-                </div>
+                                        <div class="col-sm-6">
+                                            <!-- Coorte  -->
+                                            <label for="entryYear"> Coorte </label>
+                                            <input type="number" id="entryYear" min="2015" max="2099" step="1" placeholder="Inserisci la coorte" ng-model="vm.session.entryYear"
+                                                required/>
 
-                <div class="row">
-                    <!-- Corso  -->
-                    <div class="col-sm-6">
-                        <label for="subject">   Corso:  </label>
-                        <select name="subject" id="subject" class="form-control" ng-model="vm.session.subject" required>
-                          <option value="">Seleziona un corso</option> 
-                          <option  ng-repeat="data in vm.courses">{{data}}</option>
-                       </select>
-                    </div>
+                                        </div>
 
-                    <div class="col-sm-6">
-                        <!-- Coorte  -->
-                        <label for="entryYear"> Coorte </label>
-                        <input type="number" id="entryYear" min="2015" max="2099" step="1" placeholder="Inserisci la coorte" ng-model="vm.session.entryYear"
-                            required/>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <!-- Tipo di Prova -->
+                                            <label for="examType">  Tipo di prova:  </label>
+                                            <select name="examType" id="examType" class="form-control" ng-model="vm.session.examType" required>
+                                                   <option  value="">Seleziona il tipo di prova</option>
+                                                   <option  value="Scritto">Scritto</option>
+                                                  <option value="Orale">Orale</option>
+                                                  <option value="Orale">Laboratorio</option>
+                                                    </select>
+                                        </div>
+                                        <!-- Luogo -->
+                                        <div class="col-sm-6">
+                                            <label for="room">Luogo  </label>
+                                            <input type="text" class="form-control" placeholder="Aula AB 2, polo Lodovici" ng-model="vm.session.room" required>
+                                        </div>
+                                    </div>
 
-                    </div>
+                                    <div class="row">
+                                        <!--  Data  -->
+                                        <div class="col-sm-6">
+                                            <label for="date"> Data appello </label>
+                                            <input type="date" class="form-control" id="date" min="2017-01-01" ng-model="vm.session.date" required>
 
-                </div>
-                <div class="row">
-                    <div class="col-sm-6">
-                        <!-- Tipo di Prova -->
-                        <label for="examType">  Tipo di prova:  </label>
-                        <select name="examType" id="examType" class="form-control" ng-model="vm.session.examType" required>
-                       <option  value="">Seleziona il tipo di prova</option>
-                       <option  value="Scritto">Scritto</option>
-                      <option value="Orale">Orale</option>
-                      <option value="Orale">Laboratorio</option>
-                        </select>
-                    </div>
-                    <!-- Luogo -->
-                    <div class="col-sm-6">
-                        <label for="room">Luogo  </label>
-                        <input type="text" class="form-control" placeholder="Aula AB 2, polo Lodovici" ng-model="vm.session.room" required>
-                    </div>
-                </div>
+                                        </div>
+                                        <!-- Ora -->
+                                        <div class="col-sm-6">
+                                            <label for="time">   Ora appello  </label>
+                                            <input type="time" class="form-control" id="time" ng-model="vm.session.time" required>
+                                        </div>
+                                    </div>
+                                    <div style="text-align:center">
+                                        <button type="reset" value="Reset" style="margin-right:10px;"> Ripristina </button>
+                                        <button type="submit" style="margin-left:10px;">Aggiungi Appello</button>
 
-                <div class="row">
-                    <!--  Data  -->
-                    <div class="col-sm-6">
-                        <label for="date"> Data appello </label>
-                        <input type="date" class="form-control" id="date" min="2017-01-01" ng-model="vm.session.date" required>
-
-                    </div>
-                    <!-- Ora -->
-                    <div class="col-sm-6">
-                        <label for="time">   Ora appello  </label>
-                        <input type="time" class="form-control" id="time" ng-model="vm.session.time" required>
-                    </div>
-                </div>
-                <div style="text-align:center">
-                    <button type="reset" value="Reset" style="margin-right:10px;"> Ripristina </button>
-                    <button type="submit" style="margin-left:10px;">Aggiungi Appello</button>
-
-                </div>
-            </form>
-        </div>
-
-        <div class="col-sm-4" style="margin-top: 50px;">
-            <p style="font-size: 17px;"><b>Gestione Appelli</b></p>
-            <p> Completa tutti i campi del form e seleziona <i>Aggiungi Appello</i> per <b>caricare un nuovo appello</b>.
-            </p>
-
-            <p> Per <b>eliminare un appello</b> seleziona l'icona corrispondente &nbsp <img id="info_img" src="../content/img/delete-grey3.png">                &nbsp nella tabella degli appelli attivi.</p>
-            <p> <b>Attenzione!</b> Eliminando un appello, anche le relative prenotazioni degli studenti verranno eliminate, e
-                non sarà più possibile registrare gli esiti dell'esame.</p>
-            <p style="font-size: 17px;"><br/><b>Verbalizzazione</b></p>
-            <p> Seleziona l'icona &nbsp <img id="info_img" src="../content/img/validation.png"> &nbsp nella tabella degli appelli attivi per
-                accedere all'elenco degli studenti prenotati ad un appello e registrare i risultati dell'esame.</p>
-
-        </div>
-
-
-
-
-
-        <div class="row">
-
-            <div class="col-sm-12">
-                <h3>Appelli Caricati</h3>
-                <div id="noData" ng-hide="vm.isThereASession()">
-                    <p>Nessun appello attualmente caricato.</p>
-                </div>
-
-                <div id="tableContainer">
-                    <div ng-show="vm.isThereASession()">
-
-                        <table>
-                            <caption>
-                                <div class="search">
-                                    <span style="color:black" class="glyphicon glyphicon-search"> </span>
-                                    <input type="text" class="form-control" name="filterSubject" id="filterSubject" class="form-control" placeholder="Corso"
-                                        ng-model="vm.filterSubject">
-
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-sm-4" style="margin-top: 50px;">
+                                <div class="well" style="margin-right:30px;">
+                                    <p style="font-size:15px"> Completa tutti i campi del form e seleziona <i>Aggiungi Appello</i> per <b>caricare un nuovo appello</b>.
+                                    </p>
                                 </div>
-                            </caption>
-                            <thead>
-                                <tr>
-                                    <th scope="col">Corso</th>
-                                    <th scope="col">Coorte</th>
-                                    <th scope="col">Luogo</th>
-                                    <th scope="col">Data</th>
-                                    <th scope="col">Ora</th>
-                                    <th scope="col">Prova</th>
-                                    <th scope="col">Verbalizzazione</th>
-                                    <th scope="col">Cancella Appello</th>
+                            </div>
+                        </div>
+                    </div>
 
-                                </tr>
-                            </thead>
+                    <!--MODIFICA APPELLO -->
+                    <div class="tab-pane fade " id="edit" style="text-align:center">
+                        <div class="editTab" style="margin-top:30px;">
+                            <div class="well">
+                                <p> Per <b>apportare una modifica</b> seleziona l'appello corrispondente e completa i campi desiderati,
+                                    poi conferma selezionando l'icona &nbsp <span class="glyphicon glyphicon-ok"></span>                                    </p>
+                            </div>
+                            <div id="noData" ng-hide="vm.isThereASession()">
+                                <p>Nessun appello attualmente caricato.</p>
+                            </div>
 
-                            <tbody>
-                                <tr ng-repeat="session in vm.uploadedSessions" ng-show="vm.checkCorrespondence(session.subject)">
-                                    <td>{{session.subject}}</td>
-                                    <td>{{session.entryYear}}</td>
-                                    <td>{{session.room}}</td>
-                                    <td>{{session.date}}</td>
-                                    <td>{{session.time}}</td>
-                                    <td>{{session.examType}}</td>
-                                    <td ng-click="getStudentList(session._id)" class="iconValidate"></td>
-                                    <td ng-click="deleteSession(session._id)" class="iconDelete"></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                            <div ng-show="vm.isThereASession()">
+                                <table class="table table-striped table-hover ">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Corso</th>
+                                            <th scope="col">Coorte</th>
+                                            <th scope="col">Luogo</th>
+                                            <th scope="col">Data</th>
+                                            <th scope="col">Ora</th>
+                                            <th scope="col">Prova</th>
+                                            <th scope="col">Conferma</th>
+
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr ng-repeat="session in vm.uploadedSessions" ng-click="vm.setEditId(session._id);edit = vm.showRow(session._id)">
+                                            <td>{{session.subject}}</td>
+                                            <td>{{session.entryYear}}</td>
+                                            <td ng-hide="edit && vm.showRow(session._id)">{{session.room}}</td>
+                                            <td ng-if="edit && vm.showRow(session._id)">
+                                                <input type="text" ng-model="vm.editSession.room">
+                                            </td>
+                                            <td>{{session.date}}</td>
+                                            <td ng-hide="edit  && vm.showRow(session._id)">{{session.time}}</td>
+                                            <td ng-if="edit && vm.showRow(session._id)">
+                                                <input type="time" ng-model="vm.editSession.time">
+                                            </td>
+                                            <td ng-hide="edit  && vm.showRow(session._id)">{{session.examType}}</td>
+                                            <td ng-if="edit && vm.showRow(session._id)">
+                                                <select name="examType" id="examType" ng-model="vm.editSession.examType">
+                                                                <option  value="">Tipo di prova</option>
+                                                                <option  value="Scritto">Scritto</option>
+                                                               <option value="Orale">Orale</option>
+                                                               <option value="Laboratorio">Laboratorio</option>
+                                                                 </select>
+                                            </td>
+                                            <td ng-click="vm.editSession(session._id)" style="text-align:center;"><span class="glyphicon glyphicon-ok"></span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
+
+    <div class="row" style="margin-top:50px;">
+        <div class="col-sm-6" style="margin-top: 50px;">
+            <div class="well">
+                <p style="font-size: 17px;"><b>Elimina Appelli</b></p>
+                <p> Per <b>eliminare un appello</b> seleziona l'icona corrispondente &nbsp <img id="info_img" src="../content/img/delete-grey3.png">                    &nbsp nella tabella degli appelli attivi.</p>
+                <p> <b>Attenzione!</b> Eliminando un appello, anche le relative prenotazioni degli studenti verranno eliminate,
+                    e non sarà più possibile registrare gli esiti dell'esame.</p>
+            </div>
+        </div>
+
+        <div class="col-sm-6" style="margin-top: 50px;">
+            <div class="well">
+                <p style="font-size: 17px;"><b>Verbalizzazione</b></p>
+                <p> Seleziona l'icona &nbsp <img id="info_img" src="../content/img/validation.png"> &nbsp nella tabella degli
+                    appelli attivi per accedere all'elenco degli studenti prenotati ad un appello e registrare i risultati
+                    dell'esame.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <h3>Appelli Caricati</h3>
+            <div id="noData" ng-hide="vm.isThereASession()">
+                <p>Nessun appello attualmente caricato.</p>
+            </div>
+
+            <div id="tableContainer">
+                <div ng-show="vm.isThereASession()">
+
+                    <table style="margin-right: 35px;">
+                        <caption>
+                            <div class="search">
+                                <span style="color:black" class="glyphicon glyphicon-search"> </span>
+                                <input type="text" class="form-control" name="filterSubject" id="filterSubject" class="form-control" placeholder="Corso"
+                                    ng-model="vm.filterSubject">
+
+                            </div>
+                        </caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Corso</th>
+                                <th scope="col">Coorte</th>
+                                <th scope="col">Luogo</th>
+                                <th scope="col">Data</th>
+                                <th scope="col">Ora</th>
+                                <th scope="col">Prova</th>
+                                <th scope="col">Verbalizzazione</th>
+                                <th scope="col">Cancella Appello</th>
+
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr ng-repeat="session in vm.uploadedSessions" ng-show="vm.checkCorrespondence(session.subject)">
+                                <td>{{session.subject}}</td>
+                                <td>{{session.entryYear}}</td>
+                                <td>{{session.room}}</td>
+                                <td>{{session.date}}</td>
+                                <td>{{session.time}}</td>
+                                <td>{{session.examType}}</td>
+                                <td ng-click="getStudentList(session._id)" class="iconValidate"></td>
+                                <td ng-click="deleteSession(session._id)" class="iconDelete"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+ </div>
 </div>
 
 

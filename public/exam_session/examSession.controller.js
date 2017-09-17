@@ -1,8 +1,9 @@
 (function() {
   angular.module("planApp").controller("examSessionCtrl", examSessionCtrl);
 
-  examSessionCtrl.$inject = ["$location","userService","planService","sessionService","$window","$scope"];
-  function examSessionCtrl($location, userService, planService, sessionService, $window, $scope) {
+  examSessionCtrl.$inject = [
+    "$location", "userService", "planService", "sessionService", "$window","$scope"];
+  function examSessionCtrl( $location, userService, planService, sessionService, $window, $scope) {
     var vm = this;
 
     vm.user = {}; //Utente
@@ -13,9 +14,17 @@
 
     vm.uploadedSessions = {}; //Appelli caricati dal docente
 
-    vm.filterSubject = "";
+    vm.filterSubject = ""; //Filtro per corso
 
     vm.contacts = {};
+
+    //attributi per modificare un appello
+    vm.editSession = {
+      _id: "",
+      room: "",
+      time: "",
+      examType: ""
+    };
 
     //appello da caricare
     vm.session = {
@@ -27,7 +36,46 @@
       examType: "",
       entryYear: "",
       professorEmail: ""
-    }; 
+    };
+
+    //Setta l'_id dell'appello da modificare
+    vm.setEditId = function(sessionId) {
+      if (vm.editSession._id === "") {
+        vm.editSession._id = sessionId;
+      } else if (vm.editSession._id !== sessionId) {
+        vm.editSession.room = "";
+        vm.editSession.examType = "";
+        vm.editSession.time = "";
+        vm.editSession._id = sessionId;
+      }
+    };
+    //Determina se mostrare gli input field per la modifica dell'appello
+    vm.showRow = function(sessionId) {
+      if (vm.editSession._id === sessionId) {
+        return true;
+      }
+      return false;
+    };
+
+    //modifica un appello
+    vm.editSession = function(sessionId) {    
+      if((vm.editSession.time === "") && (vm.editSession.room === "") && (vm.editSession.examType === "")){
+      alert("Devi completare almeno un campo per modificare l'appello");
+      }else{
+      if (vm.editSession.time !== "") {
+        var time = vm.editSession.time.toString().slice(16, 21);        
+        sessionService.editSessionTime(sessionId, time);
+      }
+      if (vm.editSession.room !== "") {
+        sessionService.editSessionRoom(sessionId, vm.editSession.room);
+      }
+      if (vm.editSession.examType !== "") {
+        sessionService.editSessionExamType(sessionId, vm.editSession.examType);
+        console.log("exam type registered");
+      }
+     $window.location.reload();
+    }
+    };
 
     //filtra gli appelli per nome del corso
     vm.checkCorrespondence = function(subject) {
@@ -39,10 +87,9 @@
       return false;
     };
 
-   
     initController();
 
-   //inizializza il controller
+    //inizializza il controller
     function initController() {
       userService.getAdminEmails().then(function(data) {
         vm.contacts = data;
@@ -102,14 +149,12 @@
 
     //Carica un appello
     vm.onSubmit = function() {
-
       var today = new Date();
       var inputDate = new Date(vm.session.date);
 
       if (inputDate <= today) {
         alert("Impossibile caricare l'appello: Data non valida");
       } else {
-      
         var d = vm.session.date.toString();
         var h = vm.session.time.toString();
         var yyyy = d.slice(11, 15);
@@ -129,7 +174,7 @@
               yyyy;
           } else
             vm.session.date =
-              dd + "/" + (new Date(dateParse).getMonth() + 1) + "-" + yyyy;
+              dd + "/" + (new Date(dateParse).getMonth() + 1) + "/" + yyyy;
         }
         vm.session.time = t;
         vm.session.professorEmail = vm.user.email;

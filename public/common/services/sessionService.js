@@ -51,7 +51,7 @@
         });
     };
 
-     //Ottiene l'elenco degli appelli per facoltà e anno accademico
+    //Ottiene l'elenco degli appelli per facoltà e anno accademico
     getAvailableSessions = function(faculty, entryYear) {
       return $http
         .get(
@@ -63,6 +63,31 @@
           }
         )
         .then(handleSuccess, handleError);
+    };
+
+    //Modifica l'ora di un appello
+    editSessionTime = function(sessionId, time) {
+      return $http
+        .put("/api/examSession/session/" + sessionId + "/time/" + time)
+        .then(function(res) {
+          return res.data;
+        });
+    };
+    //Modifica il tipo di prova di un appello
+    editSessionExamType = function(sessionId, examType) {
+      return $http
+        .put("/api/examSession/session/" + sessionId + "/examType/" + examType)
+        .then(function(res) {
+          return res.data;
+        });
+    };
+    //Modifica il luogo di un appello
+    editSessionRoom = function(sessionId, room) {
+      return $http
+        .put("/api/examSession/session/" + sessionId + "/room/" + room)
+        .then(function(res) {
+          return res.data;
+        });
     };
 
     //funzioni private
@@ -81,7 +106,10 @@
       deleteSessionById: deleteSessionById,
       getSessionById: getSessionById,
       getRegisteredExamsMats: getRegisteredExamsMats,
-      getAvailableSessions:getAvailableSessions
+      getAvailableSessions: getAvailableSessions,
+      editSessionRoom: editSessionRoom,
+      editSessionExamType: editSessionExamType,
+      editSessionTime: editSessionTime
     };
   }
 })();

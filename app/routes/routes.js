@@ -46,6 +46,9 @@ router.delete("/examSession/session/:sessionId", ctrlSession.deleteSessionById);
 router.get(  "/examSession/sessions/:email", auth, ctrlSession.getSessionsByProfessor); //Ottiene l'elenco degli appelli caricati da un docente
 router.get( "/examSession/students/:sessionId", auth, ctrlProfile.getStudentsBySession); //Ottiene l'elenco degli studenti prenotati ad un appello
 router.delete("/examSession/bookingsOfSession/:sessionId", ctrlBooking.deleteBookingBySessionId); //Cancella le prenotazioni relative ad un appello eliminato
+router.put( "/examSession/session/:sessionId/time/:time",ctrlSession.updateSessionTime); //Modifica l'ora di un appello
+router.put( "/examSession/session/:sessionId/examType/:examType",ctrlSession.updateSessionType); //Modifica il tipo di prova di un appello
+router.put( "/examSession/session/:sessionId/room/:room",ctrlSession.updateSessionRoom); //Modifica il luogo di un appello
 
 //Verbalizzazione Docente
 router.post("/registerExam", ctrlExam.addExam); //Registra un esame per uno studente

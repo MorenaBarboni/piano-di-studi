@@ -27,6 +27,32 @@ module.exports.getAllUsers = function(req, res) {
   }
 };
 
+//Ottiene tutti i docenti.
+module.exports.getProfessors = function(req, res) {
+  if (!req.payload._id) {
+    res.status(401).json({
+      message: "UnauthorizedError: private profile"
+    });
+  } else {
+    User.find({ usertype: "docente" }, function(err, data) {
+      res.send(data);
+    }).sort({ name: 1 });
+  }
+};
+
+//Ottiene docenti per nome.
+module.exports.getProfessorByName = function(req, res) {
+  if (!req.payload._id) {
+    res.status(401).json({
+      message: "UnauthorizedError: private profile"
+    });
+  } else {
+    User.find({ usertype: "docente", name:req.params.name }, function(err, data) {
+      res.send(data);
+    }).sort({ name: 1 });
+  }
+};
+
 //Cancella un utente selezionandolo tramite id
 module.exports.deleteUserById = function(req, res) {
   User.remove(
@@ -64,6 +90,26 @@ module.exports.getFaculties = function(req, res) {
   }
 };
 
+//Controlla l'esistenza di un'email docente.
+module.exports.checkEmail = function(req, res) {
+  if (!req.payload._id) {
+    res.status(401).json({
+      message: "UnauthorizedError: private profile"
+    });
+  } else {
+    User.findOne(
+      { email: req.params.professorEmail, usertype: "docente" },
+      function(err, data) {
+        if (data) {
+          res.send("ok");
+        } else {
+          res.send("error");
+        }
+      }
+    );
+  }
+};
+
 //Ottiene l'elenco degli studenti che si sono prenotati ad un appello
 module.exports.getStudentsBySession = function(req, res) {
   var paramId = mongoose.Types.ObjectId(req.params.sessionId);
@@ -72,10 +118,10 @@ module.exports.getStudentsBySession = function(req, res) {
     [
       {
         $lookup: {
-          from: "bookings", // other table name
-          localField: "mat", // name of users table field
-          foreignField: "studentMat", // name of userinfo table field
-          as: "user_bookings" // alias for userinfo table
+          from: "bookings",
+          localField: "mat",
+          foreignField: "studentMat",
+          as: "user_bookings"
         }
       },
       {
@@ -96,7 +142,6 @@ module.exports.getStudentsBySession = function(req, res) {
       }
     ],
     function(err, data) {
-      console.log(data);
       res.send(data);
     }
   );

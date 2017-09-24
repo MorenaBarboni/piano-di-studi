@@ -33,6 +33,29 @@
         .then(handleSuccess, handleError);
     };
 
+
+    //Ottiene tutti i docenti
+    getAllProfessors = function() {
+      return $http
+        .get("/api/user/professors", {
+          headers: {
+            Authorization: "Bearer " + authentication.getToken()
+          }
+        })
+        .then(handleSuccess, handleError);
+    };
+
+       //Ottiene un docente per nome
+       getProfessorByName = function(name) {
+        return $http
+          .get("/api/user/professor/" +name, {
+            headers: {
+              Authorization: "Bearer " + authentication.getToken()
+            }
+          })
+          .then(handleSuccess, handleError);
+      };
+
     //Cancella un utente tramite Id
     deleteUser = function(userId) {
       return $http
@@ -46,6 +69,17 @@
     getAdminEmails = function() {
       return $http
         .get("/api/user/adminEmail", {
+          headers: {
+            Authorization: "Bearer " + authentication.getToken()
+          }
+        })
+        .then(handleSuccess, handleError);
+    };
+
+     //Controlla l'esistenza dell'email di un docente
+     checkEmail = function(professorEmail) {
+      return $http
+        .get("/api/user/professorEmail/" +professorEmail, {
           headers: {
             Authorization: "Bearer " + authentication.getToken()
           }
@@ -78,7 +112,10 @@
       getAllUsers: getAllUsers,
       deleteUser: deleteUser,
       getSessionStudents: getSessionStudents,
-      getAdminEmails: getAdminEmails
+      getAdminEmails: getAdminEmails,
+      getAllProfessors:getAllProfessors,
+      checkEmail:checkEmail,
+      getProfessorByName : getProfessorByName 
     };
   }
 })();

@@ -17,11 +17,13 @@
   height: 70px;
   margin: 0px;
   margin-left: 50px;
+  cursor: pointer;
 }
 #title {
   height: 70px;
   margin: 0px;
   margin-left: 20px;
+  cursor: pointer;
 }
 .form-style-info {
   margin-left: auto;
@@ -40,7 +42,7 @@
   padding: 0px 0px 10px 10px;
   display: block;
   margin: -5px -5px 10px -5px;
-  color:  #a53845;
+  color: #a53845;
 }
 
 .form-style-info p {
@@ -79,7 +81,7 @@
 }
 
 .caption label {
-margin-top: 2px;
+  margin-top: 2px;
 }
 
 .caption input[type="text"] {
@@ -171,13 +173,12 @@ input[type="checkbox"] {
   background-color: rgba(255, 53, 53, 0.28);
 }
 
-
 .well.wellRed h3 {
   font-size: 22px;
   padding: 5px 0px 10px 10px;
   display: block;
   margin: -5px -5px 10px -5px;
-  color: #50161D;
+  color: #50161d;
 }
 
 .deleteButton {

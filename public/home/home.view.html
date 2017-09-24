@@ -1,5 +1,5 @@
 <head>
-  
+
   <link href="../content/css/animated.min.css" rel="stylesheet" type="text/css">
   <link href="../content/css/home.css" rel="stylesheet" type="text/css">
   <link href="../content/css/footer.css" rel="stylesheet" type="text/css">
@@ -8,7 +8,7 @@
 
 
 <div class="page-header">
-  <span> <img id="logo" src="../content/img/unimarche.png"> <img id="title" src="../content/img/namelogo.png">  </span>
+  <span> <img id="logo" src="../content/img/unimarche.png" href="home"> <img id="title" href="home" src="../content/img/namelogo.png">  </span>
 </div>
 
 <div id="border_line">
@@ -22,52 +22,54 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6">
-      <h1 style="margin-bottom:5px;">Benvenuto</h1>
       <!-- Utente non loggato -->
-      <div ng-show="!vm.user.usertype">
-          <p style="font-size: 20px;">Per accedere al tuo profilo effettua il
-          <div class="mbr-buttons btn-inverse mbr-buttons--left"><a class="mbr-buttons__btn btn btn-lg animated fadeInUp delay btn-danger" href="login">LOGIN</a></div></p>
-          <!-- <a href="login">login</a>.</p>-->
+      <div class="loggedOut" ng-show="!vm.user.usertype">
+        <h1>Benvenuto</h1>
+        <p style="font-size: 20px;">Per accedere al tuo profilo effettua il
+          <div class="mbr-buttons btn-inverse mbr-buttons--left"><a class="mbr-buttons__btn btn btn-lg animated fadeInUp delay btn-danger" href="login">LOGIN</a></div>
+        </p>
       </div>
-      <div ng-show="vm.user.usertype">
-        <p style="font-size: 25px;">Benvenuto {{vm.user.name}}!</p>
-      </div>
+      <!-- Utente loggato -->
+      <div class="loggedIn" ng-show="vm.user.usertype">
+        <h1 >Benvenuto</h1>
+        <div ng-show="vm.user.usertype">
+            <p style="font-size: 25px; margin-bottom:200px; margin-left:53px;">{{vm.user.name}}!</p>
+          </div>
+
+      </div>   
     </div>
-    
+
 
     <div class="col-md-6">
 
       <div class="css-slideshow">
         <figure>
-          <img src="../content/img/slide1.jpg" width="495" height="370" class="alignnone size-full wp-image-172" />
+          <img src="../content/img/slide1.jpg" width="600" class="alignnone size-full wp-image-172" />
         </figure>
         <figure>
-          <img src="../content/img/slide2.jpeg" alt="class-header-semantics" width="495" height="370" class="alignnone size-full wp-image-179"
-          />
+          <img src="../content/img/slide2.jpeg" alt="class-header-semantics" width="600" class="alignnone size-full wp-image-179" />
         </figure>
         <figure>
-          <img src="../content/img/slide3.jpeg" alt="class-header-offline" width="495" height="370" class="alignnone size-large wp-image-178"
-          />
+          <img src="../content/img/slide3.jpeg" alt="class-header-offline" width="600" class="alignnone size-large wp-image-178" />
 
         </figure>
         <figure>
-          <img src="../content/img/slide4.jpg" width="495" height="370" class="alignnone size-full wp-image-177" />
+          <img src="../content/img/slide4.jpg" width="600" class="alignnone size-full wp-image-177" />
 
         </figure>
         <figure>
-          <img src="../content/img/slide5.jpg" alt="class-header-connectivity" width="495" height="370" class="alignnone size-large wp-image-176"
+          <img src="../content/img/slide5.jpg" alt="class-header-connectivity" width="600" class="alignnone size-large wp-image-176"
           />
         </figure>
         <figure>
-          <img src="../content/img/slide6.jpeg" alt="class-header-multimedia" width="495" height="370" class="alignnone size-large wp-image-175"
+          <img src="../content/img/slide6.jpeg" alt="class-header-multimedia" width="600" class="alignnone size-large wp-image-175"
           />
         </figure>
         <figure>
-          <img src="../content/img/slide7.jpg" alt="class-header-3d" width="495" height="370" class="alignnone size-large wp-image-174"
-          />
+          <img src="../content/img/slide7.jpg" alt="class-header-3d" width="600" class="alignnone size-large wp-image-174" />
         </figure>
         <figure>
-          <img src="../content/img/slide8.jpeg" alt="class-header-performance" width="495" height="370" class="alignnone size-large wp-image-173"
+          <img src="../content/img/slide8.jpeg" alt="class-header-performance" width="600" class="alignnone size-large wp-image-173"
           /> </figure>
       </div>
 
@@ -124,16 +126,16 @@
           <h3> Indicazioni </h3>
           <div id="map" style="text-align: right;"></div>
           <div id=bottoni style="width:20%;">
-          <!--<div class="col-md-4  col-md-2 col-sm-4" style="text-align:right;">-->
+            <!--<div class="col-md-4  col-md-2 col-sm-4" style="text-align:right;">-->
             <div id="repeat" style="width:20%;" ng-repeat="marker in markers | orderBy : 'title'">
               <a id="country_container" href="#" ng-click="openInfoWindow($event, marker)">
                 <label id="names" >{{marker.title}}</label></a>
-            </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
   <div class="footer-bottom">
     <div class="container">

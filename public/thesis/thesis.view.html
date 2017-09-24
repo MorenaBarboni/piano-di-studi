@@ -7,16 +7,16 @@
 
 <body>
     <div class="page-header">
-  <span> <img id="logo" src="../content/img/unimarche.png">
- <img id="title" src="../content/img/namelogo.png"> </span>
-</div>
+        <a href="home"> <span> <img id="logo" src="../content/img/unimarche.png">
+ <img id="title" src="../content/img/namelogo.png"> </span></a>
+    </div>
     <navigation></navigation>
-
+    <button onclick="topFunction()" class="btn btn-primary" id="goToTop"><span class="glyphicon glyphicon-chevron-up"></span></button>
 
     <div id="container">
         <div class="row">
+            <!--STUDENTE-->
             <div class="col-sm-8">
-
                 <form ng-submit="vm.onSubmit()" class="form-style" ng-if="vm.user.usertype === 'studente'">
                     <h1>
                         Richiedi Tesi
@@ -111,9 +111,10 @@
                 </div>
             </div>
 
+            <!--DOCENTE-->
             <!-- Richieste Pendenti Docente-->
             <div id="tableContainer" ng-if="vm.user.usertype === 'docente'">
-                <h3>Richieste Pendenti &nbsp <span class="glyphicon glyphicon-hourglass"></span></h3>
+                <h3 style="margin-top:70px;">Richieste Pendenti &nbsp <span class="glyphicon glyphicon-hourglass"></span></h3>
                 <div ng-if="vm.hangingRequestsEmpty()">
                     <h4> Nessuna nuova richiesta</h4>
                 </div>

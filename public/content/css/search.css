@@ -8,6 +8,13 @@
   margin-bottom: 10px;
   padding: 10px;
 }
+.form-style {
+  background: #f7f7f7;
+  padding: 25px 15px 25px 10px;
+  color: #5c5c5c;
+  border: 1px solid #e4e4e4;
+  min-height: 500px;
+}
 
 .navbar {
   border-top: 5px solid #c26c6c;
@@ -30,41 +37,26 @@
   margin-bottom: 5px !important;
   min-width: 1200px !important;
 }
+h2 {
+  color: #2c3e50;
+  margin-bottom: 40px;
+  margin-top: 50px;
+}
 
 h3 {
   color: #cb999a;
-  margin-top: 30px;
   margin-bottom: 30px;
   text-align: center;
 }
 
-h4 {
-  font-size: 24px;
-}
-
-.form-style {
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 50px;
-  margin-top: 30px;
-  max-width: 550px;
-  background: #f7f7f7;
-  padding: 15px 5px 15px 0px;
-  font: 14px Arial, Helvetica, Verdana, Sans-serif;
-  color: #888;
-  text-shadow: 1px 1px 1px #fff;
+#professorInfo {
   border: 1px solid #e4e4e4;
+  padding: 25px 15px 25px 10px;
+  margin-left: 30px;
+  font-size: 16px;
+  line-height: 30px;
+  color: #5c5c5c;
 }
-.form-style p,
-h4 {
-  margin-left: 20px;
-}
-
-h4.infoTag {
-  font-size: 24px;
-  margin-left: 10px;
-}
-
 #info {
   margin-left: 30px;
   margin-top: 20px;
@@ -79,9 +71,7 @@ p.courses {
   padding-bottom: 230px;
   color: #cb999a;
 }
-cite {
-  color: #666;
-}
+
 .panel {
   margin-top: 30px;
   border-color: #e4e4e4;
@@ -132,16 +122,6 @@ small {
   margin-right: 10px;
 }
 
-ul.chartList {
-  list-style-type: none;
-}
-
-li.chartList {
-  text-align: left;
-  padding: 3px;
-  margin-top: 2px;
-}
-
 span.infoTag {
   display: inline-block;
   text-align: left;
@@ -149,25 +129,6 @@ span.infoTag {
   margin-left: 10px;
   margin-bottom: 4px;
   font-size: 15px;
-}
-
-.well {
-  box-shadow: 5px 5px 10px 2px #e6e6e6;
-  min-height: 160px;
-}
-
-.well.pie {
-  background-color: rgba(138, 20, 20, 0.28);
-  float: right;
-  width: 330px;
-  max-height: 500px;
-  box-shadow: 5px 5px 10px 2px #e6e6e6;
-  padding: 10px;
-  margin: auto;
-}
-
-fusioncharts {
-  margin-bottom: 600px;
 }
 
 /*TABLE*/
@@ -185,11 +146,10 @@ table {
 
 caption {
   margin-left: 6px;
-  margin-top: 30px;
   font-size: 1.6em;
   font-weight: 400;
   padding: 10px 0;
-  color: #888;
+  color: #cb999a;
 }
 caption span {
   float: right;
@@ -234,13 +194,6 @@ tfoot td {
   color: #cb999a;
 }
 
-.chart {
-  margin-top: 30px;
-}
-.chartInfo {
-  margin-top: 30px;
-  color: rgba(116, 9, 9, 0.65);
-}
 .search {
   float: right;
 }
@@ -271,21 +224,41 @@ tfoot td {
   font-size: 14px;
 }
 
-#goToTop {
-  display: none;
-  position: fixed;
-  bottom: 20px;
-  right: 30px;
-  z-index: 99;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 12px;
-  height: 45px;
-  transition-duration: 0.3s;
-  border-radius: 50px;
+#custom-search-input {
+  width: 50%;
+  padding: 3px;
+  border: solid 1px #e4e4e4;
+  border-radius: 6px;
+  background-color: #fff;
+  margin: auto;
+  margin-bottom: 40px;
 }
 
-#goToTop:hover {
-  transition-duration: 0.3s;
+#custom-search-input input {
+  border: 0;
+  box-shadow: none;
+}
+
+#custom-search-input button {
+  margin: 2px 0 0 0;
+  background: none;
+  box-shadow: none;
+  border: 0;
+  color: #666666;
+  padding: 0 8px 0 10px;
+  border-left: solid 1px #ccc;
+}
+
+#custom-search-input button:hover {
+  border: 0;
+  box-shadow: none;
+  border-left: solid 1px #ccc;
+}
+
+#custom-search-input .glyphicon-search {
+  font-size: 23px;
+}
+
+.well {
+  min-height: 500px;
 }

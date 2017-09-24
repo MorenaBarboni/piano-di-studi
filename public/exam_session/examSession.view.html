@@ -6,17 +6,18 @@
 </head>
 
 <div class="page-header">
-    <span> <img id="logo" src="../content/img/unimarche.png">
- <img id="title" src="../content/img/namelogo.png"> </span>
+    <a href="home">  <span> <img id="logo" src="../content/img/unimarche.png">
+ <img id="title" src="../content/img/namelogo.png"> </span></a>
 </div>
 <navigation></navigation>
+<button onclick="topFunction()" class="btn btn-primary" id="goToTop"><span class="glyphicon glyphicon-chevron-up"></span></button>
 <div id="container">
     <div class="row" style=" margin-top: 50px;">
         <div class="panel with-nav-tabs panel-default">
             <div class="panel-heading">
                 <ul class="nav nav-tabs">
-                    <li class="active"><a href="#upload" data-toggle="tab" aria-expanded="true"><span class="glyphicon glyphicon-plus"></span> &nbsp  Carica Appello</a></li>
-                    <li class=""><a href="#edit" data-toggle="tab" aria-expanded="false"><span class="glyphicon glyphicon-pencil"></span> &nbsp Modifica Appelli</a></li>
+                    <li class="active"><a href="#upload" data-toggle="tab" aria-expanded="true" onclick="return false;"><span class="glyphicon glyphicon-plus"></span> &nbsp  Carica Appello</a></li>
+                    <li><a href="#edit" data-toggle="tab" aria-expanded="false"><span class="glyphicon glyphicon-pencil" onclick="return false;"></span> &nbsp Modifica Appelli</a></li>
                 </ul>
             </div>
             <div class="panel-body">
@@ -67,7 +68,7 @@
                                                    <option  value="">Seleziona il tipo di prova</option>
                                                    <option  value="Scritto">Scritto</option>
                                                   <option value="Orale">Orale</option>
-                                                  <option value="Orale">Laboratorio</option>
+                                                  <option value="Laboratorio">Laboratorio</option>
                                                     </select>
                                         </div>
                                         <!-- Luogo -->
@@ -99,7 +100,7 @@
                             </div>
                             <div class="col-sm-4" style="margin-top: 50px;">
                                 <div class="well" style="margin-right:30px;">
-                                    <p style="font-size:15px"> Completa tutti i campi del form e seleziona <i>Aggiungi Appello</i> per <b>caricare un nuovo appello</b>.
+                                    <p style="font-size:15px"> <span class="glyphicon glyphicon-info-sign"></span> &nbsp Completa tutti i campi del form e seleziona <i>Aggiungi Appello</i> per <b>caricare un nuovo appello</b>.
                                     </p>
                                 </div>
                             </div>
@@ -110,7 +111,7 @@
                     <div class="tab-pane fade " id="edit" style="text-align:center">
                         <div class="editTab" style="margin-top:30px;">
                             <div class="well">
-                                <p> Per <b>apportare una modifica</b> seleziona l'appello corrispondente e completa i campi desiderati,
+                                <p> <span class="glyphicon glyphicon-info-sign"></span> &nbsp Per <b>apportare una modifica</b> seleziona l'appello corrispondente e completa i campi desiderati,
                                     poi conferma selezionando l'icona &nbsp <span class="glyphicon glyphicon-ok"></span>                                    </p>
                             </div>
                             <div id="noData" ng-hide="vm.isThereASession()">
@@ -167,18 +168,19 @@
     </div>
 
     <div class="row" style="margin-top:50px;">
+            <h3>Appelli Caricati</h3>
         <div class="col-sm-6" style="margin-top: 50px;">
             <div class="well">
-                <p style="font-size: 17px;"><b>Elimina Appelli</b></p>
+                <p style="font-size: 17px;"><b id="info">Elimina Appelli</b></p>
                 <p> Per <b>eliminare un appello</b> seleziona l'icona corrispondente &nbsp <img id="info_img" src="../content/img/delete-grey3.png">                    &nbsp nella tabella degli appelli attivi.</p>
-                <p> <b>Attenzione!</b> Eliminando un appello, anche le relative prenotazioni degli studenti verranno eliminate,
+                <p> <span class="glyphicon glyphicon-exclamation-sign"></span> <b>Attenzione!</b> Eliminando un appello, anche le relative prenotazioni degli studenti verranno eliminate,
                     e non sarà più possibile registrare gli esiti dell'esame.</p>
             </div>
         </div>
 
         <div class="col-sm-6" style="margin-top: 50px;">
             <div class="well">
-                <p style="font-size: 17px;"><b>Verbalizzazione</b></p>
+                <p style="font-size: 17px;"><b id="info">Verbalizzazione</b></p>
                 <p> Seleziona l'icona &nbsp <img id="info_img" src="../content/img/validation.png"> &nbsp nella tabella degli
                     appelli attivi per accedere all'elenco degli studenti prenotati ad un appello e registrare i risultati
                     dell'esame.
@@ -188,12 +190,12 @@
     </div>
     <div class="row">
         <div class="col-sm-12">
-            <h3>Appelli Caricati</h3>
+            
             <div id="noData" ng-hide="vm.isThereASession()">
                 <p>Nessun appello attualmente caricato.</p>
             </div>
 
-            <div id="tableContainer">
+            <div id="tableContainer" style="margin-left:20px;">
                 <div ng-show="vm.isThereASession()">
 
                     <table style="margin-right: 35px;">
@@ -237,7 +239,7 @@
         </div>
 
     </div>
- </div>
+</div>
 </div>
 
 

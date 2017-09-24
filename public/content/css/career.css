@@ -29,6 +29,12 @@ h2 {
   margin-bottom: 20px;
   color: #c47d86;
 }
+.well{
+  max-width: 500px;
+  margin-top: 80px;
+  margin-left: 200px;
+  font-size: 20px;
+}
 .summary {
   margin-left: auto;
   margin-right: auto;

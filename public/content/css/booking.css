@@ -17,11 +17,13 @@
   height: 70px;
   margin: 0px;
   margin-left: 50px;
+  cursor: pointer;
 }
 #title {
   height: 70px;
   margin: 0px;
   margin-left: 20px;
+  cursor: pointer;
 }
 
 #wr {
@@ -43,22 +45,23 @@
 }
 
 #noInfo {
-  margin-top: 20px;
+  margin-top: 50px;
   font-size: 17px;
   color: #666;
+ margin-bottom:100px;
 }
 #noInfo > p {
   margin-bottom: 180px;
 }
 h3 {
-  margin-top: 60px;
+  margin-top: 30px;
   margin-bottom: 20px;
   color: #c47d86;
 }
 h2 {
   text-align: center;
   margin-top: 30px;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
   color: #c47d86;
 }
 .caption {

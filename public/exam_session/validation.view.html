@@ -4,11 +4,12 @@
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <div class="page-header">
-  <span> <img id="logo" src="../content/img/unimarche.png">
+    <span> <img id="logo" src="../content/img/unimarche.png">
  <img id="title" src="../content/img/namelogo.png"> </span>
 </div>
 <navigation></navigation>
 
+<button onclick="topFunction()" class="btn btn-primary" id="goToTop"><span class="glyphicon glyphicon-chevron-up"></span></button>
 
 <div id="container">
 
@@ -32,22 +33,17 @@
         <div class="col-md-6">
 
             <div class="well well-sm wellRed">
-                <h4 style=" margin-left: 15px;"> <span class="glyphicon glyphicon-exclamation-sign"></span> &nbsp Verbalizzazione Appello</h4>
+                <h4> <span class="glyphicon glyphicon-exclamation-sign"></span> &nbsp Verbalizzazione Appello</h4>
                 <p id="wellRed">
                     La registrazione dell'esame può essere completata inserendo l'esito per ogni studente nel sottostante elenco degli iscritti
-                    e selezionando l'icona
-                    <i>verbalizza</i>.
+                    e selezionando &nbsp <img style="width: 22px; height:22px;" src="../content/img/iconmonstr-check-mark-4-24.png">
                 </p>
 
                 <p style="margin-top: 20px;">
-                    <b> Assicurati di aver registrato tutti i voti prima di eliminare l'appello</b>.
+                    Assicurati di aver registrato tutti i voti prima di eliminare l'appello.
                 </p>
             </div>
-
-
         </div>
-
-
     </div>
 
 
@@ -57,33 +53,38 @@
         </div>
         <div ng-hide="vm.isStudentsListEmpty()">
 
-            <div class="caption" style="margin-top:50px;">Iscritti</div>
-            <div id="table" class="page-break">
+            <table style="margin-right: 12px;">
+                <caption>
+                    Iscritti
+                </caption>
                 <div class="header-row tableRow">
-                    <span class="cell primary">Nome e Cognome</span>
-                    <span class="cell">Matricola</span>
-                    <span class="cell">Email</span>
-                    <span class="cell">Esito Prova</span>
-                    <span class="cell">Verbalizza</span>
+                    <thead>
+                        <tr>
+                            <th scope="col">Nome e Cognome</th>
+                            <th scope="col">Matricola</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Esito Prova</th>
+                            <th scope="col">Verbalizza</th>
+                        </tr>
+                    </thead>
                 </div>
-                <div class="tableRow" ng-repeat="student in vm.studentsList">
-                    <input type="radio" name="expand">
-                    <span class="cell primary" data-label="name">{{student.name}}</span>
-                    <span class="cell" data-label="mat">{{student.mat}}</span>
-                    <span class="cell" data-label="email">{{student.email}}</span>
-                    <span class="cell" ng-hide="vm.isRegistered(student.mat)"> <input type="number" id="mark" min="18" max="31" class="form-control" ng-model="vm.examData.mark" required>     </span>
-                    <span class="cell" ng-show="vm.isRegistered(student.mat)"> {{vm.isRegistered(student.mat)}} </span>
-                    <span class="cellRegister" ng-click="registerExam(vm.examData.mark, student.mat)" ng-hide="vm.isRegistered(student.mat)"></span>
-                    <span class="cell" ng-show="vm.isRegistered(student.mat)" style="color:#666">  Registrato</span>
+                <div class="tableRow">
+                    <tbody ng-repeat="student in vm.studentsList">
+                        <td data-label="name">{{student.name}}</td>
+                        <td data-label="mat">{{student.mat}}</td>
+                        <td data-label="email">{{student.email}}</td>
+                        <td ng-hide="vm.isRegistered(student.mat)"> <input type="number" id="mark" min="18" max="31" class="form-control" ng-model="vm.examData.mark"
+                                required> </td>
+                        <td ng-show="vm.isRegistered(student.mat)"> {{vm.isRegistered(student.mat)}} </td>
+                        <td class="iconRegister" ng-click="registerExam(vm.examData.mark, student.mat)" ng-hide="vm.isRegistered(student.mat)"></td>
+                        <td ng-show="vm.isRegistered(student.mat)" style="color:#666"> Registrato</td>
+                    </tbody>
                 </div>
+            </table>
 
-
-            </div>
         </div>
     </div>
-
-
-
+</div>
 </div>
 
 

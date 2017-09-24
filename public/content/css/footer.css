@@ -39,6 +39,7 @@
 .footer a {
   color: #78828d;
 }
+
 .supportLi h4 {
   font-size: 20px;
   font-weight: lighter;
@@ -105,3 +106,6 @@
 .footer-bottom p.pull-left {
   padding-top: 6px;
 }
+#contacts{
+  font-size: 14px;
+  }

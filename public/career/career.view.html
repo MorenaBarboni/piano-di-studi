@@ -6,8 +6,8 @@
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <div class="page-header">
-  <span> <img id="logo" src="../content/img/unimarche.png">
- <img id="title" src="../content/img/namelogo.png"> </span>
+    <a href="home">    <span> <img id="logo" src="../content/img/unimarche.png">
+ <img id="title" src="../content/img/namelogo.png"> </span></a>
 </div>
 
 <navigation></navigation>
@@ -21,7 +21,11 @@
         <h2>Carriera</h2>
 
         <div class="row">
-            <div class="col-md-9">
+            <div class="col-md-9" style="text-align:center">
+                <div class="well" ng-show="vm.courses.length === 0">
+                    Piano di studi non ancora attivato
+                </div>
+
                 <!-- Primo anno -->
                 <table ng-hide="vm.firstYear.length === 0">
                     <caption>
@@ -281,7 +285,7 @@
                 <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
                     <h3> Contatti </h3>
                     <ul>
-                        <li ng-repeat="data in vm.contacts"> <i ng ng-if="data.email !== vm.user.email">{{data.email}}</i> </li>
+                        <li ng-repeat="data in vm.contacts"> <i ng-if="data.email !== vm.user.email" id="contacts">{{data.email}}</i> </li>
                     </ul>
                 </div>
 

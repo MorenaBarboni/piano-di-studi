@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var url = 'mongodb://localhost/pianoDiStudi';
+var url = process.env.MONGOLAB_URI ||'mongodb://localhost/pianoDiStudi';
 
 //Models
 

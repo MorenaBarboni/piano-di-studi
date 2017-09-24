@@ -1,8 +1,10 @@
 var express = require('express');
 var path = require('path');
 var logger = require('morgan');
+var mongodb = require("mongodb");
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
+var mongoUri = process.env.MONGOLAB_URI || 'mongodb://localhost/testDB'
 
 
 //Require Passport
@@ -35,8 +37,24 @@ app.use(function(req, res) {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-//Port 
-app.listen(8080);
+var db;
+
+// Connect to the database
+mongodb.MongoClient.connect(mongoUri, function (err, database) {
+  if (err) {
+    console.log(err);
+    process.exit(1);
+  }
+
+  db = database;
+  console.log("Database connection ready");
+
+  // Initialize the app.
+  var server = app.listen(process.env.PORT || 8080, function () {
+    var port = server.address().port;
+    console.log("App now running on port", port);
+  });
+});
 
 // Errors
 

@@ -2,8 +2,8 @@
   angular.module("planApp").controller("examSessionCtrl", examSessionCtrl);
 
   examSessionCtrl.$inject = [
-    "$location", "userService", "planService", "sessionService", "$window","$scope"];
-  function examSessionCtrl( $location, userService, planService, sessionService, $window, $scope) {
+    "$location", "userService", "planService", "sessionService","bookingService", "$window","$scope"];
+  function examSessionCtrl( $location, userService, planService, sessionService, bookingService, $window, $scope) {
     var vm = this;
 
     vm.user = {}; //Utente
@@ -198,6 +198,7 @@
         ) == true
       ) {
         sessionService.deleteSessionById(id);
+        bookingService.deleteBookingsOfSession(id);
         alert("Appello eliminato con successo!");
         $window.location.reload();
       }

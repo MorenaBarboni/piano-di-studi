@@ -5,6 +5,7 @@
   professorSearchCtrl.$inject = [
     "$location",
     "userService",
+    "planService",
     "$http",
     "$window",
     "$scope",
@@ -13,6 +14,7 @@
   function professorSearchCtrl(
     $location,
     userService,
+    planService,
     $http,
     $window,
     $scope,
@@ -22,35 +24,71 @@
 
     vm.user = {}; //Utente corrente
 
-    vm.contacts = {}; //conatti per il footer
+    vm.contacts = {}; //contatti per il footer
 
     vm.users = []; //Elenco di tutti gli utenti
 
-    //Filtri utente
+    //Filtri docente
     vm.filter = {
       filterName: "",
-      filterMat: "",
-      filterType: "docente",
-      filterFaculty: "Informatica"
+      filterFaculty: ""
     };
 
+    //Filtro per i corsi del docente
+    vm.filterEntryYear = 2016;
+    //Ricerca docente
+    vm.professorName = "";
+    //Docenti ottenuti dalla ricerca
+    vm.professor = [];
+    //Corsi dei docenti
+    vm.professorCourses = [];
+
     //Determina quali righe della tabella filtrare
-    vm.checkCorrespondence = function(name, mat, userType, faculty) {
+    vm.checkCorrespondence = function(name, faculty) {
       vm.filter.filterFaculty =
         vm.filter.filterFaculty.charAt(0).toUpperCase() +
         vm.filter.filterFaculty.slice(1);
-      vm.filter.filterType =
-        vm.filter.filterType.charAt(0).toLowerCase() +
-        vm.filter.filterType.slice(1);
+      vm.filter.filterName =
+        vm.filter.filterName.charAt(0).toUpperCase() +
+        vm.filter.filterName.slice(1);
       if (
         name.indexOf(vm.filter.filterName) !== -1 &&
-        mat.indexOf(vm.filter.filterMat) !== -1 &&
-        userType.indexOf(vm.filter.filterType) !== -1 &&
         faculty.indexOf(vm.filter.filterFaculty) !== -1
       ) {
         return true;
       }
       return false;
+    };
+
+    //Filtro per coorte
+    vm.checkCorrespondence = function(year) {
+      if (year.indexOf(vm.filterEntryYear) !== -1 || vm.filterSubject === "") {
+        return true;
+      }
+      return false;
+    };
+
+    //ricerca docente per nome
+    vm.onSubmit = function() {
+      if (vm.professorName !== "") {
+        userService.getProfessorByName(vm.professorName).then(function(data) {
+          vm.professor = data;
+          if (vm.professorCourses.length > 0) {
+            vm.professorCourses = []
+          }
+          if (data) {
+            for (var i = 0; i < vm.professor.length; i++) {
+              planService
+                .getProfessorCoursesInfo(vm.professor[i].email)
+                .then(function(courses) {
+                  vm.professorCourses.push(courses);
+                });
+            }
+          }
+        });
+      } else {
+        alert("Inserisci nome e cognome per ricercare un docente");
+      }
     };
 
     initController();
@@ -69,25 +107,9 @@
         });
 
       //Ottiene l'elenco degli utenti
-      userService.getAllUsers().then(function(users) {
+      userService.getAllProfessors().then(function(users) {
         vm.users = users;
       });
     }
-
-    $scope.deleteUser = function(id) {
-      if (id === vm.user._id) {
-        if (confirm("Vuoi davvero eliminare il tuo account?") == true) {
-          userService.deleteUser(id);
-          alert("Il tuo account è stato eliminato con successo!");
-          $window.location.href = "logout";
-        }
-      } else {
-        if (confirm("Vuoi davvero eliminare l'utente?") == true) {
-          userService.deleteUser(id);
-          alert("Utente eliminato con successo!");
-          $window.location.reload();
-        }
-      }
-    };
   }
 })();

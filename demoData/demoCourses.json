@@ -1360,13 +1360,5 @@
     "entryYear": "2016",
     "professorEmail": "elena.doe@gmail.com",
     "mandatory": false
-  },
-  {
-    "cfu": 6,
-    "year": 3,
-    "subject": "Prova Finale",
-    "faculty": "Informatica",
-    "entryYear": "2016",
-    "mandatory": true
   }
 ]

@@ -18,5 +18,52 @@
     "room": "Aula AB2, polo Lodovici",
     "subject": "Gestione dell'informazione",
     "faculty": "Informatica"
-  }
+  },
+  {
+    "professorEmail": "mark.doe@gmail.com",
+    "entryYear": "2015",
+    "examType": "Scritto",
+    "time": "15:00",
+    "date": "12/03/2018",
+    "room": "Aula AB2, polo Lodovici",
+    "subject": "Business e Management nell' IT",
+    "faculty": "Informatica"
+  },
+  {
+    "professorEmail": "mark.doe@gmail.com",
+    "entryYear": "2015",
+    "examType": "Scritto",
+    "time": "09:00",
+    "date": "18/03/2018",
+    "room": "Aula AB2, polo Lodovici",
+    "subject": "Business e Management nell' IT",
+    "faculty": "Informatica"
+  },{ 
+    "professorEmail" : "mark.doe@gmail.com", 
+    "entryYear" : "2015", 
+    "examType" : "Scritto", 
+    "time" : "09:00", 
+    "date" : "10/02/2018", 
+    "room" : "Aula H, polo di Fisica", 
+    "subject" : "Analisi Matematica I", 
+    "faculty" : "Fisica"
+},{ 
+  "professorEmail" : "james.doe@gmail.com", 
+  "entryYear" : "2015", 
+  "examType" : "Laboratorio", 
+  "time" : "15:00", 
+  "date" : "07/02/2018", 
+  "room" : "Lab, polo Lodovici", 
+  "subject" : "Internet, Reti e Sicurezza", 
+  "faculty" : "Informatica"
+},{  
+  "professorEmail" : "james.doe@gmail.com", 
+  "entryYear" : "2015", 
+  "examType" : "Laboratorio", 
+  "time" : "09:00", 
+  "date" : "20/02/2018", 
+  "room" : "Lab, polo Lodovici", 
+  "subject" : "Internet, Reti e Sicurezza", 
+  "faculty" : "Informatica"
+}
 ]

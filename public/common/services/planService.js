@@ -81,6 +81,43 @@
         .then(handleSuccess, handleError);
     };
 
+    //Modifica l'obbligatorietà di un corso
+    editCourseMandatory = function(courseId, mandatory) {
+      console.log("SErvice:" +mandatory)
+      return $http
+        .put("/api/plan/course/" + courseId + "/mandatory/" + mandatory)
+        .then(function(res) {
+          return res.data;
+        });
+    };
+    //Modifica i cfu di un corso
+    editCourseCfu = function(courseId, cfu) {
+      console.log("SErvice:" +cfu)
+      return $http
+        .put("/api/plan/course/" + courseId + "/cfu/" + cfu)
+        .then(function(res) {
+          return res.data;
+        });
+    };
+    //Modifica il semestre di un corso
+    editCourseSemester = function(courseId, semester) {
+      console.log("SErvice:" +semester)
+      return $http
+        .put("/api/plan/course/" + courseId + "/semester/" + semester)
+        .then(function(res) {
+          return res.data;
+        });
+    };
+    //Modifica il docente che tiene un corso
+    editCourseProfessor = function(courseId, professorEmail) {
+      console.log("SErvice:" +professorEmail + " id " +courseId)
+      return $http
+        .put("/api/plan/course/" + courseId + "/professor/" + professorEmail)
+        .then(function(res) {
+          return res.data;
+        });
+    };
+
     //funzioni private
     function handleSuccess(res) {
       return res.data;
@@ -98,7 +135,11 @@
       getProfessorCoursesInfo: getProfessorCoursesInfo,
       getProfessorCourses: getProfessorCourses,
       getPlanThesis: getPlanThesis,
-      getAllPlanThesis: getAllPlanThesis
+      getAllPlanThesis: getAllPlanThesis,
+      editCourseMandatory: editCourseMandatory,
+      editCourseCfu: editCourseCfu,
+      editCourseSemester: editCourseSemester,
+      editCourseProfessor: editCourseProfessor
     };
   }
 })();

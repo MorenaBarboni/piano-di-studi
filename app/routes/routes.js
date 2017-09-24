@@ -28,6 +28,11 @@ router.get("/plan/thesis/:faculty/:entryYear", auth, ctrlPlan.getPlanThesis); //
 //Carriera studente
 router.get("/career", auth, ctrlExam.getExamsByStudent); //Ottiene gli esami superati da uno studente
 
+//Ricerca docente
+router.get("/user/professors", auth, ctrlProfile.getProfessors); //Ottiene tutti i docenti
+router.get("/user/professorEmail/:professorEmail", auth, ctrlProfile.checkEmail); //Controlla l'esistenza dell'email
+router.get("/user/professor/:name", auth, ctrlProfile.getProfessorByName); //Ottiene uno o più docenti per nome
+
 //Prenotazione Appelli Studente
 router.post("/examBooking/booking", ctrlBooking.addBooking); //Carica una prenotazione
 router.delete("/examBooking/booking/:bookingId", ctrlBooking.deleteBookingById); //Cancella un corso
@@ -59,6 +64,10 @@ router.get("/plan", auth, ctrlPlan.getAllPlanInfo); //Restituisce tutti i piani 
 router.post("/plan", ctrlPlan.addCourse); //Aggiunge un corso
 router.delete("/plan/:courseId", ctrlPlan.deleteCourseById); //Cancella un corso
 router.get("/plan/allThesis", auth, ctrlPlan.getAllPlanThesis); //Restituisce le tesi di tutti i piani di studi
+router.put( "/plan/course/:courseId/mandatory/:mandatory",ctrlPlan.updateCourseMandatory); //Modifica l'ora di un appello
+router.put( "/plan/course/:courseId/cfu/:cfu",ctrlPlan.updateCourseCfu); //Modifica il tipo di prova di un appello
+router.put( "/plan/course/:courseId/semester/:semester",ctrlPlan.updateCourseSemester); //Modifica il luogo di un appello
+router.put( "/plan/course/:courseId/professor/:professorEmail",ctrlPlan.updateCourseProfessor); //Modifica il luogo di un appello
 
 //Gestione utenti Admin
 router.get("/users", auth, ctrlProfile.getAllUsers); //Ottiene tutti gli utenti

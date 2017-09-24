@@ -96,8 +96,6 @@ module.exports.getAllPlanInfo = function(req, res) {
 };
 //Per ottenere il piano completo per uno studente per una precisa facoltà ed anno accademico.
 module.exports.getStudentPlan = function(req, res) {
-  console.log(req.payload.faculty);
-  console.log(req.payload.entryYear);
   if (!req.payload._id) {
     res.status(401).json({
       message: "UnauthorizedError: private profile"
@@ -200,12 +198,11 @@ module.exports.getProfessorCoursesInfo = function(req, res) {
           }
         },
         {
-          $sort: { _id: 1}
+          $sort: { _id: 1 }
         }
       ],
       function(err, data) {
-        console.log(data);
-        res.send(data);
+          res.send(data);
       }
     );
   }
@@ -247,8 +244,7 @@ module.exports.getProfessorCourses = function(req, res) {
         }
       ],
       function(err, data) {
-        console.log(data);
-        res.send(data);
+          res.send(data);
       }
     );
   }
@@ -263,8 +259,7 @@ module.exports.getPlanThesis = function(req, res) {
       entryYear: req.params.entryYear
     },
     function(err, data) {
-      console.log(data);
-      res.send(data);
+        res.send(data);
     }
   );
 };
@@ -273,6 +268,80 @@ module.exports.getPlanThesis = function(req, res) {
 module.exports.getAllPlanThesis = function(req, res) {
   Course.find({ subject: "Prova Finale" }, function(err, data) {
     res.send(data);
-    console.log(data);
-  });
+   });
+};
+
+//Modifica l'obbligatorietà di un corso
+module.exports.updateCourseMandatory = function(req, res) {
+  var m = false;
+  if (req.params.mandatory === "true") {
+    m = true;
+  }
+  Course.update(
+    { _id: req.params.courseId },
+    {
+      $set: {
+        mandatory: m
+      }
+    },
+    function(err) {
+      if (err) {
+        console.log(err);
+      }
+      res.status(200);
+    }
+  );
+};
+
+//Modifica i cfu di un corso
+module.exports.updateCourseCfu = function(req, res) {
+  Course.update(
+    { _id: req.params.courseId },
+    {
+      $set: {
+        cfu: req.params.cfu
+      }
+    },
+    function(err) {
+      if (err) {
+        console.log(err);
+      }
+      res.status(200);
+    }
+  );
+};
+
+//Modifica il semestre di un corso
+module.exports.updateCourseSemester = function(req, res) {
+  Course.update(
+    { _id: req.params.courseId },
+    {
+      $set: {
+        semester: req.params.semester
+      }
+    },
+    function(err) {
+      if (err) {
+        console.log(err);
+      }
+      res.status(200);
+    }
+  );
+};
+//Modifica il docente che tiene un corso
+module.exports.updateCourseProfessor = function(req, res) {
+  Course.update(
+    { _id: req.params.courseId },
+    {
+      $set: {
+        professorEmail: req.params.professorEmail
+      }
+    },
+    function(err) {
+      if (err) {
+        console.log(err);
+      }
+      res.status(200);
+    }
+  );
 };

@@ -4,7 +4,7 @@ var logger = require('morgan');
 var mongodb = require("mongodb");
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
-var mongoUri = process.env.MONGOLAB_URI || 'mongodb://localhost/testDB'
+var mongoUri = process.env.MONGOLAB_URI || 'mongodb://localhost/pianoDiStudi'
 
 
 //Require Passport

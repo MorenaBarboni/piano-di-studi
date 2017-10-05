@@ -24,8 +24,10 @@ Costanza Cesanelli 099211 costanza.cesanelli@studenti.unicam.it
 ## Architettura del Codice
 
 ----+ app                   // File necessari alla gestione del server
+
     |
     |--- config             // File di configurazione per il database e per l'autenticazione
+
     |--+ controllers        // Funzioni per il database
        |
        |----authentication.js      
@@ -36,6 +38,7 @@ Costanza Cesanelli 099211 costanza.cesanelli@studenti.unicam.it
        |----profile.js            
        |----thesis.js           
        |
+
     |--+ models            // schemi Mongoose
        |
        |----bookings.js      
@@ -44,6 +47,7 @@ Costanza Cesanelli 099211 costanza.cesanelli@studenti.unicam.it
        |----exams.js          
        |----users.js         
        |----thesis.js      
+
 
    |--+ routes.js          // routes API
 
@@ -55,16 +59,23 @@ Costanza Cesanelli 099211 costanza.cesanelli@studenti.unicam.it
     |--------demoUser.json     //dati di default per gli utenti
 
 ----+ public              //File per la gestione della parte client
+
     |
     |----index.js         // pagina di default
+
     |----main.js          // route provider
+
     |------auth           // modulo per la gestione dell'autenticazione
+
     |--career             // modulo per la gestione della carriera
+
     |--+common            // servizi e direttive
+
        |---- directives
        |----services
 
     |--+content           //fogli di stile e immagini
+
        |--css
        |--img
 
@@ -81,8 +92,11 @@ Costanza Cesanelli 099211 costanza.cesanelli@studenti.unicam.it
     |--userManagement:   //modulo per la gestione degli utenti 
 
 ----server.js: 
+
 ----package.json
+
 ----bower.json
+
 ----.bowercc
 
 

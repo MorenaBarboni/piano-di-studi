@@ -52,11 +52,16 @@ Costanza Cesanelli 099211 costanza.cesanelli@studenti.unicam.it
    |--+ routes.js          // routes API
 
 ----+ demoData:            //Tutti i dati di default
+
     |            
     |--------demoCourses.json  //dati di default per i corsi
+
     |--------demoExams.json    //dati di default per gli esami
+
     |--------demoSession.json  // dati di default per gli appelli
+
     |--------demoUser.json     //dati di default per gli utenti
+    
 
 ----+ public              //File per la gestione della parte client
 
